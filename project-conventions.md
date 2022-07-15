@@ -12,10 +12,10 @@
   * Helper files must have *.js extensions
 
 ## Styling
-  * use theme variables if possible, consult otherwise.
+  * use theme variables if possible
   * common components are placed in ./src/components folder
-  * if component is used only in single page, then it must be saved in that page folder 'components/'
-  * if component uses more than 4 CSS props, it should be segregated into component
+  * if component is used only in a single page, then it must be saved in that page's folder 'components/'
+  * if component uses more than 4 CSS props, it should be segregated into a component
 
   ## CSS property order
     * Positioning

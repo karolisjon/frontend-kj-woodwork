@@ -1,23 +1,18 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
+import { AppBar, Box, IconButton, Toolbar, Typography } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
 const drawerWidth = 240;
 const navItems = ['Home', 'Meet our team', 'Products'];
 
-function DrawerAppBar(props) {
+function Navbar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -51,15 +46,14 @@ function DrawerAppBar(props) {
         <Toolbar>
           <IconButton
             color="inherit"
-            aria-label="open drawer"
-            edge="start"
+            // edge="start"
             onClick={handleDrawerToggle}
             sx={{ mr: 2, display: { sm: 'none' } }}
           >
             <MenuIcon />
           </IconButton>
           <Typography
-            variant="h6"
+            variant="h5"
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
@@ -67,7 +61,7 @@ function DrawerAppBar(props) {
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
-              <Button key={item} sx={{ color: '#fff' }}>
+              <Button key={item} sx={{ color: '#fff', fontSize: '1em' }}>
                 {item}
               </Button>
             ))}
@@ -98,4 +92,4 @@ function DrawerAppBar(props) {
   );
 }
 
-export default DrawerAppBar;
+export default Navbar;

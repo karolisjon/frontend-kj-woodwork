@@ -10,6 +10,7 @@ import MeetOurTeam from './components/pages/meet-our-team-page';
 import Products from './components/pages/products-page';
 
 const App = () => (
+      <>
       <BrowserRouter>
         <Navbar />
         <Routes>
@@ -18,6 +19,7 @@ const App = () => (
           <Route path='/products' element={<Products />} />
         </Routes>
       </BrowserRouter>
+      </>
   );
 
 export default App;

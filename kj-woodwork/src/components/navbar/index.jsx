@@ -4,7 +4,6 @@ import {
   Box, 
   Toolbar, 
   Typography, 
-  styled, 
   IconButton, 
   Divider,
   Drawer,
@@ -13,11 +12,9 @@ import {
   ListItemButton,
   ListItemText,
  } from '@mui/material';
-import { NavLink } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import PropTypes from 'prop-types';
 import Link from './components/index';
-
 
 const drawerWidth = 240;
 
@@ -42,10 +39,10 @@ function Navbar(props) {
       </Typography>
       <Divider />
       <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item} />
+        {navItems.map(({ text, to }) => (
+          <ListItem key={to} disablePadding>
+            <ListItemButton to={to} sx={{ textAlign: 'center' }}>
+              <ListItemText primary={text} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -80,7 +77,7 @@ function Navbar(props) {
 
         </Toolbar>
       </AppBar>
-      {/* <Box component="nav">
+      <Box component="nav">
         <Drawer
           container={container}
           variant="temporary"
@@ -96,7 +93,7 @@ function Navbar(props) {
         >
           {drawer}
         </Drawer>
-      </Box> */}
+      </Box>
       <Box component="main" sx={{ p: 3 }}>
         <Toolbar />
       </Box>

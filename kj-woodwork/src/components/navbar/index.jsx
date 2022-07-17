@@ -1,57 +1,81 @@
 import * as React from 'react';
-import { AppBar, Box, IconButton, Toolbar, Typography } from '@mui/material';
-import Divider from '@mui/material/Divider';
-import Drawer from '@mui/material/Drawer';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-import MenuIcon from '@mui/icons-material/Menu';
-import Button from '@mui/material/Button';
+import { AppBar, Box, Toolbar, Typography, styled } from '@mui/material';
+import { NavLink } from 'react-router-dom';
+// import Divider from '@mui/material/Divider';
+// // import Drawer from '@mui/material/Drawer';
+// import List from '@mui/material/List';
+// import ListItem from '@mui/material/ListItem';
+// import ListItemButton from '@mui/material/ListItemButton';
+// import ListItemText from '@mui/material/ListItemText';
+// import MenuIcon from '@mui/icons-material/Menu';
+// import Button from '@mui/material/Button';
 
-const drawerWidth = 240;
-const navItems = ['Home', 'Meet our team', 'Products'];
+//const drawerWidth = 240;
+
+const Link = styled(NavLink)(({ theme }) => ({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  padding: theme.spacing(0, 2),
+  textDecoration: 'none',
+  color: theme.palette.grey[200],
+
+  '&.active': {
+    boxShadow: `inset 0 -2px 0 ${theme.palette.common.white}`,
+  },
+
+  ':hover': {
+    backgroundColor: theme.palette.primary.dark,
+    color: theme.palette.common.white,
+  }
+}));
+
+const navItems = [
+  { text: 'Home', to: '/' },
+  { text: 'Meet our team', to: '/meet-our-team' },
+  { text: 'Products', to: '/products' },
+];
 
 function Navbar(props) {
   const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  //const [mobileOpen, setMobileOpen] = React.useState(false);
 
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
+  // const handleDrawerToggle = () => {
+  //   setMobileOpen(!mobileOpen);
+  // };
 
-  const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        KJ Woodwork
-      </Typography>
-      <Divider />
-      <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  );
+  // const drawer = (
+  //   <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
+  //     <Typography variant="h6" sx={{ my: 2 }}>
+  //       KJ Woodwork
+  //     </Typography>
+  //     <Divider />
+  //     <List>
+  //       {navItems.map((item) => (
+  //         <ListItem key={item} disablePadding>
+  //           <ListItemButton sx={{ textAlign: 'center' }}>
+  //             <ListItemText primary={item} />
+  //           </ListItemButton>
+  //         </ListItem>
+  //       ))}
+  //     </List>
+  //   </Box>
+  // );
 
-  const container = window !== undefined ? () => window().document.body : undefined;
+  //const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
     <Box sx={{ display: 'flex' }}>
       <AppBar component="nav">
         <Toolbar>
-          <IconButton
+          {/* <IconButton
             color="inherit"
             // edge="start"
             onClick={handleDrawerToggle}
             sx={{ mr: 2, display: { sm: 'none' } }}
           >
             <MenuIcon />
-          </IconButton>
+          </IconButton> */}
           <Typography
             variant="h5"
             component="div"
@@ -59,16 +83,14 @@ function Navbar(props) {
           >
             KJ Woodwork
           </Typography>
-          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            {navItems.map((item) => (
-              <Button key={item} sx={{ color: '#fff', fontSize: '1em' }}>
-                {item}
-              </Button>
-            ))}
-          </Box>
+
+          <Box sx={{ display: 'flex', alignSelf: 'stretch' }}>
+          {navItems.map(({ text, to }) => <Link key={to} to={to}>{text}</Link>)}
+        </Box>
+          
         </Toolbar>
       </AppBar>
-      <Box component="nav">
+      {/* <Box component="nav">
         <Drawer
           container={container}
           variant="temporary"
@@ -84,7 +106,7 @@ function Navbar(props) {
         >
           {drawer}
         </Drawer>
-      </Box>
+      </Box> */}
       <Box component="main" sx={{ p: 3 }}>
         <Toolbar />
       </Box>

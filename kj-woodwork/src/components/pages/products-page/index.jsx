@@ -1,8 +1,9 @@
+import { Box } from '@mui/material'
 import React from 'react'
 
 const Products = () => {
   return (
-    <div>Products</div>
+    <Box sx={{ backgroundColor: 'blue' }}>Products</Box>
   )
 }
 

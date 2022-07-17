@@ -1,8 +1,9 @@
+import { Box } from '@mui/material';
 import React from 'react'
 
 const MeetOurTeam = () => {
   return (
-    <div>MeetOurTeam</div>
+    <Box sx={{ backgroundColor: 'green' }}>MeetOurTeam</Box>
   )
 }
 

@@ -13,7 +13,6 @@ import {
   ListItemText,
  } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import PropTypes from 'prop-types';
 import Link from './components/index';
 
 const drawerWidth = 240;

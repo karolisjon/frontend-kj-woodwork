@@ -5,6 +5,7 @@ module.exports = {
     },
     "extends": [
         "eslint:recommended",
+        "plugin:react/recommended"
     ],
     "parserOptions": {
         "ecmaFeatures": {
@@ -21,7 +22,7 @@ module.exports = {
         "newline-before-return": [1],
         "import/prefer-default-export": [0],
         "react/function-component-definition": [1, {
-        "namedComponents": "arrow-function"
+            "namedComponents": "arrow-function"
         }]
     }
 }

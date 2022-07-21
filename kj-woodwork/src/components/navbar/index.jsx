@@ -12,7 +12,7 @@ import {
   ListItemButton,
   ListItemText,
  } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
+import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import Link from './components/index';
 
 const drawerWidth = 240;
@@ -23,7 +23,7 @@ const navItems = [
   { text: 'Products', to: '/products' },
 ];
 
-function Navbar(props) {
+const Navbar = (props) => {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -57,10 +57,11 @@ function Navbar(props) {
         <Toolbar>
           <IconButton
             color="inherit"
+            size='large'
             onClick={handleDrawerToggle}
             sx={{ mr: 2, display: { sm: 'none' } }}
           >
-            <MenuIcon />
+            <MenuOpenIcon />
           </IconButton>
           <Typography
             variant="h5"

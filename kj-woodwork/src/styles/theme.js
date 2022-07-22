@@ -8,7 +8,8 @@ const theme = createTheme({
     }
   },
   typography: {
-    fontFamily: 'Karla, sans-serif;'
+    fontFamily: 'Karla, sans-serif;',
+    logoFont: 'Homemade Apple, cursive;',
   }
 });
 

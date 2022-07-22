@@ -10,7 +10,12 @@ const HomePage = () => {
       <Background component='img' src='/homepage.jpg' />
       <ContentContainer>
         <Container>
-          <Typography variant='h1' component='h1' sx={{ color: 'white', fontWeight: '400' }}>
+          <Typography variant='h1' component='h1' sx={{ 
+            color: 'white', 
+            fontWeight: '400', 
+            fontFamily: 'logoFont'
+          }}
+          >
             KJ Woodwork
           </Typography>
           <Typography sx={{ color: 'white', fontWeight: '400' }}>

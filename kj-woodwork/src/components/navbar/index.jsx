@@ -33,7 +33,7 @@ const Navbar = (props) => {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
+      <Typography variant="h6" sx={{ my: 2, fontFamily: 'logoFont' }}>
         KJ Woodwork
       </Typography>
       <Divider />

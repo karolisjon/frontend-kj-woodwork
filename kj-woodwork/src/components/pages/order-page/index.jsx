@@ -58,7 +58,7 @@ const OrderPage = () => {
         elevation={2}
         sx={{
           p: 3,
-          width: '600px',
+          width: '500px',
           mx: 'auto',
         }}
       >

@@ -4,7 +4,11 @@ const theme = createTheme({
   palette: {
     primary: {
       main: '#000',
+      
     }
+  },
+  typography: {
+    fontFamily: 'Karla, sans-serif;'
   }
 });
 

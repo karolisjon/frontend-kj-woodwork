@@ -13,7 +13,7 @@ import {
   ListItemText,
  } from '@mui/material';
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
-import Link from './components/index';
+import Link from './components';
 
 const drawerWidth = 240;
 
@@ -53,7 +53,7 @@ const Navbar = (props) => {
 
   return (
     <Box sx={{ display: 'flex' }}>
-      <AppBar component="nav">
+      <AppBar component="nav" sx={{ boxShadow: 'none'}}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -70,11 +70,9 @@ const Navbar = (props) => {
           >
             KJ Woodwork
           </Typography>
-
           <Box sx={{ display: {xs: 'none', sm: 'flex'}, alignSelf: 'stretch' }}>
             {navItems.map(({ text, to }) => <Link key={to} to={to}>{text}</Link>)}
           </Box>
-
         </Toolbar>
       </AppBar>
       <Box component="nav">

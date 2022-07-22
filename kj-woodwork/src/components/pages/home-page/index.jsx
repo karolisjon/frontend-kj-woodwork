@@ -1,4 +1,4 @@
-import { Box, Typography, Container, Button } from '@mui/material';
+import { Box, Typography, Container, Button, Divider } from '@mui/material';
 import React from 'react';
 import Background from './components/background';
 import ContentContainer from './components/content-container';
@@ -29,13 +29,18 @@ const HomePage = () => {
             Quia modi quae alias recusandae aperiam atque nesciunt blanditiis enim iusto ut totam
             ab debitis nostrum praesentium maxime.
           </Typography>
+          <Divider sx={{
+            backgroundColor: 'white',
+            height: '2px',
+          }}/>
           <Button sx={{
             width: '300px',
             height: '50px',
-            backgroundColor: 'main',
+            backgroundColor: '#000000b8',
             color: 'white',
             borderRadius: '0',
             border: '2px solid white',
+            mt: 2,
           }}>
             Products
           </Button>

@@ -1,8 +1,11 @@
 import {
   Autocomplete,
   Box,
-  // Divider,
   FormControl,
+  FormControlLabel,
+  FormLabel,
+  Radio,
+  RadioGroup,
   Slider,
   TextField,
   Typography,
@@ -25,9 +28,25 @@ const categories = [
   },
 ];
 
+const materials = [
+  {
+    id: '1',
+    label: 'Maple'
+  },
+  {
+    id: '2',
+    label: 'Oak'
+  },
+  {
+    id: '3',
+    label: 'Cherry'
+  },
+];
+
 const Products = () => {
   const [price, setPriceRange] = React.useState([0, 1000]);
   const [category, setCategory] = React.useState('');
+  const [woodType, setWoodType] = React.useState('');
 
   return (
     <Box >
@@ -38,12 +57,12 @@ const Products = () => {
             options={categories}
             value={category}
             onChange={(_, newCategory) => setCategory(newCategory)}
-            renderInput={(params) => <TextField {...params} label={categories.label}/>}
+            renderInput={(params) => <TextField {...params} label={categories.label} />}
             sx={{ width: '300px' }}
           />
         </FormControl>
 
-        <FormControl sx={{ my: 1}}>
+        <FormControl sx={{ my: 1 }}>
           <Typography>Price</Typography>
           <Box sx={{ mx: '2' }}>
             <Slider
@@ -52,11 +71,29 @@ const Products = () => {
               value={price}
               onChange={(_, newPriceRange) => setPriceRange(newPriceRange)}
               valueLabelDisplay="on"
-              sx={{ width: '300px', mt: 4 }}
+              sx={{ width: '300px', height: '0.1em', mt: 4 }}
             />
           </Box>
+        </FormControl>
 
-
+        <FormControl sx={{ my: 1 }}>
+          <FormLabel id="demo-radio-buttons-group-label">Type of wood</FormLabel>
+          <RadioGroup
+            name="radio-buttons-group"
+            sx={{ display: 'flex', flexDirection: 'row' }}
+            value={woodType}
+            onChange={(_, newWoodType) => setWoodType(newWoodType)}
+          >
+            {materials.map(({ id, label }) =>
+              <FormControlLabel
+                key={label}
+                id={id}
+                value={label}
+                control={<Radio />}
+                label={label}
+              />)
+            }
+          </RadioGroup>
         </FormControl>
 
       </Container>

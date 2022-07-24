@@ -1,6 +1,7 @@
 import {
   Autocomplete,
   Box,
+  // Divider,
   FormControl,
   Slider,
   TextField,
@@ -29,20 +30,20 @@ const Products = () => {
   const [category, setCategory] = React.useState('');
 
   return (
-    <Box sx={{ borderBottom: '1px solid black'}}>
-      <Container>
-        <FormControl sx={{ my: 1, mr: 4 }}>
+    <Box >
+      <Container sx={{ display: 'flex', gap: 6 }} >
+        <FormControl sx={{ my: 1 }}>
           <Typography>Categories</Typography>
           <Autocomplete
             options={categories}
             value={category}
             onChange={(_, newCategory) => setCategory(newCategory)}
-            renderInput={(params) => <TextField {...params} label={categories.label} />}
+            renderInput={(params) => <TextField {...params} label={categories.label}/>}
             sx={{ width: '300px' }}
           />
         </FormControl>
 
-        <FormControl sx={{ my: 1 }}>
+        <FormControl sx={{ my: 1}}>
           <Typography>Price</Typography>
           <Box sx={{ mx: '2' }}>
             <Slider

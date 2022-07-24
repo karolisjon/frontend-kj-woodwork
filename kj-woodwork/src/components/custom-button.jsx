@@ -4,7 +4,6 @@ const CustomButton = styled(Button)(({ theme }) => ({
   width: '300px',
   height: '50px',
   mt: 2,
-  mb: 4,
   backgroundColor: '#000000b8',
   borderRadius: '0',
   border: '2px solid #fff',

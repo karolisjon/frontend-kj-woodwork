@@ -2,7 +2,6 @@ import {
   Box,
   Typography,
   Container,
-  // Divider
 } from '@mui/material';
 import React from 'react';
 import CustomButton from '../../custom-button';
@@ -42,7 +41,6 @@ const HomePage = () => {
             ab debitis nostrum praesentium maxime.
           </Typography>
           <CustomButton>Meet our team</CustomButton>
-          {/* <Divider sx={{ backgroundColor: '#fff', height: '3px', width: '20%', }} /> */}
           <Typography
             maxWidth='sm'
             paragraph
@@ -57,7 +55,6 @@ const HomePage = () => {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque perferendis illo tempora officiis maiores quidem minima velit, possimus quaerat, iusto, sed nesciunt ipsam labore dignissimos.
           </Typography>
           <CustomButton>Products</CustomButton>
-          {/* <Divider sx={{ backgroundColor: '#fff', height: '3px', width: '20%', mt: 2 }} /> */}
         </Container>
       </ContentContainer>
     </Box>

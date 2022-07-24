@@ -70,7 +70,10 @@ const Navbar = (props) => {
           >
             KJ Woodwork
           </Typography>
-          <Box sx={{ display: {xs: 'none', sm: 'flex'}, alignSelf: 'stretch' }}>
+          <Box sx={{ 
+            display: {xs: 'none', sm: 'flex'}, 
+            alignSelf: 'stretch',
+            }}>
             {navItems.map(({ text, to }) => <Link key={to} to={to}>{text}</Link>)}
           </Box>
         </Toolbar>
@@ -92,7 +95,7 @@ const Navbar = (props) => {
           {drawer}
         </Drawer>
       </Box>
-      <Box component="main" sx={{ p: 3 }}>
+      <Box component="main" sx={{ p: 0 }}>
         <Toolbar />
       </Box>
     </Box>

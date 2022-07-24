@@ -1,9 +1,25 @@
-import { Box } from '@mui/material'
+import { 
+  // Box, 
+  Drawer,
+} from '@mui/material'
 import React from 'react'
 
 const Products = () => {
   return (
-    <Box sx={{ backgroundColor: 'blue' }}>Products</Box>
+    <>
+    <Drawer 
+    anchor='top'
+    variant='permanent'
+    sx={{
+      height: '64px',
+      backgroundColor: 'red',
+    }}
+    >
+
+    </Drawer>
+
+    {/* <Box sx={{ backgroundColor: 'blue' }}>Products</Box> */}
+    </>
   )
 }
 

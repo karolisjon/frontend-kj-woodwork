@@ -8,8 +8,11 @@ import CustomParagraph from '../../../custom-paragraph';
 import CustomButton from '../../custom-button';
 import Background from './components/background';
 import ContentContainer from './components/content-container';
+import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
+  let navigate = useNavigate();
+
   return (
     <Box>
       <Background component='img' src='/homepage.jpg' />
@@ -25,20 +28,20 @@ const HomePage = () => {
           </Typography>
         </Container>
         <Container>
-          <Box sx={{ width: '50%', mb: 8 }}>
+          <Box sx={{ width: '50%', mt: 4, mb: 8 }}>
           <CustomParagraph>
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
             Illum hic, consequuntur est ipsa ex cumque exercitationem amet?
             Quia modi quae alias recusandae aperiam atque nesciunt blanditiis enim iusto ut totam
             ab debitis nostrum praesentium maxime.
           </CustomParagraph>
-          <CustomButton>Meet our team</CustomButton>
+          <CustomButton onClick={() => navigate('/meet-our-team')} >Meet our team</CustomButton>
           </Box>
           <Box sx={{ width: '50%', mb: 8 }}>
           <CustomParagraph>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque perferendis illo tempora officiis maiores quidem minima velit, possimus quaerat, iusto, sed nesciunt ipsam labore dignissimos.
           </CustomParagraph>
-          <CustomButton>Products</CustomButton>
+          <CustomButton onClick={() => navigate('/products')}>Products</CustomButton>
           </Box>
         </Container>
       </ContentContainer>

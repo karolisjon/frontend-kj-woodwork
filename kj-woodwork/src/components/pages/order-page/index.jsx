@@ -107,9 +107,6 @@ const OrderPage = () => {
             value={country}
             onChange={(event) => setCountry(event.target.value)}
           >
-            {/* <MenuItem>
-              <em>None</em>
-            </MenuItem> */}
             {countries.map(
               ({ value, label }) => <MenuItem key={label} value={value}>{value}</MenuItem>
             )}

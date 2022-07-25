@@ -50,6 +50,7 @@ const OrderPage = () => {
   const [street, setStreet] = React.useState('');
   const [houseNr, setHouseNr] = React.useState('');
   const [apartmentNr, setApartmentNr] = React.useState('');
+  const [termsAndConditions, setTermsAndConditions] = React.useState(true);
 
 
   return (
@@ -160,8 +161,15 @@ const OrderPage = () => {
             />
           </Box>
           <FormGroup sx={{ alignSelf: 'flex-start' }}>
-              <FormControlLabel control={<Checkbox defaultChecked />} label="I agree with terms and conditions" />
-            </FormGroup>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={termsAndConditions}
+                  onChange={(_, newTermsAndConditions) => setTermsAndConditions(newTermsAndConditions)}
+                />}
+              label="I agree with terms and conditions"
+            />
+          </FormGroup>
           <Button
             type='submit'
             variant='contained'

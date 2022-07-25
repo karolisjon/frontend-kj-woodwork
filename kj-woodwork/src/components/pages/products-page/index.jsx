@@ -12,7 +12,7 @@ import {
 } from '@mui/material'
 import { Container } from '@mui/system';
 import React from 'react'
-import CartPageContext from '../../../contexts/cart-page-context';
+// import CartPageContext from '../../../contexts/cart-page-context';
 
 const categories = [
   {
@@ -49,9 +49,8 @@ const Products = () => {
   const [category, setCategory] = React.useState('');
   const [woodType, setWoodType] = React.useState('');
 
-  const cartPageContext = React.useContext(CartPageContext);
-
-  console.log(cartPageContext);
+  // const cartPageContext = React.useContext(CartPageContext);
+  // console.log('Products, cartPageContext: ', cartPageContext);
 
   return (
     <Box >

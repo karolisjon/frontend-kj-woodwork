@@ -1,6 +1,6 @@
 import { Box, Button, Checkbox, FormControlLabel, FormGroup, MenuItem, Paper, TextField, Typography } from '@mui/material';
 import * as React from 'react'
-import CartPageContext from '../../../contexts/cart-page-context';
+// import CartPageContext from '../../../contexts/cart-page-context';
 
 const countries = [
   {
@@ -53,9 +53,8 @@ const OrderPage = () => {
   const [apartmentNr, setApartmentNr] = React.useState('');
   const [termsAndConditions, setTermsAndConditions] = React.useState(true);
 
-  const cartPageContext = React.useContext(CartPageContext);
-
-  console.log(cartPageContext);
+  // const cartPageContext = React.useContext(CartPageContext);
+  // console.log('Order, cartPageContext: ', cartPageContext);
 
 
   return (

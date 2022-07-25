@@ -9,14 +9,14 @@ import CustomButton from '../../custom-button';
 import Background from './components/background';
 import ContentContainer from './components/content-container';
 import { useNavigate } from "react-router-dom";
-import CartPageContext from '../../../contexts/cart-page-context';
+// import CartPageContext from '../../../contexts/cart-page-context';
 
 
 const HomePage = () => {
   let navigate = useNavigate();
-  const cartPageContext = React.useContext(CartPageContext);
 
-  console.log(cartPageContext);
+  // const cartPageContext = React.useContext(CartPageContext);
+  // console.log('HomePage, cartPageContext: ', cartPageContext);
 
   return (
     <Box>

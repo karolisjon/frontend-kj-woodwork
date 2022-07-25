@@ -12,6 +12,7 @@ import {
 } from '@mui/material'
 import { Container } from '@mui/system';
 import React from 'react'
+import CartPageContext from '../../../contexts/cart-page-context';
 
 const categories = [
   {
@@ -47,6 +48,10 @@ const Products = () => {
   const [price, setPriceRange] = React.useState([0, 1000]);
   const [category, setCategory] = React.useState('');
   const [woodType, setWoodType] = React.useState('');
+
+  const cartPageContext = React.useContext(CartPageContext);
+
+  console.log(cartPageContext);
 
   return (
     <Box >

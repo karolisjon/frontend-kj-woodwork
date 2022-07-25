@@ -9,19 +9,20 @@ import HomePage from './components/pages/home-page';
 import MeetOurTeam from './components/pages/meet-our-team-page';
 import Products from './components/pages/products-page';
 import OrderPage from './components/pages/order-page';
+import CartPageContext from './contexts/cart-page-context';
 
 const App = () => (
-      <>
-      <BrowserRouter>
-        <Navbar />
-        <Routes>
-          <Route path='/' element={<HomePage />} />
-          <Route path='/meet-our-team' element={<MeetOurTeam />} />
-          <Route path='/products' element={<Products />} />
-          <Route path='/order' element={<OrderPage />} />
-        </Routes>
-      </BrowserRouter>
-      </>
-  );
+  <BrowserRouter>
+    <CartPageContext.Provider value={100}>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='/meet-our-team' element={<MeetOurTeam />} />
+        <Route path='/products' element={<Products />} />
+        <Route path='/order' element={<OrderPage />} />
+      </Routes>
+    </CartPageContext.Provider>
+  </BrowserRouter>
+);
 
 export default App;

@@ -1,4 +1,4 @@
-import { Box, Button, MenuItem, Paper, TextField, Typography } from '@mui/material';
+import { Box, Button, Checkbox, FormControlLabel, FormGroup, MenuItem, Paper, TextField, Typography } from '@mui/material';
 import * as React from 'react'
 
 const countries = [
@@ -159,6 +159,9 @@ const OrderPage = () => {
               sx={{ width: '40%'}}
             />
           </Box>
+          <FormGroup sx={{ alignSelf: 'flex-start' }}>
+              <FormControlLabel control={<Checkbox defaultChecked />} label="I agree with terms and conditions" />
+            </FormGroup>
           <Button
             type='submit'
             variant='contained'

@@ -1,19 +1,22 @@
 import * as React from 'react';
-import { 
-  AppBar, 
-  Box, 
-  Toolbar, 
-  Typography, 
-  IconButton, 
+import {
+  AppBar,
+  Box,
+  Toolbar,
+  Typography,
+  IconButton,
   Divider,
   Drawer,
   List,
   ListItem,
   ListItemButton,
   ListItemText,
- } from '@mui/material';
+} from '@mui/material';
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import Link from './components';
+import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
+import theme from '../../styles/theme';
+import { useNavigate } from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -26,6 +29,7 @@ const navItems = [
 const Navbar = (props) => {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  let navigate = useNavigate();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -70,12 +74,19 @@ const Navbar = (props) => {
           >
             KJ Woodwork
           </Typography>
-          <Box sx={{ 
-            display: {xs: 'none', sm: 'flex'}, 
+          <Box sx={{
+            display: { xs: 'none', sm: 'flex' },
             alignSelf: 'stretch',
-            }}>
+          }}>
             {navItems.map(({ text, to }) => <Link key={to} to={to}>{text}</Link>)}
           </Box>
+          <IconButton>
+            <ShoppingBagIcon 
+            fontSize='medium' 
+            onClick={() => navigate('/cart')}
+            sx={{ color: theme.palette.primary.white }}>
+            </ShoppingBagIcon>
+          </IconButton>
         </Toolbar>
       </AppBar>
       <Box component="nav">

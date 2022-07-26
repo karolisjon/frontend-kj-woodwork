@@ -4,7 +4,7 @@ const CustomButton = styled(Button)(({ theme }) => ({
   width: '300px',
   height: '50px',
   mt: 2,
-  backgroundColor: theme.palette.primary.buttonBackground,
+  backgroundColor: theme.palette.primary.darkTransparent,
   borderRadius: '0',
   border: '2px solid #fff',
   color: '#fff',

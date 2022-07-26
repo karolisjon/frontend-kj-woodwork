@@ -9,11 +9,11 @@ import HomePage from './components/pages/home-page';
 import MeetOurTeam from './components/pages/meet-our-team-page';
 import Products from './components/pages/products-page';
 import OrderPage from './components/pages/order-page';
-import CartPageContext from './contexts/cart-page-context';
+import CartContext from './contexts/cart-page-context';
 
 const App = () => (
   <BrowserRouter>
-    <CartPageContext.Provider value={100}>
+    <CartContext.Provider value={100}>
       <Navbar />
       <Routes>
         <Route path='/' element={<HomePage />} />
@@ -21,7 +21,7 @@ const App = () => (
         <Route path='/products' element={<Products />} />
         <Route path='/order' element={<OrderPage />} />
       </Routes>
-    </CartPageContext.Provider>
+    </CartContext.Provider>
   </BrowserRouter>
 );
 

@@ -58,7 +58,7 @@ const OrderPage = () => {
 
 
   return (
-    <Box>
+    <Box sx={{ mt: 4 }}>
       <Paper
         elevation={2}
         sx={{

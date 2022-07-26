@@ -70,7 +70,15 @@ const Navbar = (props) => {
           <Typography
             variant="h5"
             component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+            onClick={() => navigate('/')}
+            sx={{ 
+              flexGrow: 1, 
+              display: { xs: 'none', sm: 'block' },
+              transition: '0.3s ease-in-out',
+              '&:hover': {
+                cursor: 'pointer'
+              }
+            }}
           >
             KJ Woodwork
           </Typography>

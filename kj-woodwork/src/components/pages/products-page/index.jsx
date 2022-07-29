@@ -111,16 +111,24 @@ const Products = () => {
       </Container>
 
       <Container maxWidth="xl">
-        <Grid container spacing={2}>
+        <Grid container spacing={2} sx={{ py: 4, px: 3 }}>
           {items.map(item => (
-            <Grid key={item.id} item xs={12} sm={6} md={4} lg={3} xl={3}>
+            <Grid
+              key={item.id}
+              item 
+              alignItems='stretch'
+              xs={12}
+              sm={6}
+              md={4}
+              lg={3}
+              xl={3}
+              sx={{ mb: 1 }}
+            >
               <ItemCard {...item} />
             </Grid>
           ))}
         </Grid>
       </Container>
-
-
     </Box>
   )
 }

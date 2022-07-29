@@ -22,7 +22,7 @@ const HomePage = () => {
     <Box>
       <Background component='img' src='/homepage.jpg' />
       <ContentContainer>
-        <Container >
+        <Container>
           <Typography variant='h1' component='h1' sx={{
             color: 'white',
             fontWeight: '400',
@@ -31,8 +31,6 @@ const HomePage = () => {
           >
             KJ Woodwork
           </Typography>
-        </Container>
-        <Container>
           <Box sx={{ width: '50%', mt: 4, mb: 8 }}>
           <CustomParagraph>
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -40,7 +38,7 @@ const HomePage = () => {
             Quia modi quae alias recusandae aperiam atque nesciunt blanditiis enim iusto ut totam
             ab debitis nostrum praesentium maxime.
           </CustomParagraph>
-          <CustomButton onClick={() => navigate('/meet-our-team')} >About us</CustomButton>
+          <CustomButton onClick={() => navigate('/about-us')} >About us</CustomButton>
           </Box>
           <Box sx={{ width: '50%', mb: 8 }}>
           <CustomParagraph>

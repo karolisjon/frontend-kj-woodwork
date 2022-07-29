@@ -1,5 +1,5 @@
 import { Box, Button, Checkbox, FormControlLabel, FormGroup, MenuItem, Paper, TextField, Typography } from '@mui/material';
-import * as React from 'react'
+import * as React from 'react';
 // import CartPageContext from '../../../contexts/cart-page-context';
 
 const countries = [

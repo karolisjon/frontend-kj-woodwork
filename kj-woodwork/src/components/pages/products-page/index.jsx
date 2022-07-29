@@ -4,6 +4,7 @@ import {
   FormControl,
   FormControlLabel,
   FormLabel,
+  Grid,
   Radio,
   RadioGroup,
   Slider,
@@ -11,7 +12,8 @@ import {
   Typography,
 } from '@mui/material'
 import { Container } from '@mui/system';
-import React from 'react'
+import * as React from 'react';
+import ItemCard from './components/item-card';
 // import CartPageContext from '../../../contexts/cart-page-context';
 
 const categories = [
@@ -106,11 +108,23 @@ const Products = () => {
             }
           </RadioGroup>
         </FormControl>
+      </Container>
 
-      </Container>            
       {/* <pre>
         {JSON.stringify(items, null, 4)}
       </pre> */}
+
+      <Container>
+        <Grid container spacing={2} sx={{ justifyItems: 'center' }}>
+          <Grid item><ItemCard /></Grid>
+          <Grid item><ItemCard /></Grid>
+          <Grid item><ItemCard /></Grid>
+          <Grid item><ItemCard /></Grid>
+          <Grid item><ItemCard /></Grid>
+          <Grid item><ItemCard /></Grid>
+        </Grid>
+      </Container>
+
 
     </Box>
   )

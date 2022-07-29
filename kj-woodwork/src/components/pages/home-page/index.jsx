@@ -22,7 +22,7 @@ const HomePage = () => {
     <Box>
       <Background component='img' src='/homepage.jpg' />
       <ContentContainer>
-        <Container sx={{ backgroundColor: 'primary.darkTransparent', paddingBottom: 1, display: '' }}>
+        <Container sx={{ backgroundColor: 'primary.darkTransparent', paddingBottom: 1 }}>
           <Typography variant='h1' component='h1' sx={{
             color: 'white',
             fontWeight: '400',

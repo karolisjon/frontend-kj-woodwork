@@ -25,7 +25,7 @@ const AboutUs = () => {
           <CustomParagraph sx={{ backgroundColor: 'none' }}>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni nihil minus minima cum sequi amet molestias velit doloribus odio officia?
             Iure nulla harum dignissimos, enim inventore facere optio expedita quae impedit odio corrupti non quisquam quas cum ad. Ab explicabo vero aliquam.
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia perferendis ad temporibus provident fugiat enim, dolore quaerat vitae repudiandae in minima similique!
+            Quia perferendis ad temporibus provident fugiat enim, dolore quaerat vitae repudiandae in minima similique!
           </CustomParagraph>
           <Typography variant='h3' component='h3' sx={{
             color: 'white',
@@ -54,7 +54,7 @@ const AboutUs = () => {
             cupiditate quam laborum reprehenderit nemo minima laboriosam 
             recusandae dolore dolor quod ut veritatis eos quos sequi. 
             Non libero facilis corrupti soluta laudantium nulla labore reiciendis 
-            odit deleniti, repellendus omnis, incidunt dolores, minus nisi dolorem porro optio amet consectetur est.
+            
           </CustomParagraph>
           <Typography variant='h3' component='h3' sx={{
             color: 'white',

@@ -56,7 +56,6 @@ const OrderPage = () => {
   // const cartPageContext = React.useContext(CartPageContext);
   // console.log('Order, cartPageContext: ', cartPageContext);
 
-
   return (
     <Box sx={{ mt: 4 }}>
       <Paper

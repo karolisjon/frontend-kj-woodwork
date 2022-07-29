@@ -45,9 +45,16 @@ const materials = [
 ];
 
 const Products = () => {
+  // const [items, setItems] = React.useState([]);
   const [price, setPriceRange] = React.useState([0, 1000]);
   const [category, setCategory] = React.useState('');
   const [woodType, setWoodType] = React.useState('');
+
+  // React.useEffect(() => {
+  //   fetch('http://localhost:8000/items')
+  //     .then(res => res.json())
+  //     .then(fetchedItems => setItems(fetchedItems))
+  // }, []);
 
   // const cartPageContext = React.useContext(CartPageContext);
   // console.log('Products, cartPageContext: ', cartPageContext);
@@ -100,7 +107,11 @@ const Products = () => {
           </RadioGroup>
         </FormControl>
 
-      </Container>
+      </Container>            
+      {/* <pre>
+        {JSON.stringify(items, null, 4)}
+      </pre> */}
+
     </Box>
   )
 }

@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 import Navbar from './components/navbar/index';
 import HomePage from './components/pages/home-page';
-import MeetOurTeam from './components/pages/meet-our-team-page';
+import AboutUs from './components/pages/about-us-page';
 import Products from './components/pages/products-page';
 import OrderPage from './components/pages/order-page';
 import CartContext from './contexts/cart-page-context';
@@ -18,7 +18,7 @@ const App = () => (
       <Navbar />
       <Routes>
         <Route path='/' element={<HomePage />} />
-        <Route path='/meet-our-team' element={<MeetOurTeam />} />
+        <Route path='/about-us' element={<AboutUs />} />
         <Route path='/products' element={<Products />} />
         <Route path='/order' element={<OrderPage />} />
         <Route path='/cart' element={<CartPage />} />

@@ -40,7 +40,7 @@ const HomePage = () => {
             Quia modi quae alias recusandae aperiam atque nesciunt blanditiis enim iusto ut totam
             ab debitis nostrum praesentium maxime.
           </CustomParagraph>
-          <CustomButton onClick={() => navigate('/meet-our-team')} >Meet our team</CustomButton>
+          <CustomButton onClick={() => navigate('/meet-our-team')} >About us</CustomButton>
           </Box>
           <Box sx={{ width: '50%', mb: 8 }}>
           <CustomParagraph>

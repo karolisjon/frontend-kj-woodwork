@@ -7,7 +7,7 @@ const CustomButton = styled(Button)(({ theme }) => ({
   backgroundColor: theme.palette.primary.darkTransparent,
   borderRadius: '0',
   border: '2px solid #fff',
-  color: '#fff',
+  color: theme.palette.primary.white,
   letterSpacing: '0.1em',
   fontSize: '14px',
   transition: '0.3s ease-in-out',

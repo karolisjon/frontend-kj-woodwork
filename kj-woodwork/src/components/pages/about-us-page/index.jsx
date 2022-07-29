@@ -5,7 +5,7 @@ import Background from '../home-page/components/background';
 import ContentContainer from '../home-page/components/content-container';
 // import CartPageContext from '../../../contexts/cart-page-context';
 
-const MeetOurTeam = () => {
+const AboutUs = () => {
   // const cartPageContext = React.useContext(CartPageContext);
   // console.log('Meet our team, cartPageContext: ', cartPageContext);
 
@@ -23,4 +23,4 @@ const MeetOurTeam = () => {
   )
 }
 
-export default MeetOurTeam;
+export default AboutUs;

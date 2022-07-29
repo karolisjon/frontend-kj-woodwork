@@ -71,8 +71,8 @@ const Navbar = (props) => {
             variant="h5"
             component="div"
             onClick={() => navigate('/')}
-            sx={{ 
-              flexGrow: 1, 
+            sx={{
+              flexGrow: 1,
               display: { xs: 'none', sm: 'block' },
               transition: '0.3s ease-in-out',
               '&:hover': {
@@ -89,10 +89,10 @@ const Navbar = (props) => {
             {navItems.map(({ text, to }) => <Link key={to} to={to}>{text}</Link>)}
           </Box>
           <IconButton>
-            <ShoppingBagIcon 
-            fontSize='medium' 
-            onClick={() => navigate('/cart')}
-            sx={{ color: theme.palette.primary.white }}>
+            <ShoppingBagIcon
+              fontSize='medium'
+              onClick={() => navigate('/cart')}
+              sx={{ color: theme.palette.primary.white }}>
             </ShoppingBagIcon>
           </IconButton>
         </Toolbar>

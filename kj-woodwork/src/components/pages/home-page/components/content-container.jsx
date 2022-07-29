@@ -1,10 +1,11 @@
 import { Box, styled } from '@mui/material'; 
 
 const ContentContainer = styled(Box)({
-  position: 'absolute',
-  top: 130,
+  position: 'relative',
+  marginTop: 60,
+  //marginBottom: 0,
   left: 0,
-  height: '100%',
+  minHeight: '100%',
   width: '100%',
   zIndex: '2',
 })

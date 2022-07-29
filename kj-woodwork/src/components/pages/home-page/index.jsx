@@ -37,12 +37,15 @@ const HomePage = () => {
             Illum hic, consequuntur est ipsa ex cumque exercitationem amet?
             Quia modi quae alias recusandae aperiam atque nesciunt blanditiis enim iusto ut totam
             ab debitis nostrum praesentium maxime.
+            Dolor sit amet consectetur adipisicing elit. Mollitia, obcaecati accusantium perferendis consequatur architecto accusamus.
           </CustomParagraph>
           <CustomButton onClick={() => navigate('/about-us')} >About us</CustomButton>
           </Box>
           <Box sx={{ width: '50%', mb: 4 }}>
           <CustomParagraph>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque perferendis illo tempora officiis maiores quidem minima velit, possimus quaerat, iusto, sed nesciunt ipsam labore dignissimos.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque perferendis illo tempora officiis maiores quidem minima velit, 
+            possimus quaerat, iusto, sed nesciunt ipsam labore dignissimos.
+            Sit recusandae quam nisi. Magni omnis cumque eos doloremque officia quia iste quaerat adipisci.
           </CustomParagraph>
           <CustomButton onClick={() => navigate('/products')}>Products</CustomButton>
           </Box>

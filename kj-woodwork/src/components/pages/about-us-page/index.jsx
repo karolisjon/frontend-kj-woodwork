@@ -13,7 +13,7 @@ const AboutUs = () => {
     <Box>
       <Background component='img' src='/meet-our-team.jpg'/>
       <ContentContainer>
-        <Container sx={{ backgroundColor: 'primary.darkTransparent' }} >
+        <Container sx={{ backgroundColor: 'primary.darkTransparent', paddingBottom: 1 }} >
         <Typography variant='h1' component='h2' sx={{
             color: 'white',
             fontWeight: '400',

@@ -6,10 +6,11 @@ import {
   CardMedia,
   Typography,
 } from '@mui/material';
-import CustomButton from '../../../custom-button';
+// import CustomButton from '../../home-page/components/custom-button';
 import { Box } from '@mui/system';
+import ItemCardButton from './item-card-button';
 
-const ItemCard = ({ title, description, category, price, img }) => {
+const ItemCard = ({ title, description, category, price, img, wood }) => {
 
   return (
     <Card sx={{
@@ -47,6 +48,18 @@ const ItemCard = ({ title, description, category, price, img }) => {
         </Typography>
         <Typography 
         gutterBottom 
+        variant='body1' 
+        component='div' 
+        sx={{ 
+          fontStyle: 'italic', 
+          fontSize: 14, 
+          fontWeight: 600,
+          mb: 2,
+          }}>
+          {wood}
+        </Typography>
+        <Typography 
+        gutterBottom 
         variant='body2' 
         component='h6'
         sx={{ 
@@ -55,20 +68,20 @@ const ItemCard = ({ title, description, category, price, img }) => {
           display: '-webkit-box',
           WebkitLineClamp: 3, 
           WebkitBoxOrient: 'vertical',
+          mb: 2,
         }}
         >
           {description}
         </Typography>
-        <Typography gutterBottom variant='body1' component='div'>
+        <Typography gutterBottom variant='body1' component='div' sx={{ fontWeight: 600 }}>
           {price}€
         </Typography>
       </CardContent>
       </Box>
-
       <CardActions sx={{ p: 0 }}>
-        <CustomButton sx={{ margin: 'auto', width: '100%', border: 'none' }}>
+        <ItemCardButton>
           Add to cart
-        </CustomButton>
+        </ItemCardButton>
       </CardActions>
     </Card>
   )

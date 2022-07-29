@@ -5,7 +5,7 @@ import {
 } from '@mui/material';
 import React from 'react';
 import CustomParagraph from '../../../custom-paragraph';
-import CustomButton from '../../custom-button';
+import CustomButton from './components/home-page-button';
 import Background from './components/background';
 import ContentContainer from './components/content-container';
 import { useNavigate } from "react-router-dom";

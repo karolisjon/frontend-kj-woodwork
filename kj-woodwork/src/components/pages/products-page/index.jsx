@@ -47,22 +47,22 @@ const materials = [
 ];
 
 const Products = () => {
-  // const [items, setItems] = React.useState([]);
+  const [items, setItems] = React.useState([]);
   const [price, setPriceRange] = React.useState([0, 1000]);
   const [category, setCategory] = React.useState('');
   const [woodType, setWoodType] = React.useState('');
 
-  // React.useEffect(() => {
-  //   fetch('http://localhost:8000/items')
-  //     .then(res => res.json())
-  //     .then(fetchedItems => setItems(fetchedItems))
-  // }, []);
+  React.useEffect(() => {
+    fetch('http://localhost:8000/items')
+      .then(res => res.json())
+      .then(fetchedItems => setItems(fetchedItems))
+  }, []);
 
   // const cartPageContext = React.useContext(CartPageContext);
   // console.log('Products, cartPageContext: ', cartPageContext);
 
   return (
-    <Box >
+    <Box>
       <Container sx={{ display: 'flex', gap: 6 }} >
         <FormControl sx={{ my: 1 }}>
           <Typography>Categories</Typography>
@@ -110,18 +110,14 @@ const Products = () => {
         </FormControl>
       </Container>
 
-      {/* <pre>
-        {JSON.stringify(items, null, 4)}
-      </pre> */}
+      <Container maxWidth="lg">
 
-      <Container>
-        <Grid container spacing={2} sx={{ justifyItems: 'center' }}>
-          <Grid item><ItemCard /></Grid>
-          <Grid item><ItemCard /></Grid>
-          <Grid item><ItemCard /></Grid>
-          <Grid item><ItemCard /></Grid>
-          <Grid item><ItemCard /></Grid>
-          <Grid item><ItemCard /></Grid>
+        <Grid container spacing={2} sx={{ px: 2 }}>
+          {items.map(item => (
+            <Grid key={item.id} item xs={12} sm={6} md={6} lg={4} xl={4}>
+              <ItemCard {...item} />
+            </Grid>
+          ))}
         </Grid>
       </Container>
 

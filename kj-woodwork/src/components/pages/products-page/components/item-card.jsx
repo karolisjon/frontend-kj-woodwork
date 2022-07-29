@@ -8,23 +8,27 @@ import {
 } from '@mui/material';
 import CustomButton from '../../../custom-button';
 
-const ItemCard = () => {
+const ItemCard = ({ title, description, category, price, img }) => {
+
   return (
     <Card sx={{ width: 350, mt: 4, borderRadius: 0 }}>
       <CardMedia
         component='img'
-        image='https://www.arlberry.com/wp-content/uploads/2014/01/Mia-Marquez-1-744x496.jpg'
-        alt='Dining table'
+        image={img}
+        alt=''
       />
       <CardContent>
-        <Typography gutterBottom variant='h5' component='div'>
-          Dining table
+        <Typography gutterBottom variant='h5' component='h6'>
+          {title}
+        </Typography>
+        <Typography gutterBottom variant='body1' component='h6'>
+          {category}
+        </Typography>
+        <Typography gutterBottom variant='body2' component='h6'>
+          {description}
         </Typography>
         <Typography gutterBottom variant='body1' component='div'>
-          Category
-        </Typography>
-        <Typography gutterBottom variant='body2' component='div'>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id culpa perspiciatis officiis molestiae nostrum temporibus?
+          {price}
         </Typography>
       </CardContent>
       <CardActions >
@@ -32,8 +36,6 @@ const ItemCard = () => {
           Add to cart
         </CustomButton>
       </CardActions>
-
-
     </Card>
   )
 }

@@ -64,58 +64,59 @@ const Products = () => {
   return (
     <Box>
       <Container sx={{ display: 'flex', gap: 6 }} >
-        <FormControl sx={{ my: 1 }}>
-          <Typography>Categories</Typography>
-          <Autocomplete
-            options={categories}
-            value={category}
-            onChange={(_, newCategory) => setCategory(newCategory)}
-            renderInput={(params) => <TextField {...params} label={categories.label} />}
-            sx={{ width: '300px' }}
-          />
-        </FormControl>
-
-        <FormControl sx={{ my: 1 }}>
-          <Typography>Price</Typography>
-          <Box sx={{ mx: '2' }}>
-            <Slider
-              min={0}
-              max={1000}
-              value={price}
-              onChange={(_, newPriceRange) => setPriceRange(newPriceRange)}
-              valueLabelDisplay="on"
-              sx={{ width: '300px', height: '0.1em', mt: 4 }}
+          <FormControl sx={{ my: 1 }}>
+            <Typography>Categories</Typography>
+            <Autocomplete
+              options={categories}
+              value={category}
+              onChange={(_, newCategory) => setCategory(newCategory)}
+              renderInput={(params) => <TextField {...params} label={categories.label} />}
+              sx={{ width: '300px' }}
             />
-          </Box>
-        </FormControl>
+          </FormControl>
 
-        <FormControl sx={{ my: 1 }}>
-          <FormLabel id="demo-radio-buttons-group-label">Type of wood</FormLabel>
-          <RadioGroup
-            name="radio-buttons-group"
-            sx={{ display: 'flex', flexDirection: 'row' }}
-            value={woodType}
-            onChange={(_, newWoodType) => setWoodType(newWoodType)}
-          >
-            {materials.map(({ id, label }) =>
-              <FormControlLabel
-                key={label}
-                id={id}
-                value={label}
-                control={<Radio />}
-                label={label}
-              />)
-            }
-          </RadioGroup>
-        </FormControl>
+          <FormControl sx={{ my: 1 }}>
+            <Typography>Price</Typography>
+            <Box sx={{ mx: '2' }}>
+              <Slider
+                min={0}
+                max={1000}
+                value={price}
+                onChange={(_, newPriceRange) => setPriceRange(newPriceRange)}
+                valueLabelDisplay="on"
+                sx={{ width: '300px', height: '0.1em', mt: 4 }}
+              />
+            </Box>
+          </FormControl>
+
+          <FormControl sx={{ my: 1 }}>
+            <FormLabel id="demo-radio-buttons-group-label">Type of wood</FormLabel>
+            <RadioGroup
+              name="radio-buttons-group"
+              sx={{ display: 'flex', flexDirection: 'row' }}
+              value={woodType}
+              onChange={(_, newWoodType) => setWoodType(newWoodType)}
+            >
+              {materials.map(({ id, label }) =>
+                <FormControlLabel
+                  key={label}
+                  id={id}
+                  value={label}
+                  control={<Radio />}
+                  label={label}
+                />)
+              }
+            </RadioGroup>
+          </FormControl>
       </Container>
 
       <Container maxWidth="xl">
         <Grid container spacing={2} sx={{ py: 4, px: 3 }}>
           {items.map(item => (
             <Grid
+              id={item.id}
               key={item.id}
-              item 
+              item
               alignItems='stretch'
               xs={12}
               sm={6}

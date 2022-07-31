@@ -9,8 +9,18 @@ import {
 // import CustomButton from '../../home-page/components/custom-button';
 import { Box } from '@mui/system';
 import ItemCardButton from './item-card-button';
+import CartContext from '../../../../contexts/cart-page-context';
 
-const ItemCard = ({ title, description, category, price, img, wood }) => {
+const ItemCard = ({ 
+  id,
+  title, 
+  description, 
+  category, 
+  price, 
+  img, 
+  wood 
+}) => {
+  const { addItemToCart } = React.useContext(CartContext); 
 
   return (
     <Card sx={{
@@ -79,7 +89,9 @@ const ItemCard = ({ title, description, category, price, img, wood }) => {
       </CardContent>
       </Box>
       <CardActions sx={{ p: 0 }}>
-        <ItemCardButton>
+        <ItemCardButton
+        onClick={() => addItemToCart(id)}
+        >
           Add to cart
         </ItemCardButton>
       </CardActions>

@@ -9,12 +9,20 @@ import HomePage from './components/pages/home-page';
 import AboutUs from './components/pages/about-us-page';
 import Products from './components/pages/products-page';
 import OrderPage from './components/pages/order-page';
-import CartContext from './contexts/cart-page-context';
 import CartPage from './components/pages/cart-page';
+import CartContext from './contexts/cart-page-context';
 
-const App = () => (
-  <BrowserRouter>
-    <CartContext.Provider value={100}>
+const App = () => {
+  const [cartItems, setCartItems] = React.useState([]);
+
+  const cartContextValue = React.useMemo(() => ({
+      addItemToCart: (itemId) => setCartItems([...cartItems, itemId]),
+      cartItems,
+  }), [cartItems]);
+  
+  return (
+    <BrowserRouter>
+    <CartContext.Provider value={cartContextValue}>
       <Navbar />
       <Routes>
         <Route path='/' element={<HomePage />} />
@@ -26,5 +34,6 @@ const App = () => (
     </CartContext.Provider>
   </BrowserRouter>
 );
+}
 
 export default App;

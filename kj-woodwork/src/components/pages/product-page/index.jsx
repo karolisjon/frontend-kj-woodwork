@@ -1,11 +1,9 @@
 import * as React from 'react';
 import { Container } from '@mui/system';
 import CartContext from '../../../contexts/cart-page-context';
-//import CartPageContext from '../../../contexts/cart-page-context';
 
-const CartPage = () => {
+const Product = () => {
   const { cartItems } = React.useContext(CartContext);
-  //const cartPageContext = React.useContext(CartPageContext);
 
   console.log(cartItems);
 
@@ -18,4 +16,4 @@ const CartPage = () => {
   )
 }
 
-export default CartPage;
+export default Product;

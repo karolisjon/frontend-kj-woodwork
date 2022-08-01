@@ -46,7 +46,7 @@ const materials = [
   },
 ];
 
-const Products = () => {
+const ProductCatalog = () => {
   const [items, setItems] = React.useState([]);
   const [price, setPriceRange] = React.useState([0, 1000]);
   const [category, setCategory] = React.useState('');
@@ -134,4 +134,4 @@ const Products = () => {
   )
 }
 
-export default Products;
+export default ProductCatalog;

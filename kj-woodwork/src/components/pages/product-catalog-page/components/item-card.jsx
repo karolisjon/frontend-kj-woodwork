@@ -10,6 +10,7 @@ import {
 import { Box } from '@mui/system';
 import ItemCardButton from './item-card-button';
 import CartContext from '../../../../contexts/cart-page-context';
+import { useNavigate } from 'react-router-dom';
 
 const ItemCard = ({ 
   id,
@@ -21,6 +22,8 @@ const ItemCard = ({
   wood 
 }) => {
   const { addItemToCart } = React.useContext(CartContext); 
+
+  let navigate = useNavigate();
 
   return (
     <Card sx={{
@@ -90,9 +93,12 @@ const ItemCard = ({
       </Box>
       <CardActions sx={{ p: 0 }}>
         <ItemCardButton
-        onClick={() => addItemToCart(id)}
+        onClick={() => {
+          navigate('/product');
+          addItemToCart(id);
+        }}
         >
-          Add to cart
+          Buy now
         </ItemCardButton>
       </CardActions>
     </Card>

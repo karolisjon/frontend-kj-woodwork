@@ -47,7 +47,7 @@ const HomePage = () => {
             possimus quaerat, iusto, sed nesciunt ipsam labore dignissimos.
             Sit recusandae quam nisi. Magni omnis cumque eos doloremque officia quia iste quaerat adipisci.
           </CustomParagraph>
-          <CustomButton onClick={() => navigate('/products')}>Products</CustomButton>
+          <CustomButton onClick={() => navigate('/product-catalog')}>Products</CustomButton>
           </Box>
         </Container>
       </ContentContainer>

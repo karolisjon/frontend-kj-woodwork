@@ -1,19 +1,21 @@
 import * as React from 'react';
 import { Container } from '@mui/system';
-import CartContext from '../../../contexts/cart-page-context';
+import ProductContext from '../../../contexts/cart-page-context';
+import { Typography } from '@mui/material';
 
-const Product = () => {
-  const { cartItems } = React.useContext(CartContext);
+const ProductInformation = () => {
+  const { product } = React.useContext(ProductContext);
 
-  console.log(cartItems);
+  console.log(product);
 
   return (
     <Container>
-    <pre>
-      {JSON.stringify({cartItems}, null, 4)}
-    </pre>
+      <Typography variant='h4' component='h4'>Product information</Typography>
+      <pre>
+        {JSON.stringify({ product }, null, 4)}
+      </pre>
     </Container>
   )
 }
 
-export default Product;
+export default ProductInformation;

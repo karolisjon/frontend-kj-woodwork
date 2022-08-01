@@ -9,7 +9,7 @@ import {
 // import CustomButton from '../../home-page/components/custom-button';
 import { Box } from '@mui/system';
 import ItemCardButton from './item-card-button';
-import CartContext from '../../../../contexts/cart-page-context';
+import ProductContext from '../../../../contexts/cart-page-context';
 import { useNavigate } from 'react-router-dom';
 
 const ItemCard = ({ 
@@ -21,7 +21,7 @@ const ItemCard = ({
   img, 
   wood 
 }) => {
-  const { addItemToCart } = React.useContext(CartContext); 
+  const { openProduct } = React.useContext(ProductContext); 
 
   let navigate = useNavigate();
 
@@ -94,8 +94,8 @@ const ItemCard = ({
       <CardActions sx={{ p: 0 }}>
         <ItemCardButton
         onClick={() => {
-          navigate('/product');
-          addItemToCart(id);
+          navigate(`/product/${id}`);
+          openProduct(id);
         }}
         >
           Buy now

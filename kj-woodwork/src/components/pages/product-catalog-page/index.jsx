@@ -1,56 +1,56 @@
 import {
-  Autocomplete,
+  // Autocomplete,
   Box,
-  FormControl,
-  FormControlLabel,
-  FormLabel,
+  // FormControl,
+  // FormControlLabel,
+  // FormLabel,
   Grid,
-  Radio,
-  RadioGroup,
-  Slider,
-  TextField,
-  Typography,
+  // Radio,
+  // RadioGroup,
+  // Slider,
+  // TextField,
+  // Typography,
 } from '@mui/material'
 import { Container } from '@mui/system';
 import * as React from 'react';
 import ItemCard from './components/item-card';
 // import CartPageContext from '../../../contexts/cart-page-context';
 
-const categories = [
-  {
-    id: '1',
-    label: 'Furniture'
-  },
-  {
-    id: '2',
-    label: 'Accessories'
-  },
-  {
-    id: '3',
-    label: 'Kitchen utensils'
-  },
-];
+// const categories = [
+//   {
+//     id: '1',
+//     label: 'Furniture'
+//   },
+//   {
+//     id: '2',
+//     label: 'Accessories'
+//   },
+//   {
+//     id: '3',
+//     label: 'Kitchen utensils'
+//   },
+// ];
 
-const materials = [
-  {
-    id: '1',
-    label: 'Maple'
-  },
-  {
-    id: '2',
-    label: 'Oak'
-  },
-  {
-    id: '3',
-    label: 'Cherry'
-  },
-];
+// const materials = [
+//   {
+//     id: '1',
+//     label: 'Maple'
+//   },
+//   {
+//     id: '2',
+//     label: 'Oak'
+//   },
+//   {
+//     id: '3',
+//     label: 'Cherry'
+//   },
+// ];
 
 const ProductCatalog = () => {
   const [items, setItems] = React.useState([]);
-  const [price, setPriceRange] = React.useState([0, 1000]);
-  const [category, setCategory] = React.useState('');
-  const [woodType, setWoodType] = React.useState('');
+  // const [price, setPriceRange] = React.useState([0, 1000]);
+  // const [category, setCategory] = React.useState('');
+  // const [woodType, setWoodType] = React.useState('');
 
   React.useEffect(() => {
     fetch('http://localhost:8000/items')
@@ -63,7 +63,7 @@ const ProductCatalog = () => {
 
   return (
     <Box>
-      <Container sx={{ display: 'flex', gap: 6 }} >
+      {/* <Container sx={{ display: 'flex', gap: 6 }} >
           <FormControl sx={{ my: 1 }}>
             <Typography>Categories</Typography>
             <Autocomplete
@@ -108,7 +108,7 @@ const ProductCatalog = () => {
               }
             </RadioGroup>
           </FormControl>
-      </Container>
+      </Container> */}
 
       <Container maxWidth="xl">
         <Grid container spacing={2} sx={{ py: 4, px: 3 }}>

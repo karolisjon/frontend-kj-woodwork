@@ -9,31 +9,39 @@ import HomePage from './components/pages/home-page';
 import AboutUs from './components/pages/about-us-page';
 import ProductCatalog from './components/pages/product-catalog-page';
 import OrderPage from './components/pages/order-page';
+import ProductInformation from './components/pages/product-page';
 import CartPage from './components/pages/cart-page';
-import CartContext from './contexts/cart-page-context';
-import Product from './components/pages/product-page';
+import ProductContext from './contexts/cart-page-context';
 
 const App = () => {
-  const [cartItems, setCartItems] = React.useState([]);
+  const [product, setProduct] = React.useState([]);
 
-  const cartContextValue = React.useMemo(() => ({
-    addItemToCart: (item) => setCartItems([...cartItems, item]),
-    cartItems,
-  }), [cartItems]);
+  const productContextValue = React.useMemo(() => ({
+    openProduct: (item) => {
+      if (product.includes(item)) {
+        console.log('this ID is already added');
+      } else if (product.length === 1) {
+        console.log('more than 1 item was clicked');
+      } else {
+        setProduct([...product, item]);
+      }
+    },
+    product,
+  }), [product]);
 
   return (
     <BrowserRouter>
-      <CartContext.Provider value={cartContextValue}>
+      <ProductContext.Provider value={productContextValue}>
         <Navbar />
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='/about-us' element={<AboutUs />} />
           <Route path='/product-catalog' element={<ProductCatalog />} />
           <Route path='/order' element={<OrderPage />} />
+          <Route path='/product/:id' element={<ProductInformation />} />
           <Route path='/cart' element={<CartPage />} />
-          <Route path='/product' element={<Product />} />
         </Routes>
-      </CartContext.Provider>
+      </ProductContext.Provider>
     </BrowserRouter>
   );
 }

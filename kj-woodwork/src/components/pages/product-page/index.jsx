@@ -8,8 +8,6 @@ const ProductInformation = () => {
 
   console.log(product);
 
-  
-
   return (
     <Container>
       <Typography variant='h4' component='h4'>{`Product information ${product}`}</Typography>

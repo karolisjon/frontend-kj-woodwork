@@ -8,9 +8,11 @@ const ProductInformation = () => {
 
   console.log(product);
 
+  
+
   return (
     <Container>
-      <Typography variant='h4' component='h4'>Product information</Typography>
+      <Typography variant='h4' component='h4'>{`Product information ${product}`}</Typography>
       <pre>
         {JSON.stringify({ product }, null, 4)}
       </pre>

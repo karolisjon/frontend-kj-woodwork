@@ -17,15 +17,7 @@ const App = () => {
   const [product, setProduct] = React.useState([]);
 
   const productContextValue = React.useMemo(() => ({
-    openProduct: (item) => {
-      if (product.includes(item)) {
-        console.log('this ID is already added');
-      } else if (product.length === 1) {
-        console.log('more than 1 item was clicked');
-      } else {
-        setProduct([...product, item]);
-      }
-    },
+    openProduct: (item) => setProduct([item]),
     product,
   }), [product]);
 

@@ -1,21 +1,35 @@
 import * as React from 'react';
 import { Container } from '@mui/system';
-import ProductContext from '../../../contexts/cart-page-context';
 import { Typography } from '@mui/material';
+import { useParams } from 'react-router-dom';
+
 
 const ProductInformation = () => {
-  const { product } = React.useContext(ProductContext);
+  const { id } = useParams();
+  const [product, setData] = React.useState(null);
 
-  console.log(product);
+  React.useEffect(() => {
+    const fetchProduct = async () => {
+      const response = await fetch(`http://localhost:8000/items/${id}`);
+      const productDetails = await response.json();
+      // isprovokuoja persikrovima
+      setData(productDetails);
+      console.log(productDetails);
+    }
+
+    fetchProduct()
+
+  }, [id]);
 
   return (
     <Container>
-      <Typography variant='h4' component='h4'>{`Product information ${product}`}</Typography>
+      <Typography variant='h4' component='h4'>Product information {id}</Typography>
       <pre>
-        {JSON.stringify({ product }, null, 4)}
+        {JSON.stringify(product, null, 4)}
       </pre>
     </Container>
   )
 }
+
 
 export default ProductInformation;

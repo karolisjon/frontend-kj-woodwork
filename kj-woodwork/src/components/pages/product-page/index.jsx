@@ -3,7 +3,6 @@ import { Container } from '@mui/system';
 import { Typography } from '@mui/material';
 import { useParams } from 'react-router-dom';
 
-
 const ProductInformation = () => {
   const { id } = useParams();
   const [product, setData] = React.useState(null);
@@ -30,6 +29,5 @@ const ProductInformation = () => {
     </Container>
   )
 }
-
 
 export default ProductInformation;

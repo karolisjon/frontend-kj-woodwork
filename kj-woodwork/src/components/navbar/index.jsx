@@ -58,7 +58,9 @@ const Navbar = (props) => {
   return (
     <Box sx={{ display: 'flex' }}>
       <AppBar component="nav" sx={{ boxShadow: 'none' }}>
-        <Toolbar>
+        <Toolbar sx={{ 
+          justifyContent: { xs: 'space-between' },
+        }}>
           <IconButton
             color="inherit"
             size='large'

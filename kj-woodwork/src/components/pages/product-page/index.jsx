@@ -13,6 +13,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 const ProductInformation = () => {
   const { id } = useParams();
   const [product, setData] = React.useState(null);
+  const [amount, setAmount] = React.useState(1);
   let navigate = useNavigate();
 
   React.useEffect(() => {
@@ -21,14 +22,11 @@ const ProductInformation = () => {
       const productDetails = await response.json();
       // isprovokuoja persikrovima
       setData(productDetails);
-      console.log(productDetails);
     }
 
     fetchProduct()
 
   }, [id]);
-
-  //console.log({ product: product.title });
 
   return (
     <Container>
@@ -67,9 +65,14 @@ const ProductInformation = () => {
                     letterSpacing: '0.1em',
                     fontSize: '14px',
                     transition: '0.3s ease-in-out',
-                  })}>+
+                  })}
+                    onClick={() => setAmount(amount + 1)}
+                  >
+                    +
                   </Button>
-                  <Input />
+                  <Input
+                    value={amount}
+                  />
                   <Button sx={theme => ({
                     height: '50px',
                     backgroundColor: theme.palette.primary.main,
@@ -78,7 +81,10 @@ const ProductInformation = () => {
                     letterSpacing: '0.1em',
                     fontSize: '14px',
                     transition: '0.3s ease-in-out',
-                  })}>-
+                  })}
+                    onClick={() => setAmount(amount - 1)}
+                  >
+                    -
                   </Button>
                   <Button sx={theme => ({
                     width: '100%',
@@ -96,8 +102,8 @@ const ProductInformation = () => {
             </Box>
           </Box>
           <Box>
-          <Typography variant='h5' component='h4' sx={{ mt: 4 }}>About the product:</Typography>
-          <Divider sx={{ my: 2 }}></Divider>
+            <Typography variant='h5' component='h4' sx={{ mt: 4 }}>About the product:</Typography>
+            <Divider sx={{ my: 2 }}></Divider>
             <Typography component='p' sx={{ mt: 2, mb: 8 }}>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Placeat commodi quia dicta suscipit impedit possimus eum doloribus iste ab,
@@ -112,18 +118,18 @@ const ProductInformation = () => {
             </Typography>
             {/* <Divider sx={{ my: 2 }}></Divider> */}
             <Box sx={{ width: '20%' }}>
-              <Button 
-              sx={theme => ({
-                width: '100%',
-                height: '50px',
-                backgroundColor: theme.palette.primary.main,
-                color: theme.palette.primary.white,
-                borderRadius: '0',
-                letterSpacing: '0.1em',
-                fontSize: '14px',
-                transition: '0.3s ease-in-out',
-              })}
-              onClick={() => navigate('/product-catalog')}
+              <Button
+                sx={theme => ({
+                  width: '100%',
+                  height: '50px',
+                  backgroundColor: theme.palette.primary.main,
+                  color: theme.palette.primary.white,
+                  borderRadius: '0',
+                  letterSpacing: '0.1em',
+                  fontSize: '14px',
+                  transition: '0.3s ease-in-out',
+                })}
+                onClick={() => navigate('/product-catalog')}
               >
                 <ArrowBackIcon fontSize='small' />
                 Back to catalog

@@ -1,7 +1,14 @@
 import * as React from 'react';
 import { Container } from '@mui/system';
-import { Box, Button, Divider, Typography } from '@mui/material';
+import {
+  Box,
+  Button,
+  Divider,
+  Input,
+  Typography
+} from '@mui/material';
 import { useParams } from 'react-router-dom';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const ProductInformation = () => {
   const { id } = useParams();
@@ -24,105 +31,97 @@ const ProductInformation = () => {
 
   return (
     <Container>
-      <Typography variant='h4' component='h4'>Product information {id}</Typography>
+      {/* <Typography variant='h4' component='h4'>Product information {id}</Typography> */}
+      <Box sx={{ display: 'flex', my: 6 }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+          <Box sx={{ display: 'flex' }}>
+            <Box
+              component='img'
+              src='https://www.arlberry.com/wp-content/uploads/2014/01/Mia-Marquez-1-744x496.jpg'
+              alt=''
+              sx={{
+                width: '600px',
+                objectFit: 'cover',
+              }}
+            >
+            </Box>
+            <Box sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              px: 2,
+              flexGrow: 1
+            }}>
+              <Typography variant='h4' component='h4' >Dining table</Typography>
+              <Typography component='subtitle' sx={{ my: 1, fontStyle: 'italic' }}>Furniture</Typography>
+              <Typography variant='body2' component='p' sx={{ my: 1 }}>Type of wood: Maple</Typography>
+              <Box sx={{ marginTop: 'auto' }}>
+                <Typography variant='h5' component='h5' sx={{ my: 1 }}>569 EUR</Typography>
+                <Box sx={{ display: 'flex', gap: 1 }}>
 
-
-
-      <Box sx={{ display: 'flex', mb: 4 }}>
-        <Box>
-          <Box
-            component='img'
-            src='https://www.arlberry.com/wp-content/uploads/2014/01/Mia-Marquez-1-744x496.jpg'
-            alt=''
-            sx={{
-              width: '600px',
-              objectFit: 'cover',
-            }}
-          >
+                  <Button sx={theme => ({
+                    height: '50px',
+                    backgroundColor: theme.palette.primary.main,
+                    color: theme.palette.primary.white,
+                    borderRadius: '0',
+                    letterSpacing: '0.1em',
+                    fontSize: '14px',
+                    transition: '0.3s ease-in-out',
+                  })}>+
+                  </Button>
+                  <Input />
+                  <Button sx={theme => ({
+                    height: '50px',
+                    backgroundColor: theme.palette.primary.main,
+                    color: theme.palette.primary.white,
+                    borderRadius: '0',
+                    letterSpacing: '0.1em',
+                    fontSize: '14px',
+                    transition: '0.3s ease-in-out',
+                  })}>-
+                  </Button>
+                  <Button sx={theme => ({
+                    width: '100%',
+                    height: '50px',
+                    backgroundColor: theme.palette.primary.main,
+                    color: theme.palette.primary.white,
+                    borderRadius: '0',
+                    letterSpacing: '0.1em',
+                    fontSize: '14px',
+                    transition: '0.3s ease-in-out',
+                  })}>Add to cart
+                  </Button>
+                </Box>
+              </Box>
+            </Box>
           </Box>
-          <Box sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            // px: 4, 
-            py: 1,
-            flexGrow: 1
-          }}>
-            <Typography variant='h5' component='h6'>Dining table</Typography>
-            <Typography component='subtitle' sx={{ my: 1 }}>Furniture</Typography>
-            <Typography component='subtitle' sx={{ my: 1 }}>Type of wood: Maple</Typography>
+          <Box>
             <Typography component='p' sx={{ my: 2 }}>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Placeat commodi quia dicta suscipit impedit possimus eum doloribus iste ab,
               veniam mollitia iusto deleniti qui, magnam voluptate harum aliquam quidem enim quas!
               Esse mollitia nesciunt quod consequatur culpa nostrum! Repudiandae quam in modi
               sequi voluptas velit blanditiis fugiat ipsa? At, magnam.
-              <Divider sx={{ my: 1 }}></Divider>
+              <Divider sx={{ my: 2 }}></Divider>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Placeat commodi quia dicta suscipit impedit possimus eum doloribus iste ab,
               veniam mollitia iusto deleniti qui, magnam voluptate harum aliquam quidem enim quas!
             </Typography>
-            <Typography component='subtitle' sx={{ my: 1 }}>569 EUR</Typography>
-            <Button sx={theme => ({
-              width: '100%',
-              height: '50px',
-              backgroundColor: theme.palette.primary.main,
-              color: theme.palette.primary.white,
-              borderRadius: '0',
-              letterSpacing: '0.1em',
-              fontSize: '14px',
-              transition: '0.3s ease-in-out',
-            })}>Add to cart</Button>
-          </Box>
-        </Box>
-      </Box>
-
-
-
-
-      <Box sx={{ display: 'flex', mb: 4 }}>
-        <Box>
-          <Box
-            component='img'
-            src='https://www.wright20.com/items/index/2000/157_1_modern_design_march_2011_sam_maloof_dining_chairs_pair__wright_auction.jpg'
-            alt=''
-            sx={{
-              width: '600px',
-              objectFit: 'cover',
-            }}
-          >
-          </Box>
-          <Box sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            // px: 4, 
-            py: 1,
-            flexGrow: 1
-          }}>
-            <Typography variant='h5' component='h6'>Dining table</Typography>
-            <Typography component='subtitle' sx={{ my: 1 }}>Furniture</Typography>
-            <Typography component='subtitle' sx={{ my: 1 }}>Type of wood: Maple</Typography>
-            <Typography component='p' sx={{ my: 2 }}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Placeat commodi quia dicta suscipit impedit possimus eum doloribus iste ab,
-              veniam mollitia iusto deleniti qui, magnam voluptate harum aliquam quidem enim quas!
-              Esse mollitia nesciunt quod consequatur culpa nostrum! Repudiandae quam in modi
-              sequi voluptas velit blanditiis fugiat ipsa? At, magnam.
-              <Divider sx={{ my: 1 }}></Divider>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Placeat commodi quia dicta suscipit impedit possimus eum doloribus iste ab,
-              veniam mollitia iusto deleniti qui, magnam voluptate harum aliquam quidem enim quas!
-            </Typography>
-            <Typography component='subtitle' sx={{ my: 1 }}>569 EUR</Typography>
-            <Button sx={theme => ({
-              width: '100%',
-              height: '50px',
-              backgroundColor: theme.palette.primary.main,
-              color: theme.palette.primary.white,
-              borderRadius: '0',
-              letterSpacing: '0.1em',
-              fontSize: '14px',
-              transition: '0.3s ease-in-out',
-            })}>Add to cart</Button>
+            <Box sx={{ width: '20%' }}>
+              <Button sx={theme => ({
+                width: '100%',
+                height: '50px',
+                backgroundColor: theme.palette.primary.main,
+                color: theme.palette.primary.white,
+                borderRadius: '0',
+                letterSpacing: '0.1em',
+                fontSize: '14px',
+                transition: '0.3s ease-in-out',
+                marginTop: 4,
+              })}>
+                <ArrowBackIcon fontSize='small' />
+                Back
+              </Button>
+            </Box>
           </Box>
         </Box>
       </Box>
@@ -131,10 +130,7 @@ const ProductInformation = () => {
 
 
 
-
-
-
-      <Box sx={{ mt: 30 }}>
+      <Box>
         <pre>
           {JSON.stringify(product, null, 4)}
         </pre>

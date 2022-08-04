@@ -54,36 +54,47 @@ const ProductInformation = () => {
               <Typography component='subtitle' sx={{ my: 1, fontStyle: 'italic' }}>Furniture</Typography>
               <Typography variant='body2' component='p' sx={{ my: 1 }}>Type of wood: Maple</Typography>
               <Box sx={{ marginTop: 'auto' }}>
-                <Typography variant='h5' component='h5' sx={{ my: 1 }}>569 EUR</Typography>
+                <Typography variant='h5' component='h5' sx={{ my: 1 }}>569.00 EUR</Typography>
                 <Box sx={{ display: 'flex', gap: 1 }}>
-
                   <Button sx={theme => ({
-                    height: '50px',
+                    width: '50px',
                     backgroundColor: theme.palette.primary.main,
                     color: theme.palette.primary.white,
                     borderRadius: '0',
                     letterSpacing: '0.1em',
-                    fontSize: '14px',
+                    fontSize: '22px',
                     transition: '0.3s ease-in-out',
+                    padding: 0,
                   })}
                     onClick={() => setAmount(amount + 1)}
                   >
                     +
                   </Button>
                   <Input
+                    disableUnderline
+                    readOnly
                     value={amount}
+                    sx={{ p: 0, fontSize: '1.5rem' }}
+                    inputProps={{
+                      style: {
+                        padding: 0, 
+                        width: 50, 
+                        textAlign: 'center',
+                      },
+                    }}
                   />
-                <Button sx={theme => ({
-                    height: '50px',
+                  <Button sx={theme => ({
+                    width: '50px',
                     backgroundColor: theme.palette.primary.main,
                     color: theme.palette.primary.white,
                     borderRadius: '0',
                     letterSpacing: '0.1em',
                     fontSize: '14px',
                     transition: '0.3s ease-in-out',
+                    padding: 0,
                   })}
-                  onClick={() => setAmount(amount - 1)}
-                  disabled={amount === 1}
+                    onClick={() => setAmount(amount - 1)}
+                    disabled={amount === 1}
                   >
                     -
                   </Button>
@@ -96,7 +107,10 @@ const ProductInformation = () => {
                     letterSpacing: '0.1em',
                     fontSize: '14px',
                     transition: '0.3s ease-in-out',
-                  })}>Add to cart
+                  })}
+                  onClick={() => console.log('added to cart')}
+                  >
+                    Add to cart
                   </Button>
                 </Box>
               </Box>

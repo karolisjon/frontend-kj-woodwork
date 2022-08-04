@@ -6,11 +6,10 @@ import {
   CardMedia,
   Typography,
 } from '@mui/material';
-// import CustomButton from '../../home-page/components/custom-button';
 import { Box } from '@mui/system';
-import ItemCardButton from './item-card-button';
 import ProductContext from '../../../../contexts/cart-page-context';
 import { useNavigate } from 'react-router-dom';
+import CustomButton from '../../../../custom-button';
 
 const ItemCard = ({ 
   id,
@@ -92,14 +91,14 @@ const ItemCard = ({
       </CardContent>
       </Box>
       <CardActions sx={{ p: 0 }}>
-        <ItemCardButton
+        <CustomButton
         onClick={() => {
           navigate(`/product/${id}`);
           openProduct(id);
         }}
         >
           Buy now
-        </ItemCardButton>
+        </CustomButton>
       </CardActions>
     </Card>
   )

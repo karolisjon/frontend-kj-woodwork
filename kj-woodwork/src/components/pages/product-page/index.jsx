@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Container } from '@mui/system';
 import {
   Box,
-  Button,
   Divider,
   Input,
   Typography
@@ -10,6 +9,7 @@ import {
 import { useNavigate, useParams } from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ButtonAmmount from './components/button-amount';
+import CustomButton from '../../../custom-button';
 
 const ProductInformation = () => {
   const { id } = useParams();
@@ -82,20 +82,11 @@ const ProductInformation = () => {
                   >
                     -
                   </ButtonAmmount>
-                  <Button sx={theme => ({
-                    width: '100%',
-                    height: '50px',
-                    backgroundColor: theme.palette.primary.main,
-                    color: theme.palette.primary.white,
-                    borderRadius: '0',
-                    letterSpacing: '0.1em',
-                    fontSize: '14px',
-                    transition: '0.3s ease-in-out',
-                  })}
+                  <CustomButton
                     onClick={() => console.log('added to cart')}
                   >
                     Add to cart
-                  </Button>
+                  </CustomButton>
                 </Box>
               </Box>
             </Box>
@@ -117,22 +108,12 @@ const ProductInformation = () => {
             </Typography>
             {/* <Divider sx={{ my: 2 }}></Divider> */}
             <Box sx={{ width: '20%' }}>
-              <Button
-                sx={theme => ({
-                  width: '100%',
-                  height: '50px',
-                  backgroundColor: theme.palette.primary.main,
-                  color: theme.palette.primary.white,
-                  borderRadius: '0',
-                  letterSpacing: '0.1em',
-                  fontSize: '14px',
-                  transition: '0.3s ease-in-out',
-                })}
+              <CustomButton
                 onClick={() => navigate('/product-catalog')}
               >
                 <ArrowBackIcon fontSize='small' />
                 Back to catalog
-              </Button>
+              </CustomButton>
             </Box>
           </Box>
         </Box>

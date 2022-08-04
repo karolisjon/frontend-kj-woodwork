@@ -73,7 +73,7 @@ const ProductInformation = () => {
                   <Input
                     value={amount}
                   />
-                  <Button sx={theme => ({
+                <Button sx={theme => ({
                     height: '50px',
                     backgroundColor: theme.palette.primary.main,
                     color: theme.palette.primary.white,
@@ -82,7 +82,8 @@ const ProductInformation = () => {
                     fontSize: '14px',
                     transition: '0.3s ease-in-out',
                   })}
-                    onClick={() => setAmount(amount - 1)}
+                  onClick={() => setAmount(amount - 1)}
+                  disabled={amount === 1}
                   >
                     -
                   </Button>

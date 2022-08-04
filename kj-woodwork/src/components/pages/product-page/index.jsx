@@ -7,12 +7,13 @@ import {
   Input,
   Typography
 } from '@mui/material';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const ProductInformation = () => {
   const { id } = useParams();
   const [product, setData] = React.useState(null);
+  let navigate = useNavigate();
 
   React.useEffect(() => {
     const fetchProduct = async () => {
@@ -95,19 +96,24 @@ const ProductInformation = () => {
             </Box>
           </Box>
           <Box>
-            <Typography component='p' sx={{ my: 2 }}>
+          <Typography variant='h5' component='h4' sx={{ mt: 4 }}>About the product:</Typography>
+          <Divider sx={{ my: 2 }}></Divider>
+            <Typography component='p' sx={{ mt: 2, mb: 8 }}>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Placeat commodi quia dicta suscipit impedit possimus eum doloribus iste ab,
               veniam mollitia iusto deleniti qui, magnam voluptate harum aliquam quidem enim quas!
               Esse mollitia nesciunt quod consequatur culpa nostrum! Repudiandae quam in modi
               sequi voluptas velit blanditiis fugiat ipsa? At, magnam.
-              <Divider sx={{ my: 2 }}></Divider>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Placeat commodi quia dicta suscipit impedit possimus eum doloribus iste ab,
               veniam mollitia iusto deleniti qui, magnam voluptate harum aliquam quidem enim quas!
+              Esse mollitia nesciunt quod consequatur culpa nostrum! Repudiandae quam in modi
+              sequi voluptas velit blanditiis fugiat ipsa? At, magnam.
             </Typography>
+            {/* <Divider sx={{ my: 2 }}></Divider> */}
             <Box sx={{ width: '20%' }}>
-              <Button sx={theme => ({
+              <Button 
+              sx={theme => ({
                 width: '100%',
                 height: '50px',
                 backgroundColor: theme.palette.primary.main,
@@ -116,10 +122,11 @@ const ProductInformation = () => {
                 letterSpacing: '0.1em',
                 fontSize: '14px',
                 transition: '0.3s ease-in-out',
-                marginTop: 4,
-              })}>
+              })}
+              onClick={() => navigate('/product-catalog')}
+              >
                 <ArrowBackIcon fontSize='small' />
-                Back
+                Back to catalog
               </Button>
             </Box>
           </Box>

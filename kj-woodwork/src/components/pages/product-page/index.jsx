@@ -9,6 +9,7 @@ import {
 } from '@mui/material';
 import { useNavigate, useParams } from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ButtonAmmount from './components/button-amount';
 
 const ProductInformation = () => {
   const { id } = useParams();
@@ -53,23 +54,15 @@ const ProductInformation = () => {
               <Typography variant='h4' component='h4' >Dining table</Typography>
               <Typography component='subtitle' sx={{ my: 1, fontStyle: 'italic' }}>Furniture</Typography>
               <Typography variant='body2' component='p' sx={{ my: 1 }}>Type of wood: Maple</Typography>
+
               <Box sx={{ marginTop: 'auto' }}>
                 <Typography variant='h5' component='h5' sx={{ my: 1 }}>569.00 EUR</Typography>
                 <Box sx={{ display: 'flex', gap: 1 }}>
-                  <Button sx={theme => ({
-                    width: '50px',
-                    backgroundColor: theme.palette.primary.main,
-                    color: theme.palette.primary.white,
-                    borderRadius: '0',
-                    letterSpacing: '0.1em',
-                    fontSize: '22px',
-                    transition: '0.3s ease-in-out',
-                    padding: 0,
-                  })}
+                  <ButtonAmmount
                     onClick={() => setAmount(amount + 1)}
                   >
                     +
-                  </Button>
+                  </ButtonAmmount>
                   <Input
                     disableUnderline
                     readOnly
@@ -77,27 +70,18 @@ const ProductInformation = () => {
                     sx={{ p: 0, fontSize: '1.5rem' }}
                     inputProps={{
                       style: {
-                        padding: 0, 
-                        width: 50, 
+                        padding: 0,
+                        width: 40,
                         textAlign: 'center',
                       },
                     }}
                   />
-                  <Button sx={theme => ({
-                    width: '50px',
-                    backgroundColor: theme.palette.primary.main,
-                    color: theme.palette.primary.white,
-                    borderRadius: '0',
-                    letterSpacing: '0.1em',
-                    fontSize: '14px',
-                    transition: '0.3s ease-in-out',
-                    padding: 0,
-                  })}
+                  <ButtonAmmount
                     onClick={() => setAmount(amount - 1)}
                     disabled={amount === 1}
                   >
                     -
-                  </Button>
+                  </ButtonAmmount>
                   <Button sx={theme => ({
                     width: '100%',
                     height: '50px',
@@ -108,7 +92,7 @@ const ProductInformation = () => {
                     fontSize: '14px',
                     transition: '0.3s ease-in-out',
                   })}
-                  onClick={() => console.log('added to cart')}
+                    onClick={() => console.log('added to cart')}
                   >
                     Add to cart
                   </Button>

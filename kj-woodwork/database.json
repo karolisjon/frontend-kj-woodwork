@@ -8,7 +8,8 @@
 				"price": 569,
 				"img": "https://www.arlberry.com/wp-content/uploads/2014/01/Mia-Marquez-1-744x496.jpg",
 				"wood": "Maple",
-				"measurements": "150x100x62 cm"
+				"measurements": "150x100x62 cm",
+				"inStock": true
 			},
 			{
 				"id": "DAA0A9E2-90B4-D5B3-1DD1-ED815ACC4279",
@@ -18,7 +19,8 @@
 				"price": 699,
 				"img": "https://www.orpago.co.uk/sites/default/files/styles/tablelist/public/ashridge-dining-table-handmade_0.jpg?itok=f7PLzFUL",
 				"wood": "Oak",
-				"measurements": "180x110x56 cm"
+				"measurements": "180x110x56 cm",
+				"inStock": true
 			},
 			{
 				"id": "388BD667-9719-EF97-E7A5-B513540FAFE5",
@@ -27,7 +29,8 @@
 				"category": "Furniture",
 				"price": 169,
 				"img": "https://www.wright20.com/items/index/2000/157_1_modern_design_march_2011_sam_maloof_dining_chairs_pair__wright_auction.jpg",
-				"wood": "Maple"
+				"wood": "Maple",
+				"inStock": true
 			},
 			{
 				"id": "CDE57FCF-388B-515D-75BB-366CE20EBABC",
@@ -36,7 +39,8 @@
 				"category": "Furniture",
 				"price": 109,
 				"img": "https://a.1stdibscdn.com/high-style-mid-century-mahogany-dining-chair-w-woven-wicker-seat-for-sale-picture-2/f_9474/1567692774280/IMG_9509_master.jpg?width=768",
-				"wood": "Oak"
+				"wood": "Oak",
+				"inStock": true
 			},
 			{
 				"id": "23C9E269-8712-C73C-7577-34555CA5B4D5",
@@ -46,7 +50,8 @@
 				"price": 349,
 				"img": "https://m.media-amazon.com/images/I/A1e88uvzJVL._AC_SS450_.jpg",
 				"wood": "Maple",
-				"measurements": "120x80x50 cm"
+				"measurements": "120x80x50 cm",
+				"inStock": true
 			},
 			{
 				"id": "1562087E-7544-4853-E2CE-2B5F8A1876CA",
@@ -56,7 +61,8 @@
 				"price": 489,
 				"img": "https://ak1.ostkcdn.com/images/products/20969227/Alpine-48-Natural-Live-Edge-Wood-Coffee-Table-Natural-0b1202bc-5ea8-4f11-aa3c-c5f965ee2f67_600.jpg?impolicy=medium",
 				"wood": "Oak",
-				"measurements": "130x75x40 cm"
+				"measurements": "130x75x40 cm",
+				"inStock": true
 			},
 			{
 				"id": "2CFB722E-51A2-A442-FBB7-A4658809A146",
@@ -66,7 +72,8 @@
 				"price": 139,
 				"img": "https://images.squarespace-cdn.com/content/v1/58dc0327d1758e873aa78bff/1540219350701-O2IBOST9065ZST5T0430/ke17ZwdGBToddI8pDm48kHH9S2ID7_bpupQnTdrPcoF7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0nQwvinDXPV4EYh2MRzm-RRB5rUELEv7EY2n0AZOrEupxpSyqbqKSgmzcCPWV5WMiQ/IMG_7768.jpg",
 				"wood": "Cherry",
-				"measurements": "20x15x12 cm"
+				"measurements": "20x15x12 cm",
+				"inStock": true
 			},
 			{
 				"id": "BCEE647C-C114-5EA7-F529-17B79089E274",
@@ -76,7 +83,8 @@
 				"price": 199,
 				"img": "https://i.pinimg.com/originals/da/d3/12/dad31229d9c469eb83973eea3def4690.jpg",
 				"wood": "Cherry",
-				"measurements": "22x15x10 cm"
+				"measurements": "22x15x10 cm",
+				"inStock": false
 			},
 			{
 				"id": "E61A159D-3E61-3C83-D51F-FE8E39B44098",
@@ -85,7 +93,8 @@
 				"category": "Kitchen utensils",
 				"price": 89,
 				"img": "https://cdn.shopify.com/s/files/1/0494/4848/5018/products/1_8d0de8a2-8a84-4820-9d98-c7523a16ad6a_1000x1000.jpg?v=1606370592",
-				"wood": "Oak"
+				"wood": "Oak",
+				"inStock": false
 			},
 			{
 				"id": "FA5B6421-7719-EA3B-5736-9E7E4E87581B",
@@ -94,7 +103,8 @@
 				"category": "Kitchen utensils",
 				"price": 99,
 				"img": "https://i.etsystatic.com/17108018/r/il/3867ad/2872706655/il_570xN.2872706655_8o6q.jpg",
-				"wood": "Cherry"
+				"wood": "Cherry",
+				"inStock": false
 			},
 			{
 				"id": "C197AE53-A8B4-D929-CECB-2C902468AB51",
@@ -103,7 +113,8 @@
 				"category": "Kitchen utensils",
 				"price": 159,
 				"img": "https://m.media-amazon.com/images/I/91oW32YrCGL._AC_SX522_.jpg",
-				"wood": "Oak"
+				"wood": "Oak",
+				"inStock": false
 			},
 			{
 				"id": "A297BE56-C8B8-D933-CEAA-6C903469AB56",
@@ -112,7 +123,8 @@
 				"category": "Accessories",
 				"price": 149,
 				"img": "https://cdn.shopify.com/s/files/1/0700/8849/products/image_6904a60c-9318-4dc9-8e35-1e92052e8e1e_1024x1024.jpg?v=1627955573",
-				"wood": "Maple"
+				"wood": "Maple",
+				"inStock": false
 			}
 		]
 	}

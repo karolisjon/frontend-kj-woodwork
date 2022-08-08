@@ -42,6 +42,7 @@ const ProductInformation = () => {
               alt=''
               sx={{
                 width: '600px',
+                height: '400px',
                 objectFit: 'cover',
               }}
             >
@@ -53,14 +54,20 @@ const ProductInformation = () => {
               flexGrow: 1
             }}>
               <Typography variant='h4' component='h4'>{product?.title}</Typography>
-              <Typography component='subtitle' sx={{ my: 1, fontStyle: 'italic' }}>{product?.category}</Typography>
+              <Typography component='subtitle' sx={{ my: 1, fontStyle: 'italic' }}>Category: {product?.category}</Typography>
               {product?.measurements && (
                 <Typography variant='body2' component='p' sx={{ my: 1 }}>Measurements: {product?.measurements}</Typography>
               )}
               <Typography variant='body2' component='p' sx={{ my: 1 }}>Type of wood: {product?.wood}</Typography>
+              <Typography variant='body2' component='p' sx={{ my: 1 }}>Product no: {product?.id}</Typography>
+
+              {product?.inStock
+               ? <Typography variant='body2' component='p' sx={{ my: 1 }}>Currently in stock: yes</Typography>
+               : <Typography variant='body2' component='p' sx={{ my: 1 }}>Currently in stock: no</Typography>
+               }
 
               <Box sx={{ marginTop: 'auto' }}>
-                <Typography variant='h5' component='h5' sx={{ my: 1 }}>{product?.price}.00 EUR</Typography>
+                <Typography variant='h5' component='h5' sx={{ my: 1 }}>Price: {product?.price * amount}.00 €</Typography>
                 <Box sx={{ display: 'flex', gap: 1 }}>
                   <ButtonAmmount
                     onClick={() => setAmount(amount + 1)}

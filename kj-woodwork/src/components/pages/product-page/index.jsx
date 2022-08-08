@@ -54,6 +54,9 @@ const ProductInformation = () => {
             }}>
               <Typography variant='h4' component='h4'>{product?.title}</Typography>
               <Typography component='subtitle' sx={{ my: 1, fontStyle: 'italic' }}>{product?.category}</Typography>
+              {product?.measurements && (
+                <Typography variant='body2' component='p' sx={{ my: 1 }}>Measurements: {product?.measurements}</Typography>
+              )}
               <Typography variant='body2' component='p' sx={{ my: 1 }}>Type of wood: {product?.wood}</Typography>
 
               <Box sx={{ marginTop: 'auto' }}>

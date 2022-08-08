@@ -119,12 +119,6 @@ const ProductInformation = () => {
           </Box>
         </Box>
       </Box>
-
-      {/* <Box>
-        <pre>
-          {JSON.stringify(product, null, 4)}
-        </pre>
-      </Box> */}
     </Container >
   )
 }

@@ -11,7 +11,7 @@ import ProductCatalog from './components/pages/product-catalog-page';
 import OrderPage from './components/pages/order-page';
 import ProductInformation from './components/pages/product-page';
 import CartPage from './components/pages/cart-page';
-import ProductContext from './contexts/cart-page-context';
+import ProductContext from './contexts/product-page-context';
 
 const App = () => {
   const [product, setProduct] = React.useState([]);

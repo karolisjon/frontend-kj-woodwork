@@ -13,7 +13,7 @@ import CustomButton from '../../../custom-button';
 
 const ProductInformation = () => {
   const { id } = useParams();
-  const [product, setData] = React.useState(null);
+  const [product, setProduct] = React.useState(null);
   const [amount, setAmount] = React.useState(1);
   let navigate = useNavigate();
 
@@ -21,13 +21,14 @@ const ProductInformation = () => {
     const fetchProduct = async () => {
       const response = await fetch(`http://localhost:8000/items/${id}`);
       const productDetails = await response.json();
-      // isprovokuoja persikrovima
-      setData(productDetails);
+
+      setProduct(productDetails);
     }
 
-    fetchProduct()
+    fetchProduct();
 
   }, [id]);
+
 
   return (
     <Container>
@@ -37,7 +38,7 @@ const ProductInformation = () => {
           <Box sx={{ display: 'flex' }}>
             <Box
               component='img'
-              src='https://www.arlberry.com/wp-content/uploads/2014/01/Mia-Marquez-1-744x496.jpg'
+              src={product?.img}
               alt=''
               sx={{
                 width: '600px',
@@ -51,12 +52,12 @@ const ProductInformation = () => {
               px: 2,
               flexGrow: 1
             }}>
-              <Typography variant='h4' component='h4' >Dining table</Typography>
-              <Typography component='subtitle' sx={{ my: 1, fontStyle: 'italic' }}>Furniture</Typography>
-              <Typography variant='body2' component='p' sx={{ my: 1 }}>Type of wood: Maple</Typography>
+              <Typography variant='h4' component='h4'>{product?.title}</Typography>
+              <Typography component='subtitle' sx={{ my: 1, fontStyle: 'italic' }}>{product?.category}</Typography>
+              <Typography variant='body2' component='p' sx={{ my: 1 }}>Type of wood: {product?.wood}</Typography>
 
               <Box sx={{ marginTop: 'auto' }}>
-                <Typography variant='h5' component='h5' sx={{ my: 1 }}>569.00 EUR</Typography>
+                <Typography variant='h5' component='h5' sx={{ my: 1 }}>{product?.price}.00 EUR</Typography>
                 <Box sx={{ display: 'flex', gap: 1 }}>
                   <ButtonAmmount
                     onClick={() => setAmount(amount + 1)}
@@ -95,18 +96,8 @@ const ProductInformation = () => {
             <Typography variant='h5' component='h4' sx={{ mt: 4 }}>About the product:</Typography>
             <Divider sx={{ my: 2 }}></Divider>
             <Typography component='p' sx={{ mt: 2, mb: 8 }}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Placeat commodi quia dicta suscipit impedit possimus eum doloribus iste ab,
-              veniam mollitia iusto deleniti qui, magnam voluptate harum aliquam quidem enim quas!
-              Esse mollitia nesciunt quod consequatur culpa nostrum! Repudiandae quam in modi
-              sequi voluptas velit blanditiis fugiat ipsa? At, magnam.
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Placeat commodi quia dicta suscipit impedit possimus eum doloribus iste ab,
-              veniam mollitia iusto deleniti qui, magnam voluptate harum aliquam quidem enim quas!
-              Esse mollitia nesciunt quod consequatur culpa nostrum! Repudiandae quam in modi
-              sequi voluptas velit blanditiis fugiat ipsa? At, magnam.
+              {product?.description}
             </Typography>
-            {/* <Divider sx={{ my: 2 }}></Divider> */}
             <Box sx={{ width: '20%' }}>
               <CustomButton
                 onClick={() => navigate('/product-catalog')}
@@ -119,15 +110,11 @@ const ProductInformation = () => {
         </Box>
       </Box>
 
-
-
-
-
-      <Box>
+      {/* <Box>
         <pre>
           {JSON.stringify(product, null, 4)}
         </pre>
-      </Box>
+      </Box> */}
     </Container >
   )
 }

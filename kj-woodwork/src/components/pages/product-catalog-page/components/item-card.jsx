@@ -7,7 +7,7 @@ import {
   Typography,
 } from '@mui/material';
 import { Box } from '@mui/system';
-import ProductContext from '../../../../contexts/cart-page-context';
+import ProductContext from '../../../../contexts/product-page-context';
 import { useNavigate } from 'react-router-dom';
 import CustomButton from '../../../../custom-button';
 

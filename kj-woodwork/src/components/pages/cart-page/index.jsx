@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { Container } from '@mui/system';
-import ProductContext from '../../../contexts/cart-page-context';
-//import CartPageContext from '../../../contexts/cart-page-context';
+import ProductContext from '../../../contexts/product-page-context';
+//import ProductContext from '../../../contexts/product-page-context';
 
 const CartPage = () => {
   const { cartItems } = React.useContext(ProductContext);
-  //const cartPageContext = React.useContext(CartPageContext);
+  //const productPageContext = React.useContext(ProductContext);
 
   console.log(cartItems);
 

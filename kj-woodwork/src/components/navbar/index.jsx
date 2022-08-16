@@ -24,8 +24,8 @@ const navItems = [
   { text: 'Home', to: '/' },
   { text: 'About us', to: '/about-us' },
   { text: 'Product catalog', to: '/product-catalog' },
-  { text: 'Log in', to: 'auth/login' },
-  { text: 'Register', to: 'auth/register' },
+  { text: 'Log in', to: '/login' },
+  { text: 'Register', to: '/register' },
 ];
 
 const Navbar = (props) => {

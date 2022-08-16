@@ -10,6 +10,7 @@ import CartPage from '../components/pages/cart-page';
 import MainLayout from '../layouts/main-layout';
 import LoginPage from '../components/pages/login-page';
 import RegisterPage from '../components/pages/register-page';
+import AuthLayout from '../layouts/auth-layout';
 
 const PageRoutes = () => {
   return (
@@ -20,8 +21,12 @@ const PageRoutes = () => {
         <Route path='/product-catalog' element={<ProductCatalog />} />
         <Route path='/order' element={<OrderPage />} />
         <Route path='/product/:id' element={<ProductInformation />} />
-        <Route path='/login' element={<LoginPage />} />
-        <Route path='/register' element={<RegisterPage />} />
+
+        <Route path='auth/' element={<AuthLayout />}>
+          <Route path='login' element={<LoginPage />} />
+          <Route path='register' element={<RegisterPage />} />
+        </Route>
+
         <Route path='/cart' element={<CartPage />} />
       </Route>
     </Routes>

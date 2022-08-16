@@ -24,6 +24,8 @@ const navItems = [
   { text: 'Home', to: '/' },
   { text: 'About us', to: '/about-us' },
   { text: 'Product catalog', to: '/product-catalog' },
+  { text: 'Log in', to: 'auth/login' },
+  { text: 'Register', to: 'auth/register' },
 ];
 
 const Navbar = (props) => {
@@ -58,7 +60,7 @@ const Navbar = (props) => {
   return (
     <Box sx={{ display: 'flex' }}>
       <AppBar component="nav" sx={{ boxShadow: 'none' }}>
-        <Toolbar sx={{ 
+        <Toolbar sx={{
           justifyContent: { xs: 'space-between' },
         }}>
           <IconButton
@@ -90,13 +92,13 @@ const Navbar = (props) => {
           }}>
             {navItems.map(({ text, to }) => <Link key={to} to={to}>{text}</Link>)}
           </Box>
-          <IconButton>
-            <ShoppingBagIcon
-              fontSize='medium'
-              onClick={() => navigate('/cart')}
-              sx={{ color: theme.palette.primary.white }}>
-            </ShoppingBagIcon>
-          </IconButton>
+            <IconButton>
+              <ShoppingBagIcon
+                fontSize='medium'
+                onClick={() => navigate('/cart')}
+                sx={{ color: theme.palette.primary.white }}>
+              </ShoppingBagIcon>
+            </IconButton>
         </Toolbar>
       </AppBar>
       <Box component="nav">

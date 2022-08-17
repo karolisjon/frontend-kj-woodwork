@@ -36,10 +36,30 @@ const LoginPage = () => {
           type='password'
           fullWidth
         />
-        <Link sx={{ fontSize: '12px' }}>Forgot your password?</Link>
-        <Box sx={{ display: 'flex', gap: 1, mb: 2 }}>
-          <Typography sx={{ fontSize: '12px' }}>Don&apos;t have an account?</Typography>
-          <Link sx={{ fontSize: '12px' }}>Sign up</Link>
+        <Link 
+        variant='body1'
+        sx={{ 
+          fontSize: '12px',
+          transition: '0.3s ease-in-out',
+          '&:hover': {
+            cursor: 'pointer'
+          } 
+           }}>
+            Forgot your password?
+            </Link>
+        <Box sx={{ display: 'flex', gap: 0.5, mb: 2 }}>
+          <Typography variant='body1'sx={{ fontSize: '12px' }}>Don&apos;t have an account?</Typography>
+          <Link 
+          variant='body1'
+          sx={{ 
+            fontSize: '12px',
+            transition: '0.3s ease-in-out',
+              '&:hover': {
+                cursor: 'pointer'
+              } 
+            }}>
+              Sign up
+              </Link>
         </Box>
         <CustomButton>LOGIN</CustomButton>
       </Box>

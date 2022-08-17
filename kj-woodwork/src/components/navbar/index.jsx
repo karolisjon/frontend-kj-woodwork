@@ -77,6 +77,7 @@ const Navbar = (props) => {
             onClick={() => navigate('/')}
             sx={{
               flexGrow: 1,
+              fontFamily: 'logoFont',
               display: { xs: 'none', sm: 'block' },
               transition: '0.3s ease-in-out',
               '&:hover': {

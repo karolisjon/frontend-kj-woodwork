@@ -12,10 +12,23 @@ const initialVals = {
 const LoginPage = () => {
   let navigate = useNavigate();
   const { 
-    values, dirty,
+    values, dirty, errors, isValid,
     handleChange,
   } = useFormik({
     initialValues: initialVals,
+    validate: ({ email, password }) => {
+      let fieldErrors = {};
+      
+      if (email === '') {
+        fieldErrors.email = 'Email is mandatory';
+      }
+
+      if (password === '') { 
+        fieldErrors.password = 'Password is mandatory';
+      }
+
+    return fieldErrors;
+    }
   });
   
   return (
@@ -27,7 +40,7 @@ const LoginPage = () => {
       px: 4,
     }}>
       <Paper component='pre' sx={{ position: 'fixed', top: '80px', left: '50px', p: 2 }}>
-        {JSON.stringify({ values, dirty }, null, 2)}
+        {JSON.stringify({ values, dirty, errors }, null, 2)}
       </Paper>
 
       <Box sx={{ 
@@ -50,6 +63,8 @@ const LoginPage = () => {
           type='email'
           fullWidth
           onChange={handleChange}
+          error={Boolean(errors.email)}
+          helperText={errors.email}
         />
         <TextField
           name='password'
@@ -58,6 +73,8 @@ const LoginPage = () => {
           type='password'
           fullWidth
           onChange={handleChange}
+          error={Boolean(errors.password)}
+          helperText={errors.password}
         />
         <Link 
         variant='body1'
@@ -86,7 +103,7 @@ const LoginPage = () => {
               Sign up
               </Link>
         </Box>
-        <CustomButton disabled={!dirty}>LOGIN</CustomButton>
+        <CustomButton disabled={!dirty || !isValid}>LOGIN</CustomButton>
       </Box>
     </Paper>
   )

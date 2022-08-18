@@ -1,8 +1,11 @@
 import { Box, Link, Paper, TextField, Typography } from '@mui/material';
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
 import CustomButton from '../../../custom-button';
 
 const LoginPage = () => {
+  let navigate = useNavigate();
+  
   return (
     <Paper sx={{
       width: '400px',
@@ -57,7 +60,9 @@ const LoginPage = () => {
               '&:hover': {
                 cursor: 'pointer'
               } 
-            }}>
+            }}
+            onClick={() => navigate('/register')}
+            >
               Sign up
               </Link>
         </Box>

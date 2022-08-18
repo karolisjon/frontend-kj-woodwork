@@ -11,6 +11,7 @@ import {
   ListItem,
   ListItemButton,
   ListItemText,
+  Button,
 } from '@mui/material';
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import Link from './components';
@@ -63,14 +64,14 @@ const Navbar = (props) => {
         <Toolbar sx={{
           justifyContent: { xs: 'space-between' },
         }}>
-          <IconButton
+          <Button
             color="inherit"
             size='large'
             onClick={handleDrawerToggle}
             sx={{ mr: 2, display: { sm: 'none' } }}
           >
             <MenuOpenIcon />
-          </IconButton>
+          </Button>
           <Typography
             variant="h5"
             component="div"
@@ -88,18 +89,18 @@ const Navbar = (props) => {
             KJ Woodwork
           </Typography>
           <Box sx={{
-            display: { xs: 'none', sm: 'flex' },
+            display: { sm: 'none', md: 'flex' },
             alignSelf: 'stretch',
           }}>
             {navItems.map(({ text, to }) => <Link key={to} to={to}>{text}</Link>)}
           </Box>
-            <IconButton>
-              <ShoppingBagIcon
-                fontSize='medium'
-                onClick={() => navigate('/cart')}
-                sx={{ color: theme.palette.primary.white }}>
-              </ShoppingBagIcon>
-            </IconButton>
+          <IconButton
+            fontSize='medium'
+            sx={{ color: theme.palette.primary.white }}
+            onClick={() => navigate('/cart')}
+            >
+            <ShoppingBagIcon />
+          </IconButton>
         </Toolbar>
       </AppBar>
       <Box component="nav">
@@ -109,7 +110,7 @@ const Navbar = (props) => {
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+            keepMounted: true,
           }}
           sx={{
             display: { xs: 'block', sm: 'none' },

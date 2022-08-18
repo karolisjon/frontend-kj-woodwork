@@ -3,11 +3,22 @@ import { Box, Link, Paper, TextField, Typography } from '@mui/material';
 import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import CustomButton from '../../../custom-button';
+import * as yup from 'yup';
 
-const initialVals = {
+const initialValues = {
   email: '',
   password: '',
 };
+
+const validationSchema = yup.object({
+  email: yup.string()
+  .required('Email is mandatory')
+  .email('Incorrect email format'),
+  password: yup.string()
+  .required('Password is mandatory')
+  .min(8, 'Your password must contain at least 8 characters')
+  .max(30, 'Your password cannot contain more than 30 characters')
+});
 
 const LoginPage = () => {
   let navigate = useNavigate();
@@ -15,20 +26,8 @@ const LoginPage = () => {
     values, dirty, errors, isValid, touched,
     handleChange, handleBlur,
   } = useFormik({
-    initialValues: initialVals,
-    validate: ({ email, password }) => {
-      let fieldErrors = {};
-
-      if (email === '') {
-        fieldErrors.email = 'Email is mandatory';
-      }
-
-      if (password === '') {
-        fieldErrors.password = 'Password is mandatory';
-      }
-
-      return fieldErrors;
-    }
+    initialValues,
+    validationSchema,
   });
 
   return (

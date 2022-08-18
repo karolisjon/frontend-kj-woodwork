@@ -18,6 +18,10 @@ const validationSchema = yup.object({
   .required('Password is mandatory')
   .min(8, 'Your password must contain at least 8 characters')
   .max(30, 'Your password cannot contain more than 30 characters')
+  .matches(/[a-z]/, 'Your password must contain at least one lowercase leter')
+  .matches(/[A-Z]/, 'Your password must contain at least one capital leter')
+  .matches(/[\d]/, 'Your password must contain at least one digit')
+  .matches(/[\W]/, 'Your password must contain at least one special character')
 });
 
 const LoginPage = () => {

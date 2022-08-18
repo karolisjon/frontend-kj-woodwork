@@ -9,7 +9,7 @@ import {
 import { Box } from '@mui/system';
 import ProductContext from '../../../../contexts/product-page-context';
 import { useNavigate } from 'react-router-dom';
-import CustomButton from '../../../../custom-button';
+import CustomButton from '../../../custom-button';
 
 const ItemCard = ({ 
   id,

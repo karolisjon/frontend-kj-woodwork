@@ -9,7 +9,7 @@ import {
 import { useNavigate, useParams } from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ButtonAmmount from './components/button-amount';
-import CustomButton from '../../../custom-button';
+import CustomButton from '../../custom-button';
 
 const ProductInformation = () => {
   const { id } = useParams();

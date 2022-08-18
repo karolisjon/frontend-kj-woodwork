@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { TextField } from '@mui/material';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
-import AuthForm from '../../../auth-form';
+import AuthForm from '../../auth-form';
 
 const RegisterPage = () => {
   return (

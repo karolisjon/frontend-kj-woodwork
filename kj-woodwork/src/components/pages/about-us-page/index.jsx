@@ -1,6 +1,6 @@
 import { Box, Container, Typography } from '@mui/material';
 import * as React from 'react'
-import CustomParagraph from '../../../custom-paragraph';
+import CustomParagraph from '../../custom-paragraph';
 import Background from '../home-page/components/background';
 import ContentContainer from '../home-page/components/content-container';
 // import CartPageContext from '../../../contexts/cart-page-context';

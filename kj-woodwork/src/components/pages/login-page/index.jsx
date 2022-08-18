@@ -10,7 +10,7 @@ import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 // import CustomButton from '../../../custom-button';
 import * as yup from 'yup';
-import AuthForm from '../../../auth-form';
+import AuthForm from '../../auth-form';
 
 const initialValues = {
   email: '',

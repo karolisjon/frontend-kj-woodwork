@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {
-  BrowserRouter,
-} from 'react-router-dom';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
+import { BrowserRouter } from 'react-router-dom';
 import ProductContext from './contexts/product-page-context';
 import PageRoutes from './routes/page-routes';
 
@@ -14,11 +14,13 @@ const App = () => {
   }), [product]);
 
   return (
-    <BrowserRouter>
-      <ProductContext.Provider value={productContextValue}>
-        <PageRoutes />
-      </ProductContext.Provider>
-    </BrowserRouter>
+    <LocalizationProvider dateAdapter={AdapterMoment}>
+      <BrowserRouter>
+        <ProductContext.Provider value={productContextValue}>
+          <PageRoutes />
+        </ProductContext.Provider>
+      </BrowserRouter>
+    </LocalizationProvider>
   );
 }
 

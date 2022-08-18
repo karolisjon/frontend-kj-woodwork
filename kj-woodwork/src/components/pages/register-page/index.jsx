@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Box, Paper, TextField, Typography } from '@mui/material';
 import CustomButton from '../../../custom-button';
+import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 
 const RegisterPage = () => {
   return (
@@ -31,45 +32,50 @@ const RegisterPage = () => {
           type='text'
           fullWidth
         />
-        <TextField
-          name='birthdate'
-          label='Birth date'
-          variant='standard'
-          type='date'
-          fullWidth
-          focused
-        />
-        <TextField
-          name='email'
-          label='Email'
-          variant='standard'
-          type='email'
-          fullWidth
-        />
-        <TextField
-          name='emailConfirmation'
-          label='Email confirmation'
-          variant='standard'
-          type='email'
-          fullWidth
-        />
-        <TextField
-          name='password'
-          label='Password'
-          variant='standard'
-          type='password'
-          fullWidth
-        />
-        <TextField
-          name='passwordConfirmation'
-          label='Password confirmation'
-          variant='standard'
-          type='password'
-          fullWidth
-        />
-        <Box sx={{ display: 'flex', gap: 0.5, mb: 2 }}>
-        </Box>
-        <CustomButton type='submit'>Register</CustomButton>
+          <DesktopDatePicker
+            inputFormat="yyyy/MM/dd"
+            renderInput={(params) => (
+              <TextField
+              // eslint-disable-next-line react/jsx-props-no-spreading
+                {...params}
+                name="birthdate"
+                label="Birthdate"
+                variant="standard"
+                fullWidth
+              />
+            )}
+            />
+          <TextField
+            name='email'
+            label='Email'
+            variant='standard'
+            type='email'
+            fullWidth
+          />
+          <TextField
+            name='emailConfirmation'
+            label='Email confirmation'
+            variant='standard'
+            type='email'
+            fullWidth
+          />
+          <TextField
+            name='password'
+            label='Password'
+            variant='standard'
+            type='password'
+            fullWidth
+          />
+          <TextField
+            name='passwordConfirmation'
+            label='Password confirmation'
+            variant='standard'
+            type='password'
+            fullWidth
+          />
+          <Box sx={{ display: 'flex', gap: 0.5, mb: 2 }}>
+          </Box>
+          <CustomButton type='submit'>Register</CustomButton>
       </Box>
     </Paper>
   )

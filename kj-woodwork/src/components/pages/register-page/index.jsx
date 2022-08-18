@@ -32,11 +32,12 @@ const RegisterPage = () => {
           fullWidth
         />
         <TextField
-          name='Birth date'
-          label='birthDate'
+          name='birthdate'
+          label='Birth date'
           variant='standard'
-          type='time'
+          type='date'
           fullWidth
+          focused
         />
         <TextField
           name='email'

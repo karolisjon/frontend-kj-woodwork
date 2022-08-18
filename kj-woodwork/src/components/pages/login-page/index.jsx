@@ -12,26 +12,38 @@ const initialValues = {
 
 const validationSchema = yup.object({
   email: yup.string()
-  .required('Email is mandatory')
-  .email('Incorrect email format'),
+    .required('Email is mandatory')
+    .email('Incorrect email format'),
   password: yup.string()
-  .required('Password is mandatory')
-  .min(8, 'Your password must contain at least 8 characters')
-  .max(30, 'Your password cannot contain more than 30 characters')
-  .matches(/[a-z]/, 'Your password must contain at least one lowercase leter')
-  .matches(/[A-Z]/, 'Your password must contain at least one capital leter')
-  .matches(/[\d]/, 'Your password must contain at least one digit')
-  .matches(/[\W]/, 'Your password must contain at least one special character')
+    .required('Password is mandatory')
+    .min(8, 'Your password must contain at least 8 characters')
+    .max(30, 'Your password cannot contain more than 30 characters')
+    .matches(/[a-z]/, 'Your password must contain at least one lowercase leter')
+    .matches(/[A-Z]/, 'Your password must contain at least one capital leter')
+    .matches(/[\d]/, 'Your password must contain at least one digit')
+    .matches(/[\W]/, 'Your password must contain at least one special character')
 });
 
 const LoginPage = () => {
+  const formSubmission = (values) => {
+    console.log(values);
+  };
+
   let navigate = useNavigate();
+
   const {
-    values, dirty, errors, isValid, touched,
-    handleChange, handleBlur,
+    // values, 
+    dirty, 
+    errors, 
+    isValid, 
+    touched,
+    handleChange, 
+    handleBlur, 
+    handleSubmit,
   } = useFormik({
     initialValues,
     validationSchema,
+    onSubmit: formSubmission,
   });
 
   return (
@@ -42,14 +54,15 @@ const LoginPage = () => {
       py: 6,
       px: 4,
     }}>
-      <Paper component='pre' sx={{ position: 'fixed', top: '80px', left: '50px', p: 2 }}>
+      {/* <Paper component='pre' sx={{ position: 'fixed', top: '80px', left: '50px', p: 2 }}>
         {JSON.stringify({
           values,
           dirty,
           errors,
-          touched
+          touched,
+          isValid
         }, null, 2)}
-      </Paper>
+      </Paper> */}
 
       <Box sx={{
         display: 'flex',
@@ -63,6 +76,7 @@ const LoginPage = () => {
       <Box
         component='form'
         sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}
+        onSubmit={handleSubmit}
       >
         <TextField
           name='email'
@@ -113,7 +127,7 @@ const LoginPage = () => {
             Sign up
           </Link>
         </Box>
-        <CustomButton disabled={!dirty || !isValid}>LOGIN</CustomButton>
+        <CustomButton type='submit' disabled={!dirty || !isValid}>LOGIN</CustomButton>
       </Box>
     </Paper>
   )

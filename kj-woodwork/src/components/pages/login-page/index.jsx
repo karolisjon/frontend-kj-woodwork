@@ -1,10 +1,22 @@
-import { Box, Link, Paper, TextField, Typography } from '@mui/material';
 import * as React from 'react';
+import { Box, Link, Paper, TextField, Typography } from '@mui/material';
+import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import CustomButton from '../../../custom-button';
 
+const initialVals = {
+  email: '',
+  password: '',
+};
+
 const LoginPage = () => {
   let navigate = useNavigate();
+  const { 
+    values, dirty,
+    handleChange,
+  } = useFormik({
+    initialValues: initialVals,
+  });
   
   return (
     <Paper sx={{
@@ -14,6 +26,10 @@ const LoginPage = () => {
       py: 6,
       px: 4,
     }}>
+      <Paper component='pre' sx={{ position: 'fixed', top: '80px', left: '50px', p: 2 }}>
+        {JSON.stringify({ values, dirty }, null, 2)}
+      </Paper>
+
       <Box sx={{ 
         display: 'flex', 
         flexDirection: 'column', 
@@ -28,16 +44,20 @@ const LoginPage = () => {
       sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}
       >
         <TextField
-          variant='standard'
+          name='email'
           label='Email'
+          variant='standard'
           type='email'
           fullWidth
+          onChange={handleChange}
         />
         <TextField
-          variant='standard'
+          name='password'
           label='Password'
+          variant='standard'
           type='password'
           fullWidth
+          onChange={handleChange}
         />
         <Link 
         variant='body1'
@@ -66,7 +86,7 @@ const LoginPage = () => {
               Sign up
               </Link>
         </Box>
-        <CustomButton>LOGIN</CustomButton>
+        <CustomButton disabled={!dirty}>LOGIN</CustomButton>
       </Box>
     </Paper>
   )

@@ -33,11 +33,10 @@ const AuthForm = ({
           display: 'flex',
           flexDirection: 'column',
           gap: 2,
-          mb: 4
         }}
       >
         {children}
-        <Box>
+        <Box sx={{ mt: 2 }}>
           <CustomButton type='submit' disabled={disabled}>{buttonText}</CustomButton>
         </Box>
       </Box>

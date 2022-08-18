@@ -32,7 +32,6 @@ const LoginPage = () => {
   let navigate = useNavigate();
 
   const {
-    // values, 
     dirty,
     errors,
     isValid,
@@ -54,16 +53,6 @@ const LoginPage = () => {
         py: 6,
         px: 4,
       }}>
-        {/* <Paper component='pre' sx={{ position: 'fixed', top: '80px', left: '50px', p: 2 }}>
-        {JSON.stringify({
-          values,
-          dirty,
-          errors,
-          touched,
-          isValid
-        }, null, 2)}
-        </Paper> */}
-
         <Box sx={{
           display: 'flex',
           flexDirection: 'column',

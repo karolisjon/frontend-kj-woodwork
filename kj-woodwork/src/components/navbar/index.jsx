@@ -19,7 +19,7 @@ import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import theme from '../../styles/theme';
 import { useNavigate } from 'react-router-dom';
 
-const drawerWidth = 240;
+const drawerWidth = 260;
 
 const navItems = [
   { text: 'Home', to: '/' },
@@ -31,11 +31,11 @@ const navItems = [
 
 const Navbar = (props) => {
   const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [drawerOpen, setDrawerOpen] = React.useState(false);
   let navigate = useNavigate();
 
   const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
+    setDrawerOpen(!drawerOpen);
   };
 
   const drawer = (
@@ -68,7 +68,7 @@ const Navbar = (props) => {
             color="inherit"
             size='large'
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
+            sx={{ mr: 2, display: { md: 'none' } }}
           >
             <MenuOpenIcon />
           </Button>
@@ -89,7 +89,7 @@ const Navbar = (props) => {
             KJ Woodwork
           </Typography>
           <Box sx={{
-            display: { sm: 'none', md: 'flex' },
+            display: { xs: 'none', md: 'flex' },
             alignSelf: 'stretch',
           }}>
             {navItems.map(({ text, to }) => <Link key={to} to={to}>{text}</Link>)}
@@ -107,13 +107,13 @@ const Navbar = (props) => {
         <Drawer
           container={container}
           variant="temporary"
-          open={mobileOpen}
+          open={drawerOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
             keepMounted: true,
           }}
           sx={{
-            display: { xs: 'block', sm: 'none' },
+            display: { xs: 'block'},
             '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
           }}
         >

@@ -22,7 +22,7 @@ const PageRoutes = () => {
         <Route path='/order' element={<OrderPage />} />
         <Route path='/product/:id' element={<ProductInformation />} />
 
-        <Route path='/' element={<AuthLayout />}>
+        <Route path='auth/' element={<AuthLayout />}>
           <Route path='login' element={<LoginPage />} />
           <Route path='register' element={<RegisterPage />} />
         </Route>

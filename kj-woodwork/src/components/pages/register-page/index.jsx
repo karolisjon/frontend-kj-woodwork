@@ -7,7 +7,6 @@ import * as yup from 'yup';
 import moment from 'moment';
 
 const currentDate = moment(new Date());
-console.log(currentDate);
 
 const initialValues = {
   fullname: '',
@@ -21,13 +20,15 @@ const initialValues = {
 const validationSchema = yup.object({
   fullname: yup.string()
     .required('Your name and surname are mandatory'),
-    email: yup.string()
+    birthdate: yup.date('Incorrect date format, please use this format: YYYY-MM-DD')
+    .max(currentDate, 'Negalite pasirinkti ateities laiko'),
+  email: yup.string()
     .required('Email is mandatory')
     .email('Incorrect email format'),
-    emailConfirmation: yup.string()
+  emailConfirmation: yup.string()
     .required('Email confirmation is mandatory')
     .oneOf([yup.ref('email')], 'Email addresses do not match'),
-    password: yup.string()
+  password: yup.string()
     .required('Password is mandatory')
     .min(8, 'Your password must contain at least 8 characters')
     .max(30, 'Your password cannot contain more than 30 characters')
@@ -35,23 +36,31 @@ const validationSchema = yup.object({
     .matches(/[A-Z]/, 'Your password must contain at least one capital leter')
     .matches(/[\d]/, 'Your password must contain at least one digit')
     .matches(/[\W]/, 'Your password must contain at least one special character'),
-    passwordConfirmation: yup.string()
+  passwordConfirmation: yup.string()
     .required('Password confirmation is mandatory')
     .oneOf([yup.ref('password')], 'Passwords do not match'),
 });
 
 const RegisterPage = () => {
-  const { 
+  const onSubmit = (values) => {
+    console.log(values);
+  }
+
+  const {
+    values,
     dirty,
     errors,
     isValid,
     touched,
     handleChange,
     handleBlur,
-    // handleSubmit,
-   } = useFormik({
+    handleSubmit,
+    setFieldValue,
+    setFieldTouched, 
+  } = useFormik({
     initialValues,
     validationSchema,
+    onSubmit,
   })
 
   return (
@@ -59,6 +68,7 @@ const RegisterPage = () => {
       formTitle='register'
       buttonText='register'
       disabled={!dirty || !isValid}
+      onSubmit={handleSubmit}
     >
       <TextField
         name='fullname'
@@ -73,15 +83,23 @@ const RegisterPage = () => {
       />
       <DesktopDatePicker
         inputFormat="yyyy-MM-DD"
+        disableMaskedInput
+        value={values.birthdate}
+        disableFuture
+        onChange={(momentInstance) => {
+          if (momentInstance._isValid) {
+            setFieldTouched('birthdate', true, false);
+            setFieldValue('birthdate', momentInstance, true);
+          }
+        }}
         renderInput={(params) => (
           <TextField
             // eslint-disable-next-line react/jsx-props-no-spreading
             {...params}
             name="birthdate"
-            label="Birthdate"
+            label="Birth date"
             variant="standard"
             fullWidth
-            onChange={handleChange}
             onBlur={handleBlur}
             error={touched.birthdate && Boolean(errors.birthdate)}
             helperText={touched.birthdate && errors.birthdate}

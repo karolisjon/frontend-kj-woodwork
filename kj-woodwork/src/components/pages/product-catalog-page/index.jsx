@@ -12,7 +12,6 @@ import {
   Slider,
   TextField,
   Typography,
-  Divider,
 } from '@mui/material'
 import { Container } from '@mui/system';
 import * as React from 'react';
@@ -55,7 +54,7 @@ const ProductCatalog = () => {
   const [price, setPriceRange] = React.useState([0, 1000]);
   const [category, setCategory] = React.useState('');
   const [woodType, setWoodType] = React.useState('');
-  const [filterDrawer, setFilterDrawer] = React.useState(true);
+  const [filterDrawerOpen, setFilterDrawerOpen] = React.useState(false);
 
   React.useEffect(() => {
     fetch('http://localhost:8000/items')
@@ -76,7 +75,7 @@ const ProductCatalog = () => {
           bottom: 20,
           right: 20
         }}
-        onClick={() => setFilterDrawer(!filterDrawer)}
+        onClick={() => setFilterDrawerOpen(!filterDrawerOpen)}
       >
         <FilterListOutlinedIcon fontSize='large' sx={{ bgcolor: 'black', color: 'white', borderRadius: '50%' }} />
       </IconButton>
@@ -84,8 +83,9 @@ const ProductCatalog = () => {
       <Box>
         <Drawer
           anchor='left'
-          variant={filterDrawer ? 'permanent' : 'temporary'}
-          onClose={() => setFilterDrawer(!filterDrawer)}
+          variant='temporary'
+          open={filterDrawerOpen}
+          onClose={() => setFilterDrawerOpen(!filterDrawerOpen)}
           sx={{ borderRight: 'none' }}
         >
           <Box
@@ -104,7 +104,6 @@ const ProductCatalog = () => {
               <Typography variant='h4' component='h1'>Filters</Typography>
             </Box>
 
-            <Divider variant="inset"></Divider>
             <FormControl sx={{ my: 1 }}>
               <Typography>Categories</Typography>
               <Autocomplete

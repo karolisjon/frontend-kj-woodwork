@@ -1,7 +1,7 @@
 import {
   Autocomplete,
   Box,
-  IconButton,
+  Button,
   Drawer,
   FormControl,
   FormControlLabel,
@@ -67,18 +67,21 @@ const ProductCatalog = () => {
 
   return (
     <>
-      <IconButton
+      <Button
         variant='contained'
+        color='primary'
         sx={{
-          bgcolor: 'black',
-          position: 'absolute',
+          position: 'fixed',
           bottom: 20,
-          right: 20
+          right: 20,
+          height: 60,
+          width: 60,
+          borderRadius: '50%'
         }}
         onClick={() => setFilterDrawerOpen(!filterDrawerOpen)}
       >
-        <FilterListOutlinedIcon fontSize='large' sx={{ bgcolor: 'black', color: 'white', borderRadius: '50%' }} />
-      </IconButton>
+        <FilterListOutlinedIcon sx={{ bgcolor: 'primary', color: 'white',  }} />
+      </Button>
 
       <Box>
         <Drawer
@@ -86,7 +89,6 @@ const ProductCatalog = () => {
           variant='temporary'
           open={filterDrawerOpen}
           onClose={() => setFilterDrawerOpen(!filterDrawerOpen)}
-          sx={{ borderRight: 'none' }}
         >
           <Box
             sx={{

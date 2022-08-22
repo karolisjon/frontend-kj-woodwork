@@ -101,7 +101,7 @@ const LoginPage = () => {
                   cursor: 'pointer'
                 }
               }}
-              onClick={() => navigate('/register')}
+              onClick={() => navigate('/auth/register')}
             >
               Sign up
             </Link>

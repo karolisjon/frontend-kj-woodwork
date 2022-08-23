@@ -2,10 +2,10 @@ import {
   Autocomplete,
   Box,
   Button,
+  Divider,
   Drawer,
   FormControl,
   FormControlLabel,
-  FormLabel,
   Grid,
   Radio,
   RadioGroup,
@@ -74,13 +74,14 @@ const ProductCatalog = () => {
           position: 'fixed',
           bottom: 20,
           right: 20,
-          height: 60,
-          width: 60,
-          borderRadius: '50%'
+          height: 62,
+          width: 62,
+          borderRadius: '50%',
+          zIndex: 2,
         }}
         onClick={() => setFilterDrawerOpen(!filterDrawerOpen)}
       >
-        <FilterListOutlinedIcon sx={{ bgcolor: 'primary', color: 'white',  }} />
+        <FilterListOutlinedIcon sx={{ bgcolor: 'primary', color: 'white', }} />
       </Button>
 
       <Box>
@@ -95,19 +96,19 @@ const ProductCatalog = () => {
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'center',
-              alignItems: 'center',
               gap: 6,
               p: 4,
             }}
           >
-
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+            <Box sx={{ display: 'flex', justifyContent: 'row', alignItems: 'center', gap: 2 }}>
               <FilterListOutlinedIcon fontSize='large' />
-              <Typography variant='h4' component='h1'>Filters</Typography>
+              <Typography variant='h3' component='h1'>Filters</Typography>
             </Box>
+            <Divider></Divider>
 
             <FormControl sx={{ my: 1 }}>
-              <Typography>Categories</Typography>
+              <Typography variant='h6' component='h1'>Filter by categories</Typography>
+              {/* <Divider sx={{ my: 1 }}></Divider> */}
               <Autocomplete
                 options={categories}
                 value={category}
@@ -118,7 +119,8 @@ const ProductCatalog = () => {
             </FormControl>
 
             <FormControl sx={{ my: 1 }}>
-              <Typography>Price</Typography>
+              <Typography variant='h6' component='h1'>Filter by price</Typography>
+              {/* <Divider sx={{ my: 1 }}></Divider> */}
               <Box sx={{ mx: '2' }}>
                 <Slider
                   min={0}
@@ -132,10 +134,10 @@ const ProductCatalog = () => {
             </FormControl>
 
             <FormControl sx={{ my: 1 }}>
-              <FormLabel id="demo-radio-buttons-group-label">Type of wood</FormLabel>
+              <Typography variant='h6' component='h1'>Filter by wood type</Typography>
+              {/* <Divider sx={{ my: 1 }}></Divider> */}
               <RadioGroup
                 name="radio-buttons-group"
-                sx={{ display: 'flex', flexDirection: 'row' }}
                 value={woodType}
                 onChange={(_, newWoodType) => setWoodType(newWoodType)}
               >

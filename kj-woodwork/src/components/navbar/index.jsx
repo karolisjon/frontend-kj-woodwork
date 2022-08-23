@@ -59,7 +59,7 @@ const Navbar = (props) => {
   const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex'}}>
       <AppBar component="nav" sx={{ boxShadow: 'none' }}>
         <Toolbar sx={{
           justifyContent: { xs: 'space-between' },

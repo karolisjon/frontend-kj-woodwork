@@ -90,12 +90,14 @@ const ProductCatalog = () => {
           variant='temporary'
           open={filterDrawerOpen}
           onClose={() => setFilterDrawerOpen(!filterDrawerOpen)}
+          sx={{ zIndex: 1 }}
         >
           <Box
             sx={{
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'center',
+              height: `calc(100vh - 64px)`,
               gap: 6,
               p: 4,
             }}
@@ -107,7 +109,7 @@ const ProductCatalog = () => {
             <Divider></Divider>
 
             <FormControl sx={{ my: 1 }}>
-              <Typography variant='h6' component='h1'>Filter by categories</Typography>
+              <Typography variant='h6' component='h2'>Filter by categories</Typography>
               {/* <Divider sx={{ my: 1 }}></Divider> */}
               <Autocomplete
                 options={categories}
@@ -119,7 +121,7 @@ const ProductCatalog = () => {
             </FormControl>
 
             <FormControl sx={{ my: 1 }}>
-              <Typography variant='h6' component='h1'>Filter by price</Typography>
+              <Typography variant='h6' component='h2'>Filter by price</Typography>
               {/* <Divider sx={{ my: 1 }}></Divider> */}
               <Box sx={{ mx: '2' }}>
                 <Slider
@@ -134,7 +136,7 @@ const ProductCatalog = () => {
             </FormControl>
 
             <FormControl sx={{ my: 1 }}>
-              <Typography variant='h6' component='h1'>Filter by wood type</Typography>
+              <Typography variant='h6' component='h2'>Filter by wood type</Typography>
               {/* <Divider sx={{ my: 1 }}></Divider> */}
               <RadioGroup
                 name="radio-buttons-group"

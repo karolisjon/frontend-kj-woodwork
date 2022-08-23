@@ -17,6 +17,7 @@ import { Container } from '@mui/system';
 import * as React from 'react';
 import ItemCard from './components/item-card';
 import FilterListOutlinedIcon from '@mui/icons-material/FilterListOutlined';
+
 // import CartPageContext from '../../../contexts/cart-page-context';
 
 const categories = [
@@ -84,7 +85,6 @@ const ProductCatalog = () => {
         <FilterListOutlinedIcon sx={{ bgcolor: 'primary', color: 'white', }} />
       </Button>
 
-      <Box>
         <Drawer
           anchor='left'
           variant='temporary'
@@ -177,7 +177,6 @@ const ProductCatalog = () => {
             ))}
           </Grid>
         </Container>
-      </Box>
     </>
   )
 }

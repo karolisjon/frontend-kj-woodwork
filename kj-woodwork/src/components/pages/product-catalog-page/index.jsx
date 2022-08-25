@@ -58,7 +58,7 @@ const ProductCatalog = () => {
   const [filterDrawerOpen, setFilterDrawerOpen] = React.useState(false);
 
   React.useEffect(() => {
-    fetch('http://localhost:8000/items')
+    fetch('http://localhost:8000/products')
       .then(res => res.json())
       .then(fetchedItems => setItems(fetchedItems))
   }, []);

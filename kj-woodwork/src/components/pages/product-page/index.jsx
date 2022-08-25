@@ -19,7 +19,7 @@ const ProductInformation = () => {
 
   React.useEffect(() => {
     const fetchProduct = async () => {
-      const response = await fetch(`http://localhost:8000/items/${id}`);
+      const response = await fetch(`http://localhost:8000/products/${id}`);
       const productDetails = await response.json();
 
       setProduct(productDetails);

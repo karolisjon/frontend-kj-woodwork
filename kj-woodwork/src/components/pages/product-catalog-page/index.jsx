@@ -17,24 +17,9 @@ import ProductCard from './components/product-card';
 import FilterListOutlinedIcon from '@mui/icons-material/FilterListOutlined';
 import AutoCompleteField from '../../auto-complete-field';
 // import ProductService from '../../../services/product-service';
-// import CategoryService from '../../../services/category-service';
+import CategoryService from '../../../services/category-service';
 
 // import CartPageContext from '../../../contexts/cart-page-context';
-
-const categories = [
-  {
-    id: '1',
-    label: 'Furniture'
-  },
-  {
-    id: '2',
-    label: 'Accessories'
-  },
-  {
-    id: '3',
-    label: 'Kitchen utensils'
-  },
-];
 
 const materials = [
   {
@@ -52,11 +37,25 @@ const materials = [
 ];
 
 const ProductCatalog = () => {
+  const [categories, setCategories] = React.useState([]);
+
   const [products, setProducts] = React.useState([]);
   const [price, setPriceRange] = React.useState([0, 1000]);
   const [category, setCategory] = React.useState('');
-  const [filterWoodType, setFilterWoodType] = React.useState('');
+  const [woodType, setWoodType] = React.useState('');
   const [filterDrawerOpen, setFilterDrawerOpen] = React.useState(false);
+
+  React.useEffect(() => {
+    (async () => {
+      const [fetchedCategories] = await Promise.all([
+        CategoryService.fetchCategories(),
+      ]);
+
+      setCategories(fetchedCategories);
+    })()
+  }, []);
+
+
 
   React.useEffect(() => {
     fetch('http://localhost:8000/products/?_expand=category&_expand=wood')
@@ -138,8 +137,8 @@ const ProductCatalog = () => {
             <Typography variant='h6' component='h2'>Filter by wood type</Typography>
             <RadioGroup
               name="radio-buttons-group"
-              value={filterWoodType}
-              onChange={(_, newWoodType) => setFilterWoodType(newWoodType)}
+              value={woodType}
+              onChange={(_, newWoodType) => setWoodType(newWoodType)}
             >
               {materials.map(({ id, label }) =>
                 <FormControlLabel

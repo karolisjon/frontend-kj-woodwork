@@ -1,3 +1,4 @@
+import * as React from 'react';
 import {
   Box,
   Button,
@@ -12,12 +13,14 @@ import {
   Typography,
 } from '@mui/material'
 import { Container } from '@mui/system';
-import * as React from 'react';
 import ProductCard from './components/product-card';
 import FilterListOutlinedIcon from '@mui/icons-material/FilterListOutlined';
 import AutoCompleteField from '../../auto-complete-field';
-// import ProductService from '../../../services/product-service';
 import CategoryService from '../../../services/category-service';
+import RadioGroupField from '../../radio-group-field';
+// import WoodTypeService from '../../../services/category-service';
+// import RadioGroupField from '../../radio-group-field';
+// import ProductService from '../../../services/product-service';
 
 // import CartPageContext from '../../../contexts/cart-page-context';
 
@@ -38,6 +41,7 @@ const materials = [
 
 const ProductCatalog = () => {
   const [categories, setCategories] = React.useState([]);
+  // const [woodTypes, setWoodTypes] = React.useState([]);
 
   const [products, setProducts] = React.useState([]);
   const [price, setPriceRange] = React.useState([0, 1000]);
@@ -65,8 +69,6 @@ const ProductCatalog = () => {
 
   // const cartPageContext = React.useContext(CartPageContext);
   // console.log('Products, cartPageContext: ', cartPageContext);
-
-  console.log(products.wood);
 
   return (
     <>
@@ -138,6 +140,7 @@ const ProductCatalog = () => {
             <RadioGroup
               name="radio-buttons-group"
               value={woodType}
+              options={materials}
               onChange={(_, newWoodType) => setWoodType(newWoodType)}
             >
               {materials.map(({ id, label }) =>
@@ -151,6 +154,13 @@ const ProductCatalog = () => {
               }
             </RadioGroup>
           </FormControl>
+
+          <RadioGroupField
+          options={materials}
+          value={woodType}
+          onChange={(_, newWoodType) => setWoodType(newWoodType)}
+          />
+
         </Box>
       </Drawer>
 

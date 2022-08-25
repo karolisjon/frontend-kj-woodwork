@@ -17,6 +17,7 @@ import { Container } from '@mui/system';
 import * as React from 'react';
 import ItemCard from './components/item-card';
 import FilterListOutlinedIcon from '@mui/icons-material/FilterListOutlined';
+import CategoryService from '../../../services/category-service';
 
 // import CartPageContext from '../../../contexts/cart-page-context';
 
@@ -62,6 +63,8 @@ const ProductCatalog = () => {
       .then(res => res.json())
       .then(fetchedItems => setItems(fetchedItems))
   }, []);
+
+  console.log(CategoryService.fetchCategories());
 
   // const cartPageContext = React.useContext(CartPageContext);
   // console.log('Products, cartPageContext: ', cartPageContext);

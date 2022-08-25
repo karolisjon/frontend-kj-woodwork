@@ -1,4 +1,4 @@
-const domain = 'http://localhost:8000/';
+const domain = 'http://localhost:8000';
 
 const fetchCategories = async () => {
   const response = await fetch(`${domain}/categories`);

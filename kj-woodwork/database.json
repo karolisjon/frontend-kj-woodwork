@@ -7,7 +7,7 @@
 				"categoryId": "1",
 				"price": 569,
 				"img": "https://www.arlberry.com/wp-content/uploads/2014/01/Mia-Marquez-1-744x496.jpg",
-				"wood": "1",
+				"woodId": "1",
 				"measurements": "150x100x62 cm",
 				"inStock": true
 			},
@@ -18,7 +18,7 @@
 				"categoryId": "1",
 				"price": 699,
 				"img": "https://www.orpago.co.uk/sites/default/files/styles/tablelist/public/ashridge-dining-table-handmade_0.jpg?itok=f7PLzFUL",
-				"wood": "2",
+				"woodId": "2",
 				"measurements": "180x110x56 cm",
 				"inStock": true
 			},
@@ -123,7 +123,7 @@
 				"categoryId": "2",
 				"price": 149,
 				"img": "https://cdn.shopify.com/s/files/1/0700/8849/products/image_6904a60c-9318-4dc9-8e35-1e92052e8e1e_1024x1024.jpg?v=1627955573",
-				"wood": "1",
+				"woodId": "1",
 				"inStock": false
 			}
 		],

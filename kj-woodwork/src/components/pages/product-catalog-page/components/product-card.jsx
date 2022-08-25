@@ -11,7 +11,7 @@ import ProductContext from '../../../../contexts/product-page-context';
 import { useNavigate } from 'react-router-dom';
 import CustomButton from '../../../custom-button';
 
-const ItemCard = ({ 
+const ProductCard = ({ 
   id,
   title, 
   description, 
@@ -104,4 +104,4 @@ const ItemCard = ({
   )
 }
 
-export default ItemCard;
+export default ProductCard;

@@ -15,9 +15,9 @@ import {
 } from '@mui/material'
 import { Container } from '@mui/system';
 import * as React from 'react';
-import ItemCard from './components/item-card';
+import ProductCard from './components/product-card';
 import FilterListOutlinedIcon from '@mui/icons-material/FilterListOutlined';
-import CategoryService from '../../../services/category-service';
+// import CategoryService from '../../../services/category-service';
 
 // import CartPageContext from '../../../contexts/cart-page-context';
 
@@ -52,22 +52,22 @@ const materials = [
 ];
 
 const ProductCatalog = () => {
-  const [items, setItems] = React.useState([]);
+  const [products, setProducts] = React.useState([]);
   const [price, setPriceRange] = React.useState([0, 1000]);
   const [category, setCategory] = React.useState('');
   const [woodType, setWoodType] = React.useState('');
   const [filterDrawerOpen, setFilterDrawerOpen] = React.useState(false);
 
   React.useEffect(() => {
-    fetch('http://localhost:8000/products')
+    fetch('http://localhost:8000/products/?_expand=category&_expand=wood')
       .then(res => res.json())
-      .then(fetchedItems => setItems(fetchedItems))
-  }, []);
-
-  console.log(CategoryService.fetchCategories());
+      .then(fetchedProducts => setProducts(fetchedProducts))
+    }, []);
 
   // const cartPageContext = React.useContext(CartPageContext);
   // console.log('Products, cartPageContext: ', cartPageContext);
+
+  console.log(products.wood);
 
   return (
     <>
@@ -159,10 +159,10 @@ const ProductCatalog = () => {
 
         <Container maxWidth="xl">
           <Grid container spacing={2} sx={{ py: 4, px: 3 }}>
-            {items.map(item => (
+            {products.map(product => (
               <Grid
-                id={item.id}
-                key={item.id}
+                id={product.id}
+                key={product.id}
                 item
                 alignItems='stretch'
                 xs={12}
@@ -172,7 +172,15 @@ const ProductCatalog = () => {
                 xl={3}
                 sx={{ mb: 1 }}
               >
-                <ItemCard {...item} />
+                <ProductCard
+                id={product.id}
+                title={product.title}
+                description={product.description}
+                price={product.price}
+                img={product.img}
+                category={product.category.label}
+                // wood={product.wood.label}
+                />
               </Grid>
             ))}
           </Grid>

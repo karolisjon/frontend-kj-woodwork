@@ -1,6 +1,6 @@
 import { Button, styled } from '@mui/material'; 
 
-const ItemCardButton = styled(Button)(({ theme }) => ({
+const ProductCardButton = styled(Button)(({ theme }) => ({
   width: '100%',
   height: '50px',
   backgroundColor: theme.palette.primary.main,
@@ -15,4 +15,4 @@ const ItemCardButton = styled(Button)(({ theme }) => ({
   }
 }));
 
-export default ItemCardButton;
+export default ProductCardButton;

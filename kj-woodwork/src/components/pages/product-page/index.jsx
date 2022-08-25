@@ -32,7 +32,6 @@ const ProductInformation = () => {
 
   return (
     <Container>
-      {/* <Typography variant='h4' component='h4'>Product information {id}</Typography> */}
       <Box sx={{ display: 'flex', my: 6 }}>
         <Box sx={{ display: 'flex', flexDirection: 'column' }}>
           <Box sx={{ display: 'flex' }}>

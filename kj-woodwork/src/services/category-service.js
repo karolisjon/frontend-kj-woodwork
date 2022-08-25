@@ -5,7 +5,7 @@ const fetchCategories = async () => {
   const categories = await response.json();
 
   return categories;
-}
+};
 
 const CategoryService = {
   fetchCategories,

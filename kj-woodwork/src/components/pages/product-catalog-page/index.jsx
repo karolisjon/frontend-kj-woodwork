@@ -17,6 +17,7 @@ import { Container } from '@mui/system';
 import * as React from 'react';
 import ProductCard from './components/product-card';
 import FilterListOutlinedIcon from '@mui/icons-material/FilterListOutlined';
+// import ProductService from '../../../services/product-service';
 // import CategoryService from '../../../services/category-service';
 
 // import CartPageContext from '../../../contexts/cart-page-context';

@@ -56,7 +56,7 @@ const ProductCatalog = () => {
   const [products, setProducts] = React.useState([]);
   const [price, setPriceRange] = React.useState([0, 1000]);
   const [category, setCategory] = React.useState('');
-  const [woodType, setWoodType] = React.useState('');
+  const [wood, setWood] = React.useState('');
   const [filterDrawerOpen, setFilterDrawerOpen] = React.useState(false);
 
   React.useEffect(() => {
@@ -141,8 +141,8 @@ const ProductCatalog = () => {
               <Typography variant='h6' component='h2'>Filter by wood type</Typography>
               <RadioGroup
                 name="radio-buttons-group"
-                value={woodType}
-                onChange={(_, newWoodType) => setWoodType(newWoodType)}
+                value={wood}
+                onChange={(_, newWoodType) => setWood(newWoodType)}
               >
                 {materials.map(({ id, label }) =>
                   <FormControlLabel

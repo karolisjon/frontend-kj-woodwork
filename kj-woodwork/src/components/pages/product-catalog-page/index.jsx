@@ -110,7 +110,6 @@ const ProductCatalog = () => {
 
             <FormControl sx={{ my: 1 }}>
               <Typography variant='h6' component='h2'>Filter by categories</Typography>
-              {/* <Divider sx={{ my: 1 }}></Divider> */}
               <Autocomplete
                 options={categories}
                 value={category}
@@ -122,7 +121,6 @@ const ProductCatalog = () => {
 
             <FormControl sx={{ my: 1 }}>
               <Typography variant='h6' component='h2'>Filter by price</Typography>
-              {/* <Divider sx={{ my: 1 }}></Divider> */}
               <Box sx={{ mx: '2' }}>
                 <Slider
                   min={0}
@@ -137,7 +135,6 @@ const ProductCatalog = () => {
 
             <FormControl sx={{ my: 1 }}>
               <Typography variant='h6' component='h2'>Filter by wood type</Typography>
-              {/* <Divider sx={{ my: 1 }}></Divider> */}
               <RadioGroup
                 name="radio-buttons-group"
                 value={woodType}

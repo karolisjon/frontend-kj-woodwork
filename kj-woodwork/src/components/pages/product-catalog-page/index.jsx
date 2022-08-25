@@ -5,10 +5,7 @@ import {
   Divider,
   Drawer,
   FormControl,
-  FormControlLabel,
   Grid,
-  Radio,
-  RadioGroup,
   Slider,
   Typography,
 } from '@mui/material'
@@ -18,30 +15,12 @@ import FilterListOutlinedIcon from '@mui/icons-material/FilterListOutlined';
 import AutoCompleteField from '../../auto-complete-field';
 import CategoryService from '../../../services/category-service';
 import RadioGroupField from '../../radio-group-field';
-// import WoodTypeService from '../../../services/category-service';
-// import RadioGroupField from '../../radio-group-field';
-// import ProductService from '../../../services/product-service';
-
+import WoodTypeService from '../../../services/wood-types-service';
 // import CartPageContext from '../../../contexts/cart-page-context';
-
-const materials = [
-  {
-    id: '1',
-    label: 'Maple'
-  },
-  {
-    id: '2',
-    label: 'Oak'
-  },
-  {
-    id: '3',
-    label: 'Cherry'
-  },
-];
 
 const ProductCatalog = () => {
   const [categories, setCategories] = React.useState([]);
-  // const [woodTypes, setWoodTypes] = React.useState([]);
+  const [woodTypes, setWoodTypes] = React.useState([]);
 
   const [products, setProducts] = React.useState([]);
   const [price, setPriceRange] = React.useState([0, 1000]);
@@ -51,15 +30,15 @@ const ProductCatalog = () => {
 
   React.useEffect(() => {
     (async () => {
-      const [fetchedCategories] = await Promise.all([
+      const [fetchedCategories, fetchedWoodTypes] = await Promise.all([
         CategoryService.fetchCategories(),
+        WoodTypeService.fetchWoodTypes(),
       ]);
 
       setCategories(fetchedCategories);
+      setWoodTypes(fetchedWoodTypes);
     })()
   }, []);
-
-
 
   React.useEffect(() => {
     fetch('http://localhost:8000/products/?_expand=category&_expand=wood')
@@ -88,7 +67,6 @@ const ProductCatalog = () => {
       >
         <FilterListOutlinedIcon sx={{ bgcolor: 'primary', color: 'white', }} />
       </Button>
-
       <Drawer
         anchor='left'
         variant='temporary'
@@ -111,16 +89,14 @@ const ProductCatalog = () => {
             <Typography variant='h3' component='h1'>Filters</Typography>
           </Box>
           <Divider></Divider>
-
           <FormControl sx={{ my: 1 }}>
             <Typography variant='h6' component='h2'>Filter by categories</Typography>
             <AutoCompleteField
-            options={categories}
-            value={category}
-            onChange={(_, newCategory) => setCategory(newCategory)}
+              options={categories}
+              value={category}
+              onChange={(_, newCategory) => setCategory(newCategory)}
             />
           </FormControl>
-
           <FormControl sx={{ my: 1 }}>
             <Typography variant='h6' component='h2'>Filter by price</Typography>
             <Box sx={{ mx: '2' }}>
@@ -134,33 +110,14 @@ const ProductCatalog = () => {
               />
             </Box>
           </FormControl>
-
           <FormControl sx={{ my: 1 }}>
             <Typography variant='h6' component='h2'>Filter by wood type</Typography>
-            <RadioGroup
-              name="radio-buttons-group"
+            <RadioGroupField
+              options={woodTypes}
               value={woodType}
-              options={materials}
               onChange={(_, newWoodType) => setWoodType(newWoodType)}
-            >
-              {materials.map(({ id, label }) =>
-                <FormControlLabel
-                  key={label}
-                  id={id}
-                  value={label}
-                  control={<Radio />}
-                  label={label}
-                />)
-              }
-            </RadioGroup>
+            />
           </FormControl>
-
-          <RadioGroupField
-          options={materials}
-          value={woodType}
-          onChange={(_, newWoodType) => setWoodType(newWoodType)}
-          />
-
         </Box>
       </Drawer>
 

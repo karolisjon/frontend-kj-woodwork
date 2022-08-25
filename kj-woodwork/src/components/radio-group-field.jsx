@@ -1,5 +1,10 @@
-import { FormControl, FormControlLabel, Radio, RadioGroup, Typography } from '@mui/material';
 import * as React from 'react';
+import { 
+  FormControl, 
+  FormControlLabel, 
+  Radio, 
+  RadioGroup 
+} from '@mui/material';
 
 const RadioGroupField = ({
   options,
@@ -7,11 +12,10 @@ const RadioGroupField = ({
   onChange,
 }) => (
   <FormControl sx={{ my: 1 }}>
-  <Typography variant='h6' component='h2'>Filter by wood type</Typography>
   <RadioGroup
     name="radio-buttons-group"
-    value={value}
     options={options}
+    value={value}
     onChange={onChange}
   >
     {options.map(({ id, label }) =>

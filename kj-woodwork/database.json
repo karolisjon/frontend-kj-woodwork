@@ -139,10 +139,6 @@
 			{
 				"id": "3",
 				"label": "Kitchen utensils"
-			},
-			{
-				"id": "4",
-				"label": "test"
 			}
 		],
 		"woodTypes": [
@@ -157,10 +153,6 @@
 			{
 				"id": "3",
 				"label": "Cherry"
-			},
-			{
-				"id": "4",
-				"label": "test"
 			}
 		]
 	}

@@ -1,7 +1,8 @@
 const domain = 'http://localhost:8000';
+const databaseCollection = 'categories';
 
 const fetchCategories = async () => {
-  const response = await fetch(`${domain}/categories`);
+  const response = await fetch(`${domain}/${databaseCollection}`);
   const categories = await response.json();
 
   return categories;

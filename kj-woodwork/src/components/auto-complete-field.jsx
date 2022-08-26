@@ -16,18 +16,18 @@ const AutoCompleteField = ({
       inputProps,
       id,
       fullWidth,
-    }) =>
+    }) => (
       <TextField
         InputLabelProps={InputLabelProps}
         InputProps={InputProps}
         inputProps={inputProps}
         id={id}
-        variant='standard'
+        variant="standard"
         fullWidth={fullWidth}
       />
-    }
+    )}
     sx={{ width: '300px' }}
   />
-)
+);
 
 export default AutoCompleteField;

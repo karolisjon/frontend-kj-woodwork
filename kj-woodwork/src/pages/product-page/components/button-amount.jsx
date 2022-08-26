@@ -1,6 +1,6 @@
-import { styled } from '@mui/material'; 
+import { styled } from '@mui/material';
 
-const ButtonAmmount = styled('button')(({ theme}) => ({
+const ButtonAmmount = styled('button')(({ theme }) => ({
   width: '60px',
   padding: 0,
   backgroundColor: theme.palette.primary.main,
@@ -12,7 +12,7 @@ const ButtonAmmount = styled('button')(({ theme}) => ({
 
   ':hover': {
     cursor: 'pointer',
-  }
-}))
+  },
+}));
 
 export default ButtonAmmount;

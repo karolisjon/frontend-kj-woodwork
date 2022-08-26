@@ -2,22 +2,23 @@ import * as React from 'react';
 import {
   Box,
   Button,
+  Container,
   Divider,
   Drawer,
   FormControl,
   Grid,
   Slider,
   Typography,
-} from '@mui/material'
-import { Container } from '@mui/system';
-import ProductCard from './components/product-card';
+} from '@mui/material';
+// import { Container } from '@mui/system';
 import FilterListOutlinedIcon from '@mui/icons-material/FilterListOutlined';
-import AutoCompleteField from '../../auto-complete-field';
-import RadioGroupField from '../../radio-group-field';
-import CategoryService from '../../../services/category-service';
-import WoodTypeService from '../../../services/wood-types-service';
-import ProductService from '../../../services/product-service';
 import { useSearchParams } from 'react-router-dom';
+import ProductCard from './components/product-card';
+import AutoCompleteField from '../../components/auto-complete-field';
+import RadioGroupField from '../../components/radio-group-field';
+import CategoryService from '../../services/category-service';
+import WoodTypeService from '../../services/wood-types-service';
+import ProductService from '../../services/product-service';
 // import CartPageContext from '../../../contexts/cart-page-context';
 
 const ProductCatalog = () => {
@@ -61,13 +62,13 @@ const ProductCatalog = () => {
 
       setCategories(fetchedCategories);
       setWoodTypes(fetchedWoodTypes);
-    })()
+    })();
   }, []);
 
   const handleFetchProducts = async () => {
     const fetchedProcuts = await ProductService.fetchProducts();
     setProducts(fetchedProcuts);
-  }
+  };
 
   React.useEffect(() => {
     handleFetchProducts();
@@ -81,8 +82,8 @@ const ProductCatalog = () => {
   return (
     <>
       <Button
-        variant='contained'
-        color='primary'
+        variant="contained"
+        color="primary"
         sx={{
           position: 'fixed',
           bottom: 20,
@@ -94,11 +95,11 @@ const ProductCatalog = () => {
         }}
         onClick={() => setFilterDrawerOpen(!filterDrawerOpen)}
       >
-        <FilterListOutlinedIcon sx={{ bgcolor: 'primary', color: 'white', }} />
+        <FilterListOutlinedIcon sx={{ bgcolor: 'primary', color: 'white' }} />
       </Button>
       <Drawer
-        anchor='left'
-        variant='temporary'
+        anchor="left"
+        variant="temporary"
         open={filterDrawerOpen}
         onClose={() => setFilterDrawerOpen(!filterDrawerOpen)}
         sx={{ zIndex: 1 }}
@@ -108,19 +109,22 @@ const ProductCatalog = () => {
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
-            height: `calc(100vh - 64px)`,
+            height: 'calc(100vh - 64px)',
             gap: 6,
             p: 4,
           }}
         >
-          <Box sx={{ display: 'flex', justifyContent: 'row', alignItems: 'center', gap: 2 }}>
-            <FilterListOutlinedIcon fontSize='large' />
-            <Typography variant='h3' component='h1'>Filters</Typography>
+          <Box sx={{
+            display: 'flex', justifyContent: 'row', alignItems: 'center', gap: 2,
+          }}
+          >
+            <FilterListOutlinedIcon fontSize="large" />
+            <Typography variant="h3" component="h1">Filters</Typography>
           </Box>
-          <Divider></Divider>
+          <Divider />
 
           <FormControl sx={{ my: 1 }}>
-            <Typography variant='h6' component='h2'>Filter by categories</Typography>
+            <Typography variant="h6" component="h2">Filter by categories</Typography>
             <AutoCompleteField
               options={categories}
               value={category}
@@ -129,7 +133,7 @@ const ProductCatalog = () => {
           </FormControl>
 
           <FormControl sx={{ my: 1 }}>
-            <Typography variant='h6' component='h2'>Filter by price</Typography>
+            <Typography variant="h6" component="h2">Filter by price</Typography>
             <Box sx={{ mx: '2' }}>
               <Slider
                 min={0}
@@ -143,7 +147,7 @@ const ProductCatalog = () => {
           </FormControl>
 
           <FormControl sx={{ my: 1 }}>
-            <Typography variant='h6' component='h2'>Filter by wood type</Typography>
+            <Typography variant="h6" component="h2">Filter by wood type</Typography>
             <RadioGroupField
               options={woodTypes}
               value={woodType}
@@ -156,12 +160,12 @@ const ProductCatalog = () => {
 
       <Container maxWidth="xl">
         <Grid container spacing={2} sx={{ py: 4, px: 3 }}>
-          {products.map(product => (
+          {products.map((product) => (
             <Grid
               id={product.id}
               key={product.id}
               item
-              alignItems='stretch'
+              alignItems="stretch"
               xs={12}
               sm={6}
               md={4}
@@ -182,8 +186,8 @@ const ProductCatalog = () => {
           ))}
         </Grid>
       </Container>
-  </>
-  )
-}
+    </>
+  );
+};
 
 export default ProductCatalog;

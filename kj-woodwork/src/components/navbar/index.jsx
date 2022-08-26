@@ -14,10 +14,10 @@ import {
   Button,
 } from '@mui/material';
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
-import Link from './components';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
-import theme from '../../styles/theme';
 import { useNavigate } from 'react-router-dom';
+import Link from './components';
+import theme from '../../styles/theme';
 
 const drawerWidth = 260;
 
@@ -32,7 +32,7 @@ const navItems = [
 const Navbar = (props) => {
   const { window } = props;
   const [drawerOpen, setDrawerOpen] = React.useState(false);
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleDrawerToggle = () => {
     setDrawerOpen(!drawerOpen);
@@ -59,14 +59,15 @@ const Navbar = (props) => {
   const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: 'flex'}}>
+    <Box sx={{ display: 'flex' }}>
       <AppBar component="nav" sx={{ boxShadow: 'none' }}>
         <Toolbar sx={{
           justifyContent: { xs: 'space-between' },
-        }}>
+        }}
+        >
           <Button
             color="inherit"
-            size='large'
+            size="large"
             onClick={handleDrawerToggle}
             sx={{ mr: 2, display: { md: 'none' } }}
           >
@@ -82,8 +83,8 @@ const Navbar = (props) => {
               display: { xs: 'none', sm: 'block' },
               transition: '0.3s ease-in-out',
               '&:hover': {
-                cursor: 'pointer'
-              }
+                cursor: 'pointer',
+              },
             }}
           >
             KJ Woodwork
@@ -91,14 +92,15 @@ const Navbar = (props) => {
           <Box sx={{
             display: { xs: 'none', md: 'flex' },
             alignSelf: 'stretch',
-          }}>
+          }}
+          >
             {navItems.map(({ text, to }) => <Link key={to} to={to}>{text}</Link>)}
           </Box>
           <IconButton
-            fontSize='medium'
+            fontSize="medium"
             sx={{ color: theme.palette.primary.white }}
             onClick={() => navigate('/cart')}
-            >
+          >
             <ShoppingBagIcon />
           </IconButton>
         </Toolbar>
@@ -113,7 +115,7 @@ const Navbar = (props) => {
             keepMounted: true,
           }}
           sx={{
-            display: { xs: 'block'},
+            display: { xs: 'block' },
             '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
           }}
         >
@@ -125,6 +127,6 @@ const Navbar = (props) => {
       </Box>
     </Box>
   );
-}
+};
 
 export default Navbar;

@@ -1,5 +1,15 @@
-import { Box, Button, Checkbox, FormControlLabel, FormGroup, MenuItem, Paper, TextField, Typography } from '@mui/material';
 import * as React from 'react';
+import {
+  Box,
+  Button,
+  Checkbox,
+  FormControlLabel,
+  FormGroup,
+  MenuItem,
+  Paper,
+  TextField,
+  Typography,
+} from '@mui/material';
 // import CartPageContext from '../../../contexts/cart-page-context';
 
 const countries = [
@@ -67,7 +77,7 @@ const OrderPage = () => {
         }}
       >
         <Box
-          component='form'
+          component="form"
           sx={{
             display: 'flex',
             flexDirection: 'column',
@@ -75,107 +85,115 @@ const OrderPage = () => {
             gap: 2,
           }}
         >
-          <Typography component='h1' variant='h5'>
+          <Typography component="h1" variant="h5">
             Enter your details
           </Typography>
           <TextField
-            name='fullname'
-            label='Full name'
-            variant='standard'
+            name="fullname"
+            label="Full name"
+            variant="standard"
             fullWidth
             value={fullname}
             onChange={(event) => setFullname(event.target.value)}
           />
           <TextField
-            name='email'
-            label='E-mail address'
-            variant='standard'
+            name="email"
+            label="E-mail address"
+            variant="standard"
             fullWidth
             value={email}
             onChange={(event) => setEmail(event.target.value)}
           />
           <TextField
-            name='mobile'
-            label='Phone number'
-            variant='standard'
+            name="mobile"
+            label="Phone number"
+            variant="standard"
             fullWidth
             value={mobile}
             onChange={(event) => setMobile(event.target.value)}
           />
           <TextField
             select
-            name='country'
-            label='Country of shipment'
-            variant='standard'
+            name="country"
+            label="Country of shipment"
+            variant="standard"
             fullWidth
             value={country}
             onChange={(event) => setCountry(event.target.value)}
           >
             {countries.map(
-              ({ value, label }) => <MenuItem key={label} value={value}>{value}</MenuItem>
+              ({ value, label }) => <MenuItem key={label} value={value}>{value}</MenuItem>,
             )}
           </TextField>
-          <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%' }}>
+          <Box sx={{
+            display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%',
+          }}
+          >
             <TextField
-              name='city'
-              label='City'
-              variant='standard'
+              name="city"
+              label="City"
+              variant="standard"
               fullWidth
               value={city}
               onChange={(event) => setCity(event.target.value)}
-              sx={{ width: '40%'}}
+              sx={{ width: '40%' }}
             />
             <TextField
-              name='zip'
-              label='Postal / Zip code'
-              variant='standard'
+              name="zip"
+              label="Postal / Zip code"
+              variant="standard"
               fullWidth
               value={zip}
               onChange={(event) => setZip(event.target.value)}
-              sx={{ width: '40%'}}
+              sx={{ width: '40%' }}
             />
           </Box>
           <TextField
-              name='street'
-              label='Street name'
-              variant='standard'
-              fullWidth
-              value={street}
-              onChange={(event) => setStreet(event.target.value)}
-            />
-            <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%' }}>
+            name="street"
+            label="Street name"
+            variant="standard"
+            fullWidth
+            value={street}
+            onChange={(event) => setStreet(event.target.value)}
+          />
+          <Box sx={{
+            display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%',
+          }}
+          >
             <TextField
-              name='house'
-              label='House number'
-              variant='standard'
+              name="house"
+              label="House number"
+              variant="standard"
               fullWidth
               value={houseNr}
               onChange={(event) => setHouseNr(event.target.value)}
-              sx={{ width: '40%'}}
+              sx={{ width: '40%' }}
             />
             <TextField
-              name='apartment'
-              label='Apartment number'
-              variant='standard'
+              name="apartment"
+              label="Apartment number"
+              variant="standard"
               fullWidth
               value={apartmentNr}
               onChange={(event) => setApartmentNr(event.target.value)}
-              sx={{ width: '40%'}}
+              sx={{ width: '40%' }}
             />
           </Box>
           <FormGroup sx={{ alignSelf: 'flex-start' }}>
             <FormControlLabel
-              control={
+              control={(
                 <Checkbox
                   checked={termsAndConditions}
+                  // eslint-disable-next-line max-len
                   onChange={(_, newTermsAndConditions) => setTermsAndConditions(newTermsAndConditions)}
-                />}
+                />
+              )}
               label="I agree with terms and conditions"
             />
           </FormGroup>
           <Button
-            type='submit'
-            variant='contained'
+            type="submit"
+            variant="contained"
             fullWidth
           >
             Order now
@@ -183,7 +201,7 @@ const OrderPage = () => {
         </Box>
       </Paper>
     </Box>
-  )
-}
+  );
+};
 
 export default OrderPage;

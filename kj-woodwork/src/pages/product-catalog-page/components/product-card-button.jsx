@@ -1,4 +1,4 @@
-import { Button, styled } from '@mui/material'; 
+import { Button, styled } from '@mui/material';
 
 const ProductCardButton = styled(Button)(({ theme }) => ({
   width: '100%',
@@ -12,7 +12,7 @@ const ProductCardButton = styled(Button)(({ theme }) => ({
 
   ':hover': {
     backgroundColor: theme.palette.primary.main,
-  }
+  },
 }));
 
 export default ProductCardButton;

@@ -1,4 +1,4 @@
-import { Button, styled } from '@mui/material'; 
+import { Button, styled } from '@mui/material';
 
 const HomePageButton = styled(Button)(({ theme }) => ({
   width: '300px',
@@ -14,7 +14,7 @@ const HomePageButton = styled(Button)(({ theme }) => ({
 
   ':hover': {
     backgroundColor: theme.palette.primary.dark,
-  }
+  },
 }));
 
 export default HomePageButton;

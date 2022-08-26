@@ -22,6 +22,6 @@ const App = () => {
       </BrowserRouter>
     </LocalizationProvider>
   );
-}
+};
 
 export default App;

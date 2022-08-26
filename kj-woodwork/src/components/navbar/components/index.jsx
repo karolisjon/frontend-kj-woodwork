@@ -1,5 +1,5 @@
-import { styled } from "@mui/material";
-import { NavLink } from "react-router-dom";
+import { styled } from '@mui/material';
+import { NavLink } from 'react-router-dom';
 
 const Link = styled(NavLink)(({ theme }) => ({
   display: 'flex',
@@ -17,7 +17,7 @@ const Link = styled(NavLink)(({ theme }) => ({
   ':hover': {
     backgroundColor: theme.palette.primary.dark,
     color: theme.palette.common.white,
-  }
+  },
 }));
 
 export default Link;

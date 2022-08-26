@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { TextField } from '@mui/material';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
-import AuthForm from '../../auth-form';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import moment from 'moment';
+import AuthForm from '../../components/auth-form';
 
 const currentDate = moment(new Date());
 
@@ -20,7 +20,7 @@ const initialValues = {
 const validationSchema = yup.object({
   fullname: yup.string()
     .required('Your name and surname are mandatory'),
-    birthdate: yup.date('Incorrect date format, please use this format: YYYY-MM-DD')
+  birthdate: yup.date('Incorrect date format, please use this format: YYYY-MM-DD')
     .max(currentDate, 'Negalite pasirinkti ateities laiko'),
   email: yup.string()
     .required('Email is mandatory')
@@ -44,7 +44,7 @@ const validationSchema = yup.object({
 const RegisterPage = () => {
   const onSubmit = (values) => {
     console.log(values);
-  }
+  };
 
   const {
     values,
@@ -56,25 +56,25 @@ const RegisterPage = () => {
     handleBlur,
     handleSubmit,
     setFieldValue,
-    setFieldTouched, 
+    setFieldTouched,
   } = useFormik({
     initialValues,
     validationSchema,
     onSubmit,
-  })
+  });
 
   return (
     <AuthForm
-      formTitle='register'
-      buttonText='register'
+      formTitle="register"
+      buttonText="register"
       disabled={!dirty || !isValid}
       onSubmit={handleSubmit}
     >
       <TextField
-        name='fullname'
-        label='Full name'
-        variant='standard'
-        type='text'
+        name="fullname"
+        label="Full name"
+        variant="standard"
+        type="text"
         fullWidth
         onChange={handleChange}
         onBlur={handleBlur}
@@ -87,6 +87,7 @@ const RegisterPage = () => {
         value={values.birthdate}
         disableFuture
         onChange={(momentInstance) => {
+          // eslint-disable-next-line no-underscore-dangle
           if (momentInstance._isValid) {
             setFieldTouched('birthdate', true, false);
             setFieldValue('birthdate', momentInstance, true);
@@ -107,10 +108,10 @@ const RegisterPage = () => {
         )}
       />
       <TextField
-        name='email'
-        label='Email'
-        variant='standard'
-        type='email'
+        name="email"
+        label="Email"
+        variant="standard"
+        type="email"
         fullWidth
         onChange={handleChange}
         onBlur={handleBlur}
@@ -118,10 +119,10 @@ const RegisterPage = () => {
         helperText={touched.email && errors.email}
       />
       <TextField
-        name='emailConfirmation'
-        label='Email confirmation'
-        variant='standard'
-        type='email'
+        name="emailConfirmation"
+        label="Email confirmation"
+        variant="standard"
+        type="email"
         fullWidth
         onChange={handleChange}
         onBlur={handleBlur}
@@ -129,10 +130,10 @@ const RegisterPage = () => {
         helperText={touched.emailConfirmation && errors.emailConfirmation}
       />
       <TextField
-        name='password'
-        label='Password'
-        variant='standard'
-        type='password'
+        name="password"
+        label="Password"
+        variant="standard"
+        type="password"
         fullWidth
         onChange={handleChange}
         onBlur={handleBlur}
@@ -140,10 +141,10 @@ const RegisterPage = () => {
         helperText={touched.password && errors.password}
       />
       <TextField
-        name='passwordConfirmation'
-        label='Password confirmation'
-        variant='standard'
-        type='password'
+        name="passwordConfirmation"
+        label="Password confirmation"
+        variant="standard"
+        type="password"
         fullWidth
         onChange={handleChange}
         onBlur={handleBlur}
@@ -151,7 +152,7 @@ const RegisterPage = () => {
         helperText={touched.passwordConfirmation && errors.passwordConfirmation}
       />
     </AuthForm>
-  )
-}
+  );
+};
 
 export default RegisterPage;

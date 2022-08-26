@@ -1,9 +1,9 @@
-import { styled } from '@mui/material'; 
+import { styled } from '@mui/material';
 
 const CustomParagraph = styled('p')(({ theme }) => ({
-  color: theme.palette.primary.white, 
+  color: theme.palette.primary.white,
   fontWeight: '400',
-  letterSpacing: '0.1em', 
+  letterSpacing: '0.1em',
   fontSize: '14px',
   mt: 2,
   backgroundColor: theme.palette.primary.darkTransparent,

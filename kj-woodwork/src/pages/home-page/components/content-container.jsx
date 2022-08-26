@@ -1,4 +1,4 @@
-import { Box, styled } from '@mui/material'; 
+import { Box, styled } from '@mui/material';
 
 const ContentContainer = styled(Box)({
   position: 'relative',
@@ -7,6 +7,6 @@ const ContentContainer = styled(Box)({
   minHeight: '100%',
   width: '100%',
   zIndex: '2',
-})
+});
 
 export default ContentContainer;

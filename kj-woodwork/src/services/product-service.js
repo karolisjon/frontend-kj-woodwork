@@ -1,15 +1,15 @@
 const domain = 'http://localhost:8000';
 const databaseCollection = 'products';
 
-const fetchProduct = async () => {
+const fetchProducts = async () => {
   const response = await fetch(`${domain}/${databaseCollection}/?_expand=category&_expand=woodType`);
-  const categories = await response.json();
+  const products = await response.json();
 
-  return categories;
+  return products;
 };
 
 const ProductService = {
-  fetchProduct,
+  fetchProducts,
 };
 
 export default ProductService;

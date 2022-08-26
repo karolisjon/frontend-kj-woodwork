@@ -16,6 +16,7 @@ import AutoCompleteField from '../../auto-complete-field';
 import RadioGroupField from '../../radio-group-field';
 import CategoryService from '../../../services/category-service';
 import WoodTypeService from '../../../services/wood-types-service';
+import ProductService from '../../../services/product-service';
 // import CartPageContext from '../../../contexts/cart-page-context';
 
 const ProductCatalog = () => {
@@ -40,10 +41,13 @@ const ProductCatalog = () => {
     })()
   }, []);
 
+  const handleFetchProducts = async () => {
+    const fetchedProcuts = await ProductService.fetchProducts();
+    setProducts(fetchedProcuts);
+  }
+
   React.useEffect(() => {
-    fetch('http://localhost:8000/products/?_expand=category&_expand=woodType')
-      .then(res => res.json())
-      .then(fetchedProducts => setProducts(fetchedProducts))
+    handleFetchProducts(); 
   }, []);
 
   // const cartPageContext = React.useContext(CartPageContext);

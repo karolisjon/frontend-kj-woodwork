@@ -15,10 +15,10 @@ const ProductCard = ({
   id,
   title, 
   description, 
-  category, 
   price, 
   img, 
-  wood 
+  category, 
+  woodType,
 }) => {
   const { openProduct } = React.useContext(ProductContext); 
 
@@ -68,7 +68,7 @@ const ProductCard = ({
           fontWeight: 600,
           mb: 2,
           }}>
-          {wood}
+          {woodType}
         </Typography>
         <Typography 
         gutterBottom 

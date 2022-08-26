@@ -13,8 +13,8 @@ import { Container } from '@mui/system';
 import ProductCard from './components/product-card';
 import FilterListOutlinedIcon from '@mui/icons-material/FilterListOutlined';
 import AutoCompleteField from '../../auto-complete-field';
-import CategoryService from '../../../services/category-service';
 import RadioGroupField from '../../radio-group-field';
+import CategoryService from '../../../services/category-service';
 import WoodTypeService from '../../../services/wood-types-service';
 // import CartPageContext from '../../../contexts/cart-page-context';
 
@@ -41,13 +41,15 @@ const ProductCatalog = () => {
   }, []);
 
   React.useEffect(() => {
-    fetch('http://localhost:8000/products/?_expand=category&_expand=wood')
+    fetch('http://localhost:8000/products/?_expand=category&_expand=woodType')
       .then(res => res.json())
       .then(fetchedProducts => setProducts(fetchedProducts))
   }, []);
 
   // const cartPageContext = React.useContext(CartPageContext);
   // console.log('Products, cartPageContext: ', cartPageContext);
+
+  // console.log(products[0].woodType.label);
 
   return (
     <>
@@ -143,7 +145,7 @@ const ProductCatalog = () => {
                 price={product.price}
                 img={product.img}
                 category={product.category.label}
-              // wood={product.wood.label}
+                // woodType={product.woodType.label}
               />
             </Grid>
           ))}
@@ -154,3 +156,4 @@ const ProductCatalog = () => {
 }
 
 export default ProductCatalog;
+

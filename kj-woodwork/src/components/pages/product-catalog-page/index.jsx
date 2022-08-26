@@ -17,9 +17,12 @@ import RadioGroupField from '../../radio-group-field';
 import CategoryService from '../../../services/category-service';
 import WoodTypeService from '../../../services/wood-types-service';
 import ProductService from '../../../services/product-service';
+import { useSearchParams } from 'react-router-dom';
 // import CartPageContext from '../../../contexts/cart-page-context';
 
 const ProductCatalog = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+
   const [categories, setCategories] = React.useState([]);
   const [woodTypes, setWoodTypes] = React.useState([]);
 
@@ -28,6 +31,23 @@ const ProductCatalog = () => {
   const [category, setCategory] = React.useState('');
   const [woodType, setWoodType] = React.useState('');
   const [filterDrawerOpen, setFilterDrawerOpen] = React.useState(false);
+
+  //price_gte=10&price_lte=20
+  const handlePriceSliderChange = (_, newPriceRange) => {
+    const [min, max] = newPriceRange;
+    searchParams.set('price_gte', min);
+    searchParams.set('price_lte', max);
+    setSearchParams(searchParams);
+    setPriceRange(newPriceRange);
+  };
+
+  const handleCategoriesChange = (_, newCategory) => {
+    setCategory(newCategory);
+  };
+
+  const handleWoodTypesChange = (_, newWoodType) => {
+    setWoodType(newWoodType);
+  };
 
   React.useEffect(() => {
     (async () => {
@@ -47,7 +67,7 @@ const ProductCatalog = () => {
   }
 
   React.useEffect(() => {
-    handleFetchProducts(); 
+    handleFetchProducts();
   }, []);
 
   // const cartPageContext = React.useContext(CartPageContext);
@@ -100,7 +120,7 @@ const ProductCatalog = () => {
             <AutoCompleteField
               options={categories}
               value={category}
-              onChange={(_, newCategory) => setCategory(newCategory)}
+              onChange={handleCategoriesChange}
             />
           </FormControl>
           <FormControl sx={{ my: 1 }}>
@@ -110,7 +130,7 @@ const ProductCatalog = () => {
                 min={0}
                 max={1000}
                 value={price}
-                onChange={(_, newPriceRange) => setPriceRange(newPriceRange)}
+                onChange={handlePriceSliderChange}
                 valueLabelDisplay="on"
                 sx={{ width: '300px', height: '0.1em', mt: 4 }}
               />
@@ -121,7 +141,7 @@ const ProductCatalog = () => {
             <RadioGroupField
               options={woodTypes}
               value={woodType}
-              onChange={(_, newWoodType) => setWoodType(newWoodType)}
+              onChange={handleWoodTypesChange}
             />
           </FormControl>
         </Box>
@@ -149,7 +169,7 @@ const ProductCatalog = () => {
                 price={product.price}
                 img={product.img}
                 category={product.category.label}
-                // woodType={product.woodType.label}
+              // woodType={product.woodType.label}
               />
             </Grid>
           ))}

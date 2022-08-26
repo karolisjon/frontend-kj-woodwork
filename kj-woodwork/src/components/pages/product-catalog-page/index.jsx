@@ -32,7 +32,6 @@ const ProductCatalog = () => {
   const [woodType, setWoodType] = React.useState('');
   const [filterDrawerOpen, setFilterDrawerOpen] = React.useState(false);
 
-  //price_gte=10&price_lte=20
   const handlePriceSliderChange = (_, newPriceRange) => {
     const [min, max] = newPriceRange;
     searchParams.set('price_gte', min);
@@ -119,6 +118,7 @@ const ProductCatalog = () => {
             <Typography variant='h3' component='h1'>Filters</Typography>
           </Box>
           <Divider></Divider>
+
           <FormControl sx={{ my: 1 }}>
             <Typography variant='h6' component='h2'>Filter by categories</Typography>
             <AutoCompleteField
@@ -127,6 +127,7 @@ const ProductCatalog = () => {
               onChange={handleCategoriesChange}
             />
           </FormControl>
+
           <FormControl sx={{ my: 1 }}>
             <Typography variant='h6' component='h2'>Filter by price</Typography>
             <Box sx={{ mx: '2' }}>
@@ -140,6 +141,7 @@ const ProductCatalog = () => {
               />
             </Box>
           </FormControl>
+
           <FormControl sx={{ my: 1 }}>
             <Typography variant='h6' component='h2'>Filter by wood type</Typography>
             <RadioGroupField
@@ -148,6 +150,7 @@ const ProductCatalog = () => {
               onChange={handleWoodTypesChange}
             />
           </FormControl>
+
         </Box>
       </Drawer>
 
@@ -179,9 +182,8 @@ const ProductCatalog = () => {
           ))}
         </Grid>
       </Container>
-    </>
+  </>
   )
 }
 
 export default ProductCatalog;
-

@@ -48,7 +48,8 @@ const ProductCatalog = () => {
   };
 
   const handleWoodTypesChange = (_, newWoodType) => {
-    console.log(newWoodType);
+    searchParams.set('woodTypeId', newWoodType);
+    setSearchParams(searchParams);
     setWoodType(newWoodType);
   };
 

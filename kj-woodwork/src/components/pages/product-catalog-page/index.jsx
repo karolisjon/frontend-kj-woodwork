@@ -42,10 +42,13 @@ const ProductCatalog = () => {
   };
 
   const handleCategoriesChange = (_, newCategory) => {
+    searchParams.set('categoryId', newCategory.id);
+    setSearchParams(searchParams);
     setCategory(newCategory);
   };
 
   const handleWoodTypesChange = (_, newWoodType) => {
+    console.log(newWoodType);
     setWoodType(newWoodType);
   };
 

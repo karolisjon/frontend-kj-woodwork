@@ -22,7 +22,6 @@ const ProductCard = ({
 }) => {
   const { openProduct } = React.useContext(CartContext);
   const navigate = useNavigate();
-  console.log(woodType);
 
   return (
     <Card sx={{

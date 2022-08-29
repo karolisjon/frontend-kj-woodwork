@@ -66,7 +66,6 @@ const ProductCatalog = () => {
   const handleFetchProducts = async () => {
     const fetchedProcuts = await ProductService.fetchProducts();
     setProducts(fetchedProcuts);
-    console.log(fetchedProcuts[0].woodType.label);
   };
 
   React.useEffect(() => {
@@ -154,10 +153,18 @@ const ProductCatalog = () => {
 
       <Container maxWidth="xl">
         <Grid container spacing={2} sx={{ py: 4, px: 3 }}>
-          {products.map((product) => (
+          {products.map(({
+            id,
+            title,
+            description,
+            price: productPrice,
+            img,
+            category: productCategory,
+            // woodType: productWoodType,
+          }) => (
             <Grid
-              id={product.id}
-              key={product.id}
+              id={id}
+              key={id}
               item
               alignItems="stretch"
               xs={12}
@@ -168,13 +175,13 @@ const ProductCatalog = () => {
               sx={{ mb: 1 }}
             >
               <ProductCard
-                id={product.id}
-                title={product.title}
-                description={product.description}
-                price={product.price}
-                img={product.img}
-                category={product.category.label}
-                // woodType={product.woodType.label}
+                id={id}
+                title={title}
+                description={description}
+                price={productPrice}
+                img={img}
+                category={productCategory.label}
+                // woodType={productWoodType}
               />
             </Grid>
           ))}

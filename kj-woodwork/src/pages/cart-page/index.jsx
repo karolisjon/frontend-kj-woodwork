@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Container } from '@mui/material';
-import ProductContext from '../../contexts/product-page-context';
+import CartContext from '../../contexts/cart-page-context';
 
 const CartPage = () => {
-  const { cartItems } = React.useContext(ProductContext);
+  const { cartItems } = React.useContext(CartContext);
 
   return (
     <Container>

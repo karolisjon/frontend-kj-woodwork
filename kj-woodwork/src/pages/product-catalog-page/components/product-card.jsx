@@ -9,7 +9,7 @@ import {
 } from '@mui/material';
 // import { Box } from '@mui/system';
 import { useNavigate } from 'react-router-dom';
-import ProductContext from '../../../contexts/product-page-context';
+import CartContext from '../../../contexts/cart-page-context';
 import CustomButton from '../../../components/custom-button';
 
 const ProductCard = ({
@@ -21,7 +21,7 @@ const ProductCard = ({
   category,
   woodType,
 }) => {
-  const { openProduct } = React.useContext(ProductContext);
+  const { openProduct } = React.useContext(CartContext);
 
   const navigate = useNavigate();
 

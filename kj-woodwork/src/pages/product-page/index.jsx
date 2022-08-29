@@ -12,14 +12,14 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ButtonAmmount from './components/button-amount';
 import CustomButton from '../../components/custom-button';
 import ProductService from '../../services/product-service';
-import ProductContext from '../../contexts/product-page-context';
+import CartContext from '../../contexts/cart-page-context';
 
 const ProductInformation = () => {
   const { id } = useParams();
   const [product, setProduct] = React.useState(null);
   const [amount, setAmount] = React.useState(1);
   const navigate = useNavigate();
-  const { addToCart } = React.useContext(ProductContext);
+  const { addToCart } = React.useContext(CartContext);
 
   React.useEffect(() => {
     (async () => {

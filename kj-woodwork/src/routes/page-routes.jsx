@@ -26,7 +26,7 @@ const PageRoutes = () => (
         <Route path="register" element={<RegisterPage />} />
       </Route>
 
-      <Route path="/cart" element={<CartPage />} />
+      <Route path="/cart/:id" element={<CartPage />} />
     </Route>
   </Routes>
 );

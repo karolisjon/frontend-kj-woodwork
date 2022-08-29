@@ -9,8 +9,16 @@ const fetchProducts = async () => {
   return products;
 };
 
+const fetchProductById = async (id) => {
+  const response = await fetch(`${domain}/${databaseCollection}/${id}?_expand=category&_expand=woodType`);
+  const product = await response.json();
+
+  return product;
+};
+
 const ProductService = {
   fetchProducts,
+  fetchProductById,
 };
 
 export default ProductService;

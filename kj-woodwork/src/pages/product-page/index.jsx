@@ -12,6 +12,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ButtonAmmount from './components/button-amount';
 import CustomButton from '../../components/custom-button';
+import ProductService from '../../services/product-service';
 
 const ProductInformation = () => {
   const { id } = useParams();
@@ -20,14 +21,10 @@ const ProductInformation = () => {
   const navigate = useNavigate();
 
   React.useEffect(() => {
-    const fetchProduct = async () => {
-      const response = await fetch(`http://localhost:8000/products/${id}`);
-      const productDetails = await response.json();
-
-      setProduct(productDetails);
-    };
-
-    fetchProduct();
+    (async () => {
+      const fetchedProduct = await ProductService.fetchProductById(id);
+      setProduct(fetchedProduct);
+    })();
   }, [id]);
 
   return (
@@ -53,10 +50,10 @@ const ProductInformation = () => {
             }}
             >
               <Typography variant="h4" component="h4">{product?.title}</Typography>
-              <Typography component="subtitle" sx={{ my: 1, fontStyle: 'italic' }}>
+              <Typography variant="subtitle" sx={{ my: 1, fontStyle: 'italic' }}>
                 Category:
                 {' '}
-                {product?.category}
+                {product?.category.label}
               </Typography>
               {product?.measurements && (
                 <Typography variant="body2" component="p" sx={{ my: 1 }}>
@@ -68,7 +65,7 @@ const ProductInformation = () => {
               <Typography variant="body2" component="p" sx={{ my: 1 }}>
                 Type of wood:
                 {' '}
-                {product?.wood}
+                {product?.woodType.label}
               </Typography>
               <Typography variant="body2" component="p" sx={{ my: 1 }}>
                 Product no:

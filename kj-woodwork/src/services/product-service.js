@@ -10,7 +10,7 @@ const fetchProducts = async () => {
 };
 
 const fetchProductById = async (id) => {
-  const response = await fetch(`${domain}/${databaseCollection}/${id}?_expand=category&_expand=woodType`);
+  const response = await fetch(`${domain}/${databaseCollection}/${id}?${relationsParams}`);
   const product = await response.json();
 
   return product;

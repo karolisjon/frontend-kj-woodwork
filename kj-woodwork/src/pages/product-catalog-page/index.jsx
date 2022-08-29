@@ -66,6 +66,7 @@ const ProductCatalog = () => {
   const handleFetchProducts = async () => {
     const fetchedProcuts = await ProductService.fetchProducts();
     setProducts(fetchedProcuts);
+    console.log(fetchedProcuts[0].woodType.label);
   };
 
   React.useEffect(() => {
@@ -173,7 +174,7 @@ const ProductCatalog = () => {
                 price={product.price}
                 img={product.img}
                 category={product.category.label}
-              // woodType={product.woodType.label}
+                // woodType={product.woodType.label}
               />
             </Grid>
           ))}

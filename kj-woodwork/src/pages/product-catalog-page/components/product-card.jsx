@@ -7,7 +7,6 @@ import {
   CardMedia,
   Typography,
 } from '@mui/material';
-// import { Box } from '@mui/system';
 import { useNavigate } from 'react-router-dom';
 import CartContext from '../../../contexts/cart-page-context';
 import CustomButton from '../../../components/custom-button';

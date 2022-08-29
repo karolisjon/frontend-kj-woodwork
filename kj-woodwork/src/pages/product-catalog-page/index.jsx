@@ -10,7 +10,6 @@ import {
   Slider,
   Typography,
 } from '@mui/material';
-// import { Container } from '@mui/system';
 import FilterListOutlinedIcon from '@mui/icons-material/FilterListOutlined';
 import { useSearchParams } from 'react-router-dom';
 import ProductCard from './components/product-card';
@@ -19,7 +18,6 @@ import RadioGroupField from '../../components/radio-group-field';
 import CategoryService from '../../services/category-service';
 import WoodTypeService from '../../services/wood-types-service';
 import ProductService from '../../services/product-service';
-// import CartPageContext from '../../../contexts/cart-page-context';
 
 const ProductCatalog = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -73,11 +71,6 @@ const ProductCatalog = () => {
   React.useEffect(() => {
     handleFetchProducts();
   }, []);
-
-  // const cartPageContext = React.useContext(CartPageContext);
-  // console.log('Products, cartPageContext: ', cartPageContext);
-
-  // console.log(products[0].woodType.label);
 
   return (
     <>

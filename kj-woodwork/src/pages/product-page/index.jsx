@@ -1,6 +1,5 @@
 /* eslint-disable no-unsafe-optional-chaining */
 import * as React from 'react';
-// import { Container } from '@mui/system';
 import {
   Box,
   Container,
@@ -13,12 +12,14 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ButtonAmmount from './components/button-amount';
 import CustomButton from '../../components/custom-button';
 import ProductService from '../../services/product-service';
+import ProductContext from '../../contexts/product-page-context';
 
 const ProductInformation = () => {
   const { id } = useParams();
   const [product, setProduct] = React.useState(null);
   const [amount, setAmount] = React.useState(1);
   const navigate = useNavigate();
+  const { addToCart } = React.useContext(ProductContext);
 
   React.useEffect(() => {
     (async () => {
@@ -110,7 +111,10 @@ const ProductInformation = () => {
                     -
                   </ButtonAmmount>
                   <CustomButton
-                    onClick={() => console.log('added to cart')}
+                    onClick={() => {
+                      navigate('/cart/');
+                      addToCart({ id });
+                    }}
                   >
                     Add to cart
                   </CustomButton>

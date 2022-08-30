@@ -6,8 +6,8 @@ export const CartProvider = ({ children }) => {
   const [productsInCart, setProductsInCart] = React.useState([]);
 
   const cartContextValue = React.useMemo(() => ({
-    productsInCart,
-    addToCart: (item) => { setProductsInCart(item); },
+    cartItems: productsInCart,
+    addToCart: (product) => setProductsInCart([...productsInCart, product]),
 
   }), [productsInCart]);
 

@@ -112,7 +112,7 @@ const ProductInformation = () => {
                   </ButtonAmmount>
                   <CustomButton
                     onClick={() => {
-                      navigate(`/cart/${id}`);
+                      navigate('/cart');
                       addToCart({ id });
                     }}
                   >

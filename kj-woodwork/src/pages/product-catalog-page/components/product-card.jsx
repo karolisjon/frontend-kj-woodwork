@@ -8,7 +8,6 @@ import {
   Typography,
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import CartContext from '../../../contexts/cart-page-context';
 import CustomButton from '../../../components/custom-button';
 
 const ProductCard = ({
@@ -20,7 +19,6 @@ const ProductCard = ({
   category,
   woodType,
 }) => {
-  const { openProduct } = React.useContext(CartContext);
   const navigate = useNavigate();
 
   return (
@@ -97,7 +95,6 @@ const ProductCard = ({
         <CustomButton
           onClick={() => {
             navigate(`/product/${id}`);
-            openProduct(id);
           }}
         >
           Buy now

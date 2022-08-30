@@ -1,14 +1,23 @@
 import * as React from 'react';
 import { Container } from '@mui/material';
-import CartContext from '../../contexts/cart-page-context';
+import { useParams } from 'react-router-dom';
+import ProductService from '../../services/product-service';
 
 const CartPage = () => {
-  const { cartItems } = React.useContext(CartContext);
+  const [productInCart, setProductInCart] = React.useState([]);
+  const { id } = useParams();
+
+  React.useEffect(() => {
+    (async () => {
+      const fetchedProduct = await ProductService.fetchProductById(id);
+      setProductInCart(fetchedProduct);
+    })();
+  }, [id]);
 
   return (
     <Container>
       <pre>
-        {JSON.stringify({ cartItems }, null, 4)}
+        {JSON.stringify({ productInCart }, null, 4)}
       </pre>
     </Container>
   );

@@ -13,6 +13,7 @@ import CustomParagraph from '../../components/custom-paragraph';
 import CustomButton from './components/home-page-button';
 import Background from './components/background';
 import ContentContainer from './components/content-container';
+import Image from './components/image';
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -25,7 +26,12 @@ const HomePage = () => {
     <Box>
       <Background component="img" src="/homepage.jpg" />
       <ContentContainer>
-        <Container sx={{ backgroundColor: 'primary.darkTransparent', paddingBottom: 1 }}>
+        <Container sx={{
+          minWidth: 1400,
+          pb: 3,
+          backgroundColor: 'primary.darkTransparent',
+        }}
+        >
           <Typography
             component="h1"
             sx={{
@@ -39,23 +45,35 @@ const HomePage = () => {
           >
             KJ Woodwork
           </Typography>
-          <Box sx={{ width: '50%', mt: 4, mb: 4 }}>
-            <CustomParagraph>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Illum hic, consequuntur est ipsa ex cumque exercitationem amet?
-              Quia modi quae alias recusandae aperiam atque nesciunt blanditiis enim iusto ut totam
-              ab debitis nostrum praesentium maxime.
-              Dolor sit amet consectetur adipisicing elit. Mollitia, obcaecati accusantium perferendis consequatur architecto accusamus.
-            </CustomParagraph>
-            <CustomButton onClick={() => navigate('/about-us')}>About us</CustomButton>
-          </Box>
-          <Box sx={{ width: '50%', mb: 4 }}>
-            <CustomParagraph>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque perferendis illo tempora officiis maiores quidem minima velit,
-              possimus quaerat, iusto, sed nesciunt ipsam labore dignissimos.
-              Sit recusandae quam nisi. Magni omnis cumque eos doloremque officia quia iste quaerat adipisci.
-            </CustomParagraph>
-            <CustomButton onClick={() => navigate('/product-catalog')}>Products</CustomButton>
+          <Box sx={{ display: 'flex' }}>
+            <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+              <Box sx={{
+                width: '90%', display: 'flex', flexDirection: 'column', gap: 1,
+              }}
+              >
+                <CustomParagraph>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Illum hic, consequuntur est ipsa ex cumque exercitationem amet?
+                  Quia modi quae alias recusandae aperiam atque nesciunt blanditiis enim iusto ut totam
+                  ab debitis nostrum praesentium maxime.
+                  Dolor sit amet consectetur adipisicing elit. Mollitia, obcaecati accusantium perferendis consequatur architecto accusamus.
+                </CustomParagraph>
+                <CustomButton onClick={() => navigate('/about-us')}>About us</CustomButton>
+              </Box>
+              <Box sx={{
+                width: '90%', display: 'flex', flexDirection: 'column', gap: 1,
+              }}
+              >
+                <CustomParagraph>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque perferendis illo tempora officiis maiores quidem minima velit,
+                  possimus quaerat, iusto, sed nesciunt ipsam labore dignissimos.
+                  Sit recusandae quam nisi. Magni omnis cumque eos doloremque officia quia iste quaerat adipisci.
+                </CustomParagraph>
+                <CustomButton onClick={() => navigate('/product-catalog')}>Products</CustomButton>
+              </Box>
+            </Box>
+            <Image src="/homepage-2.jpg" />
+
           </Box>
         </Container>
       </ContentContainer>

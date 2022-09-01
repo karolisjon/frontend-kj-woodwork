@@ -2,7 +2,7 @@ import { Button, styled } from '@mui/material';
 
 const CustomButton = styled(Button)(({ theme }) => ({
   width: '100%',
-  height: '50px',
+  height: '42px',
   backgroundColor: theme.palette.primary.main,
   color: theme.palette.primary.white,
   borderRadius: '0',

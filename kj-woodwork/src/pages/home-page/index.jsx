@@ -11,16 +11,15 @@ import { useNavigate } from 'react-router-dom';
 import CustomParagraph from '../../components/custom-paragraph';
 import HomePageButton from './components/home-page-button';
 import Background from './components/background';
-import ContentContainer from './components/content-container';
 import Image from './components/image';
 
 const HomePage = () => {
   const navigate = useNavigate();
 
   return (
-    <Box>
-      <Background component="img" src="/homepage.jpg" />
-      <ContentContainer>
+    <Box sx={{ backgroundColor: { xs: 'black' }, p: { xs: 2 } }}>
+      <Background component="img" src="/homepage.jpg" sx={{ display: { xs: 'none', sm: 'block' } }} />
+      <Box sx={{ position: 'relative', mt: { xs: 4, sm: 6 } }}>
         <Container sx={{
           maxWidth: {
             xl: 1400, lg: 1200, md: 1000, sm: 800, xs: 500,
@@ -32,6 +31,7 @@ const HomePage = () => {
           <Typography
             component="h1"
             sx={{
+              pt: 2,
               color: 'white',
               fontWeight: '400',
               fontFamily: 'logoFont',
@@ -43,12 +43,27 @@ const HomePage = () => {
             KJ Woodwork
           </Typography>
           <Box sx={{ display: 'flex' }}>
-            <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <Box sx={{
+              display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: { xs: 1 },
+            }}
+            >
               <Box sx={{
-                width: { lg: '95%', md: '100%' }, display: 'flex', flexDirection: 'column', gap: { md: 1, lg: 2 },
+                width: { lg: '95%', md: '100%' },
+                display: 'flex',
+                flexDirection: 'column',
+                gap: {
+                  xs: 1, sm: 1, md: 1, lg: 2,
+                },
               }}
               >
-                <CustomParagraph>
+                <CustomParagraph
+                  sx={{
+                    px: {
+                      xs: 0, sm: 2,
+                    },
+                    py: 2,
+                  }}
+                >
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Illum hic, consequuntur est ipsa ex cumque exercitationem amet?
                   Quia modi quae alias recusandae aperiam atque nesciunt blanditiis enim iusto ut totam
@@ -84,11 +99,34 @@ const HomePage = () => {
                 }}
               />
 
+              <Image
+                src="/homepage-4.jpg"
+                sx={{
+                  display: {
+                    xs: 'block', sm: 'none',
+                  },
+                  width: '100%',
+                  my: 3,
+                }}
+              />
+
               <Box sx={{
-                width: { lg: '95%', md: '100%' }, display: 'flex', flexDirection: 'column', gap: { md: 1, lg: 2 },
+                width: { lg: '95%', md: '100%' },
+                display: 'flex',
+                flexDirection: 'column',
+                gap: {
+                  xs: 1, sm: 1, md: 1, lg: 2,
+                },
               }}
               >
-                <CustomParagraph>
+                <CustomParagraph
+                  sx={{
+                    px: {
+                      xs: 0, sm: 2,
+                    },
+                    py: 2,
+                  }}
+                >
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque perferendis illo tempora officiis maiores quidem minima velit,
                   possimus quaerat, iusto, sed nesciunt ipsam labore dignissimos.
                   Sit recusandae quam nisi. Magni omnis cumque eos doloremque officia quia iste quaerat adipisci.
@@ -113,7 +151,7 @@ const HomePage = () => {
 
           </Box>
         </Container>
-      </ContentContainer>
+      </Box>
     </Box>
   );
 };

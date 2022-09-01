@@ -2,14 +2,12 @@
 import * as React from 'react';
 import { Box, Container, Typography } from '@mui/material';
 import Background from '../home-page/components/background';
-import ContentContainer from '../home-page/components/content-container';
 import CustomParagraph from '../../components/custom-paragraph';
-// import CartPageContext from '../../../contexts/cart-page-context';
 
 const AboutUs = () => (
   <Box>
     <Background component="img" src="/meet-our-team.jpg" />
-    <ContentContainer>
+    <Box sx={{ position: 'relative', marginTop: { xs: 0, sm: 6 } }}>
       <Container sx={{ backgroundColor: 'primary.darkTransparent', paddingBottom: 1 }}>
         <Typography
           variant="h1"
@@ -64,7 +62,7 @@ const AboutUs = () => (
           Ipsum dolor sit amet, consectetur adipisicing elit. Iste quidem maiores odit illum repudiandae unde, animi, labore reiciendis dignissimos aliquam aut illo.
         </CustomParagraph>
       </Container>
-    </ContentContainer>
+    </Box>
   </Box>
 );
 export default AboutUs;

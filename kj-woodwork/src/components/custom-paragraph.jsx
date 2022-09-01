@@ -6,7 +6,6 @@ const CustomParagraph = styled('div')(({ theme }) => ({
   letterSpacing: '0.01em',
   fontSize: 17,
   backgroundColor: theme.palette.primary.darkTransparent,
-  padding: theme.spacing(2.5),
 }));
 
 export default CustomParagraph;

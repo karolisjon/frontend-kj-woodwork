@@ -8,19 +8,37 @@ const AboutUs = () => (
   <Box>
     <Background component="img" src="/meet-our-team.jpg" />
     <Box sx={{ position: 'relative', marginTop: { xs: 0, sm: 6 } }}>
-      <Container sx={{ backgroundColor: 'primary.darkTransparent', paddingBottom: 1 }}>
+      <Container
+        sx={{
+          maxWidth: {
+            xl: 1400, lg: 1200, md: 1000, sm: 800, xs: 500,
+          },
+          pb: 3,
+          backgroundColor: 'primary.darkTransparent',
+        }}
+      >
         <Typography
-          variant="h1"
-          component="h2"
+          component="h1"
           sx={{
+            pt: 2,
             color: 'white',
             fontWeight: '400',
             fontFamily: 'logoFont',
+            fontSize: {
+              xs: 45, sm: 70, md: 90, lg: 110,
+            },
           }}
         >
           About us
         </Typography>
-        <CustomParagraph sx={{ backgroundColor: 'none' }}>
+        <CustomParagraph
+          sx={{
+            px: {
+              xs: 0, sm: 2,
+            },
+            py: 2,
+          }}
+        >
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni nihil minus minima cum sequi amet molestias velit doloribus odio officia?
           Iure nulla harum dignissimos, enim inventore facere optio expedita quae impedit odio corrupti non quisquam quas cum ad. Ab explicabo vero aliquam.
           Quia perferendis ad temporibus provident fugiat enim, dolore quaerat vitae repudiandae in minima similique?
@@ -37,7 +55,14 @@ const AboutUs = () => (
         >
           Team
         </Typography>
-        <CustomParagraph>
+        <CustomParagraph
+          sx={{
+            px: {
+              xs: 0, sm: 2,
+            },
+            py: 2,
+          }}
+        >
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas voluptates amet in odio iste fugit dolorum ex laudantium incidunt cumque.
           Quibusdam quaerat amet quisquam, ratione quae provident nihil repudiandae necessitatibus, ducimus reiciendis eius eligendi, consectetur modi porro fugiat quos sapiente?
           Amet consectetur adipisicing elit. Rem dolorem rerum eius assumenda. Fuga, necessitatibus veniam!
@@ -54,7 +79,14 @@ const AboutUs = () => (
         >
           Our mission
         </Typography>
-        <CustomParagraph>
+        <CustomParagraph
+          sx={{
+            px: {
+              xs: 0, sm: 2,
+            },
+            py: 2,
+          }}
+        >
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
           Quos repudiandae, incidunt porro similique ullam vero quaerat voluptatum nihil cum?
           Lorem ipsum dolor sit amet consectetur adipisicing elit. A aut et voluptatem?

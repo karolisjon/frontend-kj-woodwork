@@ -20,13 +20,14 @@ const HomePage = () => {
     <Box sx={{ backgroundColor: { xs: 'black' }, p: { xs: 2 } }}>
       <Background component="img" src="/homepage.jpg" sx={{ display: { xs: 'none', sm: 'block' } }} />
       <Box sx={{ position: 'relative', mt: { xs: 4, sm: 6 } }}>
-        <Container sx={{
-          maxWidth: {
-            xl: 1400, lg: 1200, md: 1000, sm: 800, xs: 500,
-          },
-          pb: 3,
-          backgroundColor: 'primary.darkTransparent',
-        }}
+        <Container
+          sx={{
+            maxWidth: {
+              xl: 1400, lg: 1200, md: 1000, sm: 800, xs: 500,
+            },
+            pb: 3,
+            backgroundColor: 'primary.darkTransparent',
+          }}
         >
           <Typography
             component="h1"

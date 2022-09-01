@@ -7,17 +7,19 @@ import {
   Container,
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import CustomParagraph from '../../components/custom-paragraph';
 import CustomButton from './components/home-page-button';
 import Background from './components/background';
 import ContentContainer from './components/content-container';
-// import CartPageContext from '../../../contexts/cart-page-context';
 
 const HomePage = () => {
   const navigate = useNavigate();
+  const theme = useTheme();
+  const md = useMediaQuery(theme.breakpoints.up('md'));
 
-  // const cartPageContext = React.useContext(CartPageContext);
-  // console.log('HomePage, cartPageContext: ', cartPageContext);
+  console.log(md);
 
   return (
     <Box>
@@ -25,12 +27,14 @@ const HomePage = () => {
       <ContentContainer>
         <Container sx={{ backgroundColor: 'primary.darkTransparent', paddingBottom: 1 }}>
           <Typography
-            variant="h1"
             component="h1"
             sx={{
               color: 'white',
               fontWeight: '400',
               fontFamily: 'logoFont',
+              fontSize: {
+                xs: 45, sm: 70, md: 90, lg: 110,
+              },
             }}
           >
             KJ Woodwork

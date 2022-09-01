@@ -5,6 +5,7 @@ const CustomParagraph = styled('div')(({ theme }) => ({
   fontWeight: 200,
   letterSpacing: '0.01em',
   fontSize: 17,
+  fontFamily: theme.typography.main,
   backgroundColor: theme.palette.primary.darkTransparent,
 }));
 

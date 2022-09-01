@@ -84,6 +84,7 @@ const LoginPage = () => {
         href
         sx={{
           fontSize: '12px',
+          fontFamily: 'main',
           transition: '0.3s ease-in-out',
           '&:hover': {
             cursor: 'pointer',
@@ -99,6 +100,7 @@ const LoginPage = () => {
           href
           sx={{
             fontSize: '12px',
+            fontFamily: 'main',
             transition: '0.3s ease-in-out',
             '&:hover': {
               cursor: 'pointer',

@@ -8,7 +8,7 @@ const Link = styled(NavLink)(({ theme }) => ({
   padding: theme.spacing(0, 2),
   textDecoration: 'none',
   color: theme.palette.grey[200],
-  fontFamily: theme.typography.fontFamily,
+  fontFamily: theme.typography.main,
 
   '&.active': {
     boxShadow: `inset 0 -2px 0 ${theme.palette.common.white}`,

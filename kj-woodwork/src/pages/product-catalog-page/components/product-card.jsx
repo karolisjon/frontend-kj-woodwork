@@ -51,7 +51,7 @@ const ProductCard = ({
           />
         </Box>
         <CardContent sx={{ flexGrow: 1 }}>
-          <Typography gutterBottom variant="h5" component="h6" sx={{ fontWeight: 600 }}>
+          <Typography gutterBottom variant="h5" component="h6" sx={{ fontFamily: 'main', fontWeight: 600 }}>
             {title}
           </Typography>
           <Typography gutterBottom variant="body1" component="h6" sx={{ fontStyle: 'italic', fontSize: 14 }}>
@@ -65,6 +65,7 @@ const ProductCard = ({
               fontStyle: 'italic',
               fontSize: 14,
               fontWeight: 600,
+              fontFamily: 'main',
               mb: 2,
             }}
           >
@@ -75,6 +76,7 @@ const ProductCard = ({
             variant="body2"
             component="h6"
             sx={{
+              fontFamily: 'main',
               overflow: 'hidden',
               textOverflow: 'ellipsis',
               display: '-webkit-box',
@@ -85,7 +87,7 @@ const ProductCard = ({
           >
             {description}
           </Typography>
-          <Typography gutterBottom variant="body1" component="div" sx={{ fontWeight: 600 }}>
+          <Typography gutterBottom variant="body1" component="div" sx={{ fontFamily: 'main', fontWeight: 600 }}>
             {price}
             €
           </Typography>

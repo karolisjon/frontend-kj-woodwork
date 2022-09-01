@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { Box, Paper, Typography } from '@mui/material';
 import CustomButton from './custom-button';
 
@@ -25,7 +25,7 @@ const AuthForm = ({
     }}
     >
       <Typography component="h1" variant="h3" sx={{ fontFamily: 'logoFont', fontWeight: 500 }}>KJ Woodwork</Typography>
-      <Typography component="h2" variant="h5" sx={{ textTransform: 'uppercase' }}>{formTitle}</Typography>
+      <Typography component="h2" variant="h5" sx={{ fontFamily: 'main', textTransform: 'uppercase' }}>{formTitle}</Typography>
     </Box>
     <Box
       component="form"

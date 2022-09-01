@@ -1,15 +1,15 @@
-import { Button, styled } from '@mui/material';
+import { styled } from '@mui/material';
 
-const HomePageButton = styled(Button)(({ theme }) => ({
-  width: '300px',
-  height: '50px',
+const HomePageButton = styled('button')(({ theme }) => ({
+  width: 300,
+  height: 50,
   mt: 2,
   backgroundColor: theme.palette.primary.darkTransparent,
   color: theme.palette.primary.white,
-  borderRadius: '0',
-  border: '1px solid #fff',
+  borderRadius: 0,
+  border: `1px solid ${theme.palette.primary.white}`,
   letterSpacing: '0.1em',
-  fontSize: '14px',
+  fontSize: 14,
   transition: '0.3s ease-in-out',
 
   ':hover': {

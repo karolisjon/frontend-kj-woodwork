@@ -32,19 +32,12 @@ const AboutUs = () => (
           About us
         </Typography>
         <Paragraph
-          sx={{
-            px: {
-              xs: 0, sm: 2,
-            },
-            py: 2,
-            background: 'none',
-          }}
-        >
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni nihil minus minima cum sequi amet molestias velit doloribus odio officia?
+          text="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni nihil minus minima cum sequi amet molestias velit doloribus odio officia?
           Iure nulla harum dignissimos, enim inventore facere optio expedita quae impedit odio corrupti non quisquam quas cum ad. Ab explicabo vero aliquam.
           Quia perferendis ad temporibus provident fugiat enim, dolore quaerat vitae repudiandae in minima similique?
-          Lonsectetur adipisicing elit. Sunt eum sapiente, ullam voluptate amet perspiciatis fuga doloremque facere numquam!
-        </Paragraph>
+          Lonsectetur adipisicing elit. Sunt eum sapiente, ullam voluptate amet perspiciatis fuga doloremque facere numquam!"
+        />
+
         <Typography
           variant="h3"
           component="h3"
@@ -57,18 +50,11 @@ const AboutUs = () => (
           Team
         </Typography>
         <Paragraph
-          sx={{
-            px: {
-              xs: 0, sm: 2,
-            },
-            py: 2,
-          }}
-        >
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas voluptates amet in odio iste fugit dolorum ex laudantium incidunt cumque.
+          text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas voluptates amet in odio iste fugit dolorum ex laudantium incidunt cumque.
           Quibusdam quaerat amet quisquam, ratione quae provident nihil repudiandae necessitatibus, ducimus reiciendis eius eligendi, consectetur modi porro fugiat quos sapiente?
           Amet consectetur adipisicing elit. Rem dolorem rerum eius assumenda. Fuga, necessitatibus veniam!
-          Ipsam veniam perferendis similique. Hic aliquid aspernatur atque, quasi corrupti magni sint animi quia vero. Pariatur nobis consequatur voluptatem quidem suscipit deserunt hic quia quaerat!
-        </Paragraph>
+          Ipsam veniam perferendis similique. Hic aliquid aspernatur atque, quasi corrupti magni sint animi quia vero. Pariatur nobis consequatur voluptatem quidem suscipit deserunt hic quia quaerat!"
+        />
         <Typography
           variant="h3"
           component="h3"
@@ -81,19 +67,13 @@ const AboutUs = () => (
           Our mission
         </Typography>
         <Paragraph
-          sx={{
-            px: {
-              xs: 0, sm: 2,
-            },
-            py: 2,
-          }}
-        >
+          text="
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
           Quos repudiandae, incidunt porro similique ullam vero quaerat voluptatum nihil cum?
           Lorem ipsum dolor sit amet consectetur adipisicing elit. A aut et voluptatem?
           Aliquid ab non, magnam, tempore labore, animi sapiente officiis distinctio quibusdam similique necessitatibus ex.
-          Ipsum dolor sit amet, consectetur adipisicing elit. Iste quidem maiores odit illum repudiandae unde, animi, labore reiciendis dignissimos aliquam aut illo.
-        </Paragraph>
+          Ipsum dolor sit amet, consectetur adipisicing elit. Iste quidem maiores odit illum repudiandae unde, animi, labore reiciendis dignissimos aliquam aut illo."
+        />
       </Container>
     </Box>
   </Box>

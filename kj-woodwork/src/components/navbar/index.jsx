@@ -5,19 +5,15 @@ import {
   Toolbar,
   Typography,
   IconButton,
-  Divider,
   Drawer,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemText,
   Button,
 } from '@mui/material';
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import { useNavigate } from 'react-router-dom';
-import Link from './components';
+import Link from './components/link';
 import theme from '../../styles/theme';
+import NavbarDrawer from './components/navbar-drawer';
 
 const drawerWidth = 260;
 
@@ -37,24 +33,6 @@ const Navbar = (props) => {
   const handleDrawerToggle = () => {
     setDrawerOpen(!drawerOpen);
   };
-
-  const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <Typography variant="h6" sx={{ my: 2, fontFamily: 'logoFont' }}>
-        KJ Woodwork
-      </Typography>
-      <Divider />
-      <List>
-        {navItems.map(({ text, to }) => (
-          <ListItem key={to} disablePadding>
-            <ListItemButton to={to} sx={{ textAlign: 'center' }}>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  );
 
   const container = window !== undefined ? () => window().document.body : undefined;
 
@@ -94,7 +72,7 @@ const Navbar = (props) => {
             alignSelf: 'stretch',
           }}
           >
-            {navItems.map(({ text, to }) => <Link key={to} to={to}>{text}</Link>)}
+            {navItems.map(({ text, to }) => <Link key={to} to={to} sx={{ textTransform: 'uppercase' }}>{text}</Link>)}
           </Box>
           <IconButton
             fontSize="medium"
@@ -119,7 +97,10 @@ const Navbar = (props) => {
             '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
           }}
         >
-          {drawer}
+          <NavbarDrawer
+            onClick={handleDrawerToggle}
+            navItems={navItems}
+          />
         </Drawer>
       </Box>
       <Box component="main" sx={{ p: 0 }}>

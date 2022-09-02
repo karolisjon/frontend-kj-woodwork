@@ -1,10 +1,7 @@
 /* eslint-disable max-len */
 /* eslint-disable linebreak-style */
 import * as React from 'react';
-import {
-  Box,
-  Divider,
-} from '@mui/material';
+import { Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import HomePageButton from './components/home-page-button';
 import Background from '../../components/background';
@@ -14,6 +11,7 @@ import HeaderMain from '../../components/header-main';
 import ContentContainer from '../../components/content-container';
 import ContentWrapperMain from './components/content-wrapper-main';
 import ContentWrapperSecondary from './components/content-wrapper-secondary';
+import ContentDivider from './components/content-divider';
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -43,15 +41,7 @@ const HomePage = () => {
                   About us
                 </HomePageButton>
               </ContentWrapperSecondary>
-              <Divider sx={{
-                width: { lg: '95%', md: '100%' },
-                display: {
-                  xs: 'none', sm: 'none', md: 'none', lg: 'block',
-                },
-                height: '1px',
-                backgroundColor: 'white',
-              }}
-              />
+              <ContentDivider />
               <Image
                 src="/homepage-3.jpg"
                 sx={{

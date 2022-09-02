@@ -4,7 +4,6 @@ import * as React from 'react';
 import { Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import HomePageButton from './components/home-page-button';
-import Background from '../../components/background';
 import Paragraph from '../../components/paragraph';
 import HeaderMain from '../../components/header-main';
 import ContentContainer from '../../components/content-container';
@@ -14,13 +13,14 @@ import ContentDivider from './components/content-divider';
 import ImageSm from './components/image-sm';
 import ImageXs from './components/image-xs';
 import ImageLg from './components/image-lg';
+import BackgroundImage from '../../components/background-image';
 
 const HomePage = () => {
   const navigate = useNavigate();
 
   return (
     <Box sx={{ backgroundColor: { xs: 'black' }, p: { xs: 2 } }}>
-      <Background component="img" src="/homepage.jpg" sx={{ display: { xs: 'none', sm: 'block' } }} />
+      <BackgroundImage src="/homepage.jpg" />
       <Box sx={{ position: 'relative', mt: { xs: 4, sm: 6 } }}>
         <ContentContainer>
           <HeaderMain text="KJ Woodwork" />

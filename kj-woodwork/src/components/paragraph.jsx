@@ -9,7 +9,7 @@ const Paragraph = ({ text }) => (
       pl: { xs: 0 },
       color: theme.palette.primary.white,
       fontWeight: 200,
-      letterSpacing: '0.01em',
+      letterSpacing: '0.03em',
       fontSize: 18,
       fontFamily: theme.typography.main,
     }}

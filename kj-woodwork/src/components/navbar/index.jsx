@@ -58,7 +58,7 @@ const Navbar = () => {
           }}
           >
             {navitems.map(({ text, to }) => (
-              <Link key={to} to={to} sx={{ textTransform: 'uppercase' }}>
+              <Link key={to} to={to}>
                 {text}
               </Link>
             ))}

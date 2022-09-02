@@ -45,7 +45,7 @@ const NavbarDrawer = ({
         navitems={navitems}
       >
         {navitems.map(({ text, to }) => (
-          <ListItem key={to} disablePadding>
+          <ListItem key={to}>
             <ListItemButton
               to={to}
               sx={{
@@ -54,6 +54,7 @@ const NavbarDrawer = ({
                 '&: hover': {
                   borderBottom: '1px solid white',
                 },
+
               }}
             >
               <ListItemText primary={text} />

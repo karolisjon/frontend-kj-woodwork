@@ -8,7 +8,6 @@ const HomePageButton = ({ label, onClick }) => (
     sx={{
       width: { xs: '100% ', md: 300 },
       height: 50,
-      mt: 2,
       backgroundColor: theme.palette.primary.main,
       color: theme.palette.primary.white,
       borderRadius: 0,

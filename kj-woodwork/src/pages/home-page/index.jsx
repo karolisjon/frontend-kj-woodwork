@@ -13,6 +13,7 @@ import ContentWrapperMain from './components/content-wrapper-main';
 import ContentWrapperSecondary from './components/content-wrapper-secondary';
 import ContentDivider from './components/content-divider';
 import ImageSm from './components/image-sm';
+import ImageXs from './components/image-xs';
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -44,17 +45,7 @@ const HomePage = () => {
               </ContentWrapperSecondary>
               <ContentDivider />
               <ImageSm src="/homepage-3.jpg" />
-
-              <Image
-                src="/homepage-4.jpg"
-                sx={{
-                  display: {
-                    xs: 'block', sm: 'none',
-                  },
-                  width: '100%',
-                  my: 3,
-                }}
-              />
+              <ImageXs src="/homepage-4.jpg" />
               <ContentWrapperSecondary>
                 <Paragraph
                   text="

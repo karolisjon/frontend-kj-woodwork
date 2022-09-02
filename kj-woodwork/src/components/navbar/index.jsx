@@ -3,7 +3,7 @@ import {
   AppBar,
   Box,
   Toolbar,
-  Typography,
+  // Typography,
   IconButton,
   Button,
 } from '@mui/material';
@@ -13,6 +13,7 @@ import { useNavigate } from 'react-router-dom';
 import Link from './components/link';
 import theme from '../../styles/theme';
 import NavbarDrawer from './components/navbar-drawer';
+import NavbarLogo from './components/navbar-logo';
 
 const drawerWidth = 260;
 
@@ -47,22 +48,10 @@ const Navbar = () => {
           >
             <MenuOpenIcon />
           </Button>
-          <Typography
-            variant="h5"
-            component="div"
+          <NavbarLogo
             onClick={() => navigate('/')}
-            sx={{
-              flexGrow: 1,
-              fontFamily: 'logoFont',
-              display: { xs: 'none', sm: 'block' },
-              transition: '0.3s ease-in-out',
-              '&:hover': {
-                cursor: 'pointer',
-              },
-            }}
-          >
-            KJ Woodwork
-          </Typography>
+            label="KJ Woodwork"
+          />
           <Box sx={{
             display: { xs: 'none', md: 'flex' },
             alignSelf: 'stretch',

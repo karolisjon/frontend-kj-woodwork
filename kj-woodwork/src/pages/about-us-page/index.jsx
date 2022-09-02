@@ -1,9 +1,10 @@
 /* eslint-disable max-len */
 import * as React from 'react';
-import { Box, Container, Typography } from '@mui/material';
+import { Box, Container } from '@mui/material';
 import Background from '../home-page/components/background';
 import Paragraph from '../../components/paragraph';
 import HeaderMain from '../../components/header-main';
+import HeaderSecondary from '../../components/header-secondary';
 
 const AboutUs = () => (
   <Box sx={{ backgroundColor: { xs: 'black' }, p: { xs: 2 } }}>
@@ -19,6 +20,7 @@ const AboutUs = () => (
         }}
       >
         <HeaderMain text="About us" />
+
         <Paragraph
           text="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni nihil minus minima cum sequi amet molestias velit doloribus odio officia?
           Iure nulla harum dignissimos, enim inventore facere optio expedita quae impedit odio corrupti non quisquam quas cum ad. Ab explicabo vero aliquam.
@@ -26,34 +28,17 @@ const AboutUs = () => (
           Lonsectetur adipisicing elit. Sunt eum sapiente, ullam voluptate amet perspiciatis fuga doloremque facere numquam!"
         />
 
-        <Typography
-          variant="h3"
-          component="h3"
-          sx={{
-            color: 'white',
-            fontWeight: '400',
-            fontFamily: 'logoFont',
-          }}
-        >
-          Team
-        </Typography>
+        <HeaderSecondary text="Team" />
+
         <Paragraph
           text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas voluptates amet in odio iste fugit dolorum ex laudantium incidunt cumque.
           Quibusdam quaerat amet quisquam, ratione quae provident nihil repudiandae necessitatibus, ducimus reiciendis eius eligendi, consectetur modi porro fugiat quos sapiente?
           Amet consectetur adipisicing elit. Rem dolorem rerum eius assumenda. Fuga, necessitatibus veniam!
           Ipsam veniam perferendis similique. Hic aliquid aspernatur atque, quasi corrupti magni sint animi quia vero. Pariatur nobis consequatur voluptatem quidem suscipit deserunt hic quia quaerat!"
         />
-        <Typography
-          variant="h3"
-          component="h3"
-          sx={{
-            color: 'white',
-            fontWeight: '400',
-            fontFamily: 'logoFont',
-          }}
-        >
-          Our mission
-        </Typography>
+
+        <HeaderSecondary text="Our mission" />
+
         <Paragraph
           text="
           Lorem ipsum dolor sit amet consectetur adipisicing elit.

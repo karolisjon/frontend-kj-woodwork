@@ -3,6 +3,7 @@ import * as React from 'react';
 import { Box, Container, Typography } from '@mui/material';
 import Background from '../home-page/components/background';
 import Paragraph from '../../components/paragraph';
+import HeaderMain from '../../components/header-main';
 
 const AboutUs = () => (
   <Box sx={{ backgroundColor: { xs: 'black' }, p: { xs: 2 } }}>
@@ -17,20 +18,7 @@ const AboutUs = () => (
           backgroundColor: 'primary.darkTransparent',
         }}
       >
-        <Typography
-          component="h1"
-          sx={{
-            pt: 2,
-            color: 'white',
-            fontWeight: '400',
-            fontFamily: 'logoFont',
-            fontSize: {
-              xs: 45, sm: 70, md: 90, lg: 110,
-            },
-          }}
-        >
-          About us
-        </Typography>
+        <HeaderMain text="About us" />
         <Paragraph
           text="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni nihil minus minima cum sequi amet molestias velit doloribus odio officia?
           Iure nulla harum dignissimos, enim inventore facere optio expedita quae impedit odio corrupti non quisquam quas cum ad. Ab explicabo vero aliquam.

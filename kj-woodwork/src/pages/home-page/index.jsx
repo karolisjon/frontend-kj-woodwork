@@ -3,7 +3,6 @@
 import * as React from 'react';
 import {
   Box,
-  Typography,
   Container,
   Divider,
 } from '@mui/material';
@@ -12,6 +11,7 @@ import HomePageButton from './components/home-page-button';
 import Background from './components/background';
 import Image from './components/image';
 import Paragraph from '../../components/paragraph';
+import HeaderMain from '../../components/header-main';
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -29,20 +29,7 @@ const HomePage = () => {
             backgroundColor: 'primary.darkTransparent',
           }}
         >
-          <Typography
-            component="h1"
-            sx={{
-              pt: 2,
-              color: 'white',
-              fontWeight: '400',
-              fontFamily: 'logoFont',
-              fontSize: {
-                xs: 45, sm: 70, md: 90, lg: 110,
-              },
-            }}
-          >
-            KJ Woodwork
-          </Typography>
+          <HeaderMain text="KJ Woodwork" />
           <Box sx={{ display: 'flex' }}>
             <Box sx={{
               display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: { xs: 1 },

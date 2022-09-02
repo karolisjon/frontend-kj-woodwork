@@ -5,7 +5,6 @@ import { Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import HomePageButton from './components/home-page-button';
 import Background from '../../components/background';
-import Image from './components/image';
 import Paragraph from '../../components/paragraph';
 import HeaderMain from '../../components/header-main';
 import ContentContainer from '../../components/content-container';
@@ -14,6 +13,7 @@ import ContentWrapperSecondary from './components/content-wrapper-secondary';
 import ContentDivider from './components/content-divider';
 import ImageSm from './components/image-sm';
 import ImageXs from './components/image-xs';
+import ImageLg from './components/image-lg';
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -62,14 +62,7 @@ const HomePage = () => {
                 </HomePageButton>
               </ContentWrapperSecondary>
             </ContentWrapperMain>
-            <Image
-              src="/homepage-2.jpg"
-              sx={{
-                display: {
-                  xs: 'none', sm: 'none', md: 'none', lg: 'block',
-                },
-              }}
-            />
+            <ImageLg src="/homepage-2.jpg" />
           </Box>
         </ContentContainer>
       </Box>

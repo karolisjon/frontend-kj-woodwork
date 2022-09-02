@@ -12,6 +12,7 @@ import ContentContainer from '../../components/content-container';
 import ContentWrapperMain from './components/content-wrapper-main';
 import ContentWrapperSecondary from './components/content-wrapper-secondary';
 import ContentDivider from './components/content-divider';
+import ImageSm from './components/image-sm';
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -42,16 +43,8 @@ const HomePage = () => {
                 </HomePageButton>
               </ContentWrapperSecondary>
               <ContentDivider />
-              <Image
-                src="/homepage-3.jpg"
-                sx={{
-                  display: {
-                    xs: 'none', sm: 'block', md: 'block', lg: 'none',
-                  },
-                  width: '100%',
-                  my: 3,
-                }}
-              />
+              <ImageSm src="/homepage-3.jpg" />
+
               <Image
                 src="/homepage-4.jpg"
                 sx={{

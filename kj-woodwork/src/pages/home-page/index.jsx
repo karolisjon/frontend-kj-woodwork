@@ -8,10 +8,10 @@ import {
   Divider,
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import CustomParagraph from '../../components/custom-paragraph';
 import HomePageButton from './components/home-page-button';
 import Background from './components/background';
 import Image from './components/image';
+import Paragraph from '../../components/paragraph';
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -23,7 +23,7 @@ const HomePage = () => {
         <Container
           sx={{
             maxWidth: {
-              xl: 1400, lg: 1200, md: 1000, sm: 800, xs: 500,
+              xs: 500, sm: 800, md: 1000, lg: 1200, xl: 1500,
             },
             pb: 3,
             backgroundColor: 'primary.darkTransparent',
@@ -57,20 +57,16 @@ const HomePage = () => {
                 },
               }}
               >
-                <CustomParagraph
-                  sx={{
-                    px: {
-                      xs: 0, sm: 2,
-                    },
-                    py: 2,
-                  }}
-                >
+                <Paragraph
+                  text="
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Illum hic, consequuntur est ipsa ex cumque exercitationem amet?
                   Quia modi quae alias recusandae aperiam atque nesciunt blanditiis enim iusto ut totam
                   ab debitis nostrum praesentium maxime.
                   Dolor sit amet consectetur adipisicing elit. Mollitia, obcaecati accusantium perferendis consequatur architecto accusamus.
-                </CustomParagraph>
+                  "
+                />
+
                 <HomePageButton
                   sx={{ width: { xs: '100% ', md: 300 } }}
                   onClick={() => navigate('/about-us')}
@@ -120,24 +116,19 @@ const HomePage = () => {
                 },
               }}
               >
-                <CustomParagraph
-                  sx={{
-                    px: {
-                      xs: 0, sm: 2,
-                    },
-                    py: 2,
-                  }}
-                >
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque perferendis illo tempora officiis maiores quidem minima velit,
+                <Paragraph
+                  text="
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque perferendis illo tempora officiis maiores quidem minima velit,
                   possimus quaerat, iusto, sed nesciunt ipsam labore dignissimos.
                   Sit recusandae quam nisi. Magni omnis cumque eos doloremque officia quia iste quaerat adipisci.
-                </CustomParagraph>
+                "
+                />
+
                 <HomePageButton
                   sx={{ width: { xs: '100% ', md: 300 } }}
                   onClick={() => navigate('/product-catalog')}
                 >
                   Products
-
                 </HomePageButton>
               </Box>
             </Box>

@@ -37,11 +37,9 @@ const HomePage = () => {
                   "
                 />
                 <HomePageButton
-                  sx={{ width: { xs: '100% ', md: 300 } }}
+                  label="About us"
                   onClick={() => navigate('/about-us')}
-                >
-                  About us
-                </HomePageButton>
+                />
               </ContentWrapperSecondary>
               <ContentDivider />
               <ImageSm src="/homepage-3.jpg" />
@@ -55,7 +53,7 @@ const HomePage = () => {
                 "
                 />
                 <HomePageButton
-                  sx={{ width: { xs: '100% ', md: 300 } }}
+                  label="Product catalog"
                   onClick={() => navigate('/product-catalog')}
                 >
                   Products

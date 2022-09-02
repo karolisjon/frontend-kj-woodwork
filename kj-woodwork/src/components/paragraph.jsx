@@ -5,10 +5,8 @@ import theme from '../styles/theme';
 const Paragraph = ({ text }) => (
   <Box
     sx={{
-      px: {
-        xs: 0, sm: 2,
-      },
-      py: 2,
+      pr: { xs: 0, sm: 2 },
+      pl: { xs: 0 },
       color: theme.palette.primary.white,
       fontWeight: 200,
       letterSpacing: '0.01em',

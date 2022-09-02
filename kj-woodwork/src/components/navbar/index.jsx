@@ -5,7 +5,6 @@ import {
   Toolbar,
   Typography,
   IconButton,
-  Drawer,
   Button,
 } from '@mui/material';
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
@@ -25,16 +24,13 @@ const navitems = [
   { text: 'Register', to: '/auth/register' },
 ];
 
-const Navbar = (props) => {
-  const { window } = props;
+const Navbar = () => {
   const [drawerOpen, setDrawerOpen] = React.useState(false);
   const navigate = useNavigate();
 
   const handleDrawerToggle = () => {
     setDrawerOpen(!drawerOpen);
   };
-
-  const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -72,7 +68,11 @@ const Navbar = (props) => {
             alignSelf: 'stretch',
           }}
           >
-            {navitems.map(({ text, to }) => <Link key={to} to={to} sx={{ textTransform: 'uppercase' }}>{text}</Link>)}
+            {navitems.map(({ text, to }) => (
+              <Link key={to} to={to} sx={{ textTransform: 'uppercase' }}>
+                {text}
+              </Link>
+            ))}
           </Box>
           <IconButton
             fontSize="medium"
@@ -84,24 +84,13 @@ const Navbar = (props) => {
         </Toolbar>
       </AppBar>
       <Box component="nav">
-        <Drawer
-          container={container}
-          variant="temporary"
+        <NavbarDrawer
+          onClick={handleDrawerToggle}
+          navitems={navitems}
           open={drawerOpen}
           onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true,
-          }}
-          sx={{
-            display: { xs: 'block' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-          }}
-        >
-          <NavbarDrawer
-            onClick={handleDrawerToggle}
-            navitems={navitems}
-          />
-        </Drawer>
+          drawerWidth={drawerWidth}
+        />
       </Box>
       <Box component="main" sx={{ p: 0 }}>
         <Toolbar />

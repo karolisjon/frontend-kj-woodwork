@@ -3,7 +3,6 @@
 import * as React from 'react';
 import {
   Box,
-  Container,
   Divider,
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
@@ -12,6 +11,7 @@ import Background from './components/background';
 import Image from './components/image';
 import Paragraph from '../../components/paragraph';
 import HeaderMain from '../../components/header-main';
+import ContentContainer from '../../components/content-container';
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -20,15 +20,7 @@ const HomePage = () => {
     <Box sx={{ backgroundColor: { xs: 'black' }, p: { xs: 2 } }}>
       <Background component="img" src="/homepage.jpg" sx={{ display: { xs: 'none', sm: 'block' } }} />
       <Box sx={{ position: 'relative', mt: { xs: 4, sm: 6 } }}>
-        <Container
-          sx={{
-            maxWidth: {
-              xs: 500, sm: 800, md: 1000, lg: 1200, xl: 1500,
-            },
-            pb: 3,
-            backgroundColor: 'primary.darkTransparent',
-          }}
-        >
+        <ContentContainer>
           <HeaderMain text="KJ Woodwork" />
           <Box sx={{ display: 'flex' }}>
             <Box sx={{
@@ -53,7 +45,6 @@ const HomePage = () => {
                   Dolor sit amet consectetur adipisicing elit. Mollitia, obcaecati accusantium perferendis consequatur architecto accusamus.
                   "
                 />
-
                 <HomePageButton
                   sx={{ width: { xs: '100% ', md: 300 } }}
                   onClick={() => navigate('/about-us')}
@@ -61,7 +52,6 @@ const HomePage = () => {
                   About us
                 </HomePageButton>
               </Box>
-
               <Divider sx={{
                 width: { lg: '95%', md: '100%' },
                 display: {
@@ -71,7 +61,6 @@ const HomePage = () => {
                 backgroundColor: 'white',
               }}
               />
-
               <Image
                 src="/homepage-3.jpg"
                 sx={{
@@ -82,7 +71,6 @@ const HomePage = () => {
                   my: 3,
                 }}
               />
-
               <Image
                 src="/homepage-4.jpg"
                 sx={{
@@ -93,7 +81,6 @@ const HomePage = () => {
                   my: 3,
                 }}
               />
-
               <Box sx={{
                 width: { lg: '95%', md: '100%' },
                 display: 'flex',
@@ -110,7 +97,6 @@ const HomePage = () => {
                   Sit recusandae quam nisi. Magni omnis cumque eos doloremque officia quia iste quaerat adipisci.
                 "
                 />
-
                 <HomePageButton
                   sx={{ width: { xs: '100% ', md: 300 } }}
                   onClick={() => navigate('/product-catalog')}
@@ -127,9 +113,8 @@ const HomePage = () => {
                 },
               }}
             />
-
           </Box>
-        </Container>
+        </ContentContainer>
       </Box>
     </Box>
   );

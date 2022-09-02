@@ -1,24 +1,17 @@
 /* eslint-disable max-len */
 import * as React from 'react';
-import { Box, Container } from '@mui/material';
+import { Box } from '@mui/material';
 import Background from '../home-page/components/background';
 import Paragraph from '../../components/paragraph';
 import HeaderMain from '../../components/header-main';
 import HeaderSecondary from '../../components/header-secondary';
+import ContentContainer from '../../components/content-container';
 
 const AboutUs = () => (
   <Box sx={{ backgroundColor: { xs: 'black' }, p: { xs: 2 } }}>
     <Background component="img" src="/meet-our-team.jpg" sx={{ display: { xs: 'none', sm: 'block' } }} />
     <Box sx={{ position: 'relative', marginTop: { xs: 0, sm: 6 } }}>
-      <Container
-        sx={{
-          maxWidth: {
-            xs: 500, sm: 800, md: 1000, lg: 1200, xl: 1500,
-          },
-          pb: 3,
-          backgroundColor: 'primary.darkTransparent',
-        }}
-      >
+      <ContentContainer>
         <HeaderMain text="About us" />
 
         <Paragraph
@@ -47,7 +40,7 @@ const AboutUs = () => (
           Aliquid ab non, magnam, tempore labore, animi sapiente officiis distinctio quibusdam similique necessitatibus ex.
           Ipsum dolor sit amet, consectetur adipisicing elit. Iste quidem maiores odit illum repudiandae unde, animi, labore reiciendis dignissimos aliquam aut illo."
         />
-      </Container>
+      </ContentContainer>
     </Box>
   </Box>
 );

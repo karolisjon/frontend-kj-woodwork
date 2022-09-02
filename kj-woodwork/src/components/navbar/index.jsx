@@ -17,7 +17,7 @@ import NavbarDrawer from './components/navbar-drawer';
 
 const drawerWidth = 260;
 
-const navItems = [
+const navitems = [
   { text: 'Home', to: '/' },
   { text: 'About us', to: '/about-us' },
   { text: 'Product catalog', to: '/product-catalog' },
@@ -72,7 +72,7 @@ const Navbar = (props) => {
             alignSelf: 'stretch',
           }}
           >
-            {navItems.map(({ text, to }) => <Link key={to} to={to} sx={{ textTransform: 'uppercase' }}>{text}</Link>)}
+            {navitems.map(({ text, to }) => <Link key={to} to={to} sx={{ textTransform: 'uppercase' }}>{text}</Link>)}
           </Box>
           <IconButton
             fontSize="medium"
@@ -99,7 +99,7 @@ const Navbar = (props) => {
         >
           <NavbarDrawer
             onClick={handleDrawerToggle}
-            navItems={navItems}
+            navitems={navitems}
           />
         </Drawer>
       </Box>

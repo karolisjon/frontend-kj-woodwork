@@ -9,7 +9,7 @@ import {
   Typography,
 } from '@mui/material';
 
-const NavbarDrawer = ({ onClick, navItems }) => (
+const NavbarDrawer = ({ onClick, navitems }) => (
   <Box
     onClick={onClick}
     sx={{ textAlign: 'center' }}
@@ -19,9 +19,9 @@ const NavbarDrawer = ({ onClick, navItems }) => (
     </Typography>
     <Divider />
     <List
-      navItems={navItems}
+      navitems={navitems}
     >
-      {navItems.map(({ text, to }) => (
+      {navitems.map(({ text, to }) => (
         <ListItem key={to} disablePadding>
           <ListItemButton to={to} sx={{ textAlign: 'center', textTransform: 'uppercase' }}>
             <ListItemText primary={text} />

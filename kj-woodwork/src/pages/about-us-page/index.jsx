@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import * as React from 'react';
 import { Box } from '@mui/material';
-import Background from '../home-page/components/background';
+import Background from '../../components/background';
 import Paragraph from '../../components/paragraph';
 import HeaderMain from '../../components/header-main';
 import HeaderSecondary from '../../components/header-secondary';

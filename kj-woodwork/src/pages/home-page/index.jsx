@@ -7,11 +7,13 @@ import {
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import HomePageButton from './components/home-page-button';
-import Background from './components/background';
+import Background from '../../components/background';
 import Image from './components/image';
 import Paragraph from '../../components/paragraph';
 import HeaderMain from '../../components/header-main';
 import ContentContainer from '../../components/content-container';
+import ContentWrapperMain from './components/content-wrapper-main';
+import ContentWrapperSecondary from './components/content-wrapper-secondary';
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -23,19 +25,8 @@ const HomePage = () => {
         <ContentContainer>
           <HeaderMain text="KJ Woodwork" />
           <Box sx={{ display: 'flex' }}>
-            <Box sx={{
-              display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: { xs: 1 },
-            }}
-            >
-              <Box sx={{
-                width: { lg: '95%', md: '100%' },
-                display: 'flex',
-                flexDirection: 'column',
-                gap: {
-                  xs: 1, sm: 1, md: 1, lg: 2,
-                },
-              }}
-              >
+            <ContentWrapperMain>
+              <ContentWrapperSecondary>
                 <Paragraph
                   text="
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -51,7 +42,7 @@ const HomePage = () => {
                 >
                   About us
                 </HomePageButton>
-              </Box>
+              </ContentWrapperSecondary>
               <Divider sx={{
                 width: { lg: '95%', md: '100%' },
                 display: {
@@ -81,15 +72,7 @@ const HomePage = () => {
                   my: 3,
                 }}
               />
-              <Box sx={{
-                width: { lg: '95%', md: '100%' },
-                display: 'flex',
-                flexDirection: 'column',
-                gap: {
-                  xs: 1, sm: 1, md: 1, lg: 2,
-                },
-              }}
-              >
+              <ContentWrapperSecondary>
                 <Paragraph
                   text="
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque perferendis illo tempora officiis maiores quidem minima velit,
@@ -103,8 +86,8 @@ const HomePage = () => {
                 >
                   Products
                 </HomePageButton>
-              </Box>
-            </Box>
+              </ContentWrapperSecondary>
+            </ContentWrapperMain>
             <Image
               src="/homepage-2.jpg"
               sx={{

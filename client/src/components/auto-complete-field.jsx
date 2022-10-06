@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import * as React from 'react';
 import { Autocomplete, TextField } from '@mui/material';
 
@@ -5,11 +6,13 @@ const AutoCompleteField = ({
   options,
   value,
   onChange,
+  ...props
 }) => (
   <Autocomplete
     options={options}
     value={value}
     onChange={onChange}
+    {...props}
     renderInput={({
       InputLabelProps,
       InputProps,

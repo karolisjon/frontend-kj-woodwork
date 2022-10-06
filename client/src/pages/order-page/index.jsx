@@ -10,7 +10,6 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
-// import CartPageContext from '../../../contexts/cart-page-context';
 
 const countries = [
   {
@@ -62,9 +61,6 @@ const OrderPage = () => {
   const [houseNr, setHouseNr] = React.useState('');
   const [apartmentNr, setApartmentNr] = React.useState('');
   const [termsAndConditions, setTermsAndConditions] = React.useState(true);
-
-  // const cartPageContext = React.useContext(CartPageContext);
-  // console.log('Order, cartPageContext: ', cartPageContext);
 
   return (
     <Box sx={{ mt: 4 }}>

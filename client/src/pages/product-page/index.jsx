@@ -54,29 +54,13 @@ const ProductInformation = () => {
               <Typography variant="subtitle" sx={{ my: 1, fontStyle: 'italic' }}>
                 Category:
                 {' '}
-                {product?.category.label}
+                {product?.category.title}
               </Typography>
-              {product?.measurements && (
-                <Typography variant="body2" component="p" sx={{ my: 1 }}>
-                  Measurements:
-                  {' '}
-                  {product?.measurements}
-                </Typography>
-              )}
               <Typography variant="body2" component="p" sx={{ my: 1 }}>
                 Type of wood:
                 {' '}
-                {product?.woodType.label}
+                {product?.woodType.title}
               </Typography>
-              <Typography variant="body2" component="p" sx={{ my: 1 }}>
-                Product no:
-                {' '}
-                {product?.id}
-              </Typography>
-
-              {product?.inStock
-                ? <Typography variant="body2" component="p" sx={{ my: 1 }}>Currently in stock: yes</Typography>
-                : <Typography variant="body2" component="p" sx={{ my: 1 }}>Currently in stock: no</Typography>}
 
               <Box sx={{ marginTop: 'auto' }}>
                 <Typography variant="h5" component="h5" sx={{ my: 1 }}>

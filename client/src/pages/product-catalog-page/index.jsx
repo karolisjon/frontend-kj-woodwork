@@ -122,6 +122,7 @@ const ProductCatalog = () => {
               options={categories}
               value={category}
               onChange={handleCategoriesChange}
+              getOptionLabel={({ title }) => title || ''}
             />
           </FormControl>
 
@@ -180,7 +181,7 @@ const ProductCatalog = () => {
                 description={description}
                 price={productPrice}
                 img={img}
-                category={productCategory.label}
+                category={productCategory.title}
                 // woodType={productWoodType}
               />
             </Grid>

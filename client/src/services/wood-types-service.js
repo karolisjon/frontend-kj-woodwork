@@ -1,5 +1,5 @@
 const domain = 'http://localhost:8000';
-const databaseCollection = 'woodtypes';
+const databaseCollection = 'api/woodtypes';
 
 const fetchWoodTypes = async () => {
   const response = await fetch(`${domain}/${databaseCollection}`);

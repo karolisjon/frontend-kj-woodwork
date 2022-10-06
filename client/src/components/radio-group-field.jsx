@@ -18,13 +18,13 @@ const RadioGroupField = ({
       value={value}
       onChange={onChange}
     >
-      {options.map(({ id, label }) => (
+      {options.map(({ id, title }) => (
         <FormControlLabel
-          key={label}
+          key={title}
           id={id}
-          value={label}
+          value={title}
           control={<Radio />}
-          label={label}
+          label={title}
         />
       ))}
     </RadioGroup>

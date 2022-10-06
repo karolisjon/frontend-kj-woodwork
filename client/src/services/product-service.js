@@ -1,6 +1,6 @@
 const domain = 'http://localhost:8000';
-const databaseCollection = 'products';
-const relationsParams = '_expand=category&_expand=woodType';
+const databaseCollection = 'api/products';
+const relationsParams = 'joinBy=categoryId&joinBy=woodTypeId';
 
 const fetchProducts = async () => {
   const response = await fetch(`${domain}/${databaseCollection}/?${relationsParams}`);

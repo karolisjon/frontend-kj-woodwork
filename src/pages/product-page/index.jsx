@@ -96,7 +96,7 @@ const ProductInformation = () => {
                   </ButtonAmmount>
                   <CustomButton
                     onClick={() => {
-                      navigate('/cart');
+                      navigate(`/cart/${id}`);
                       addToCart({ id });
                     }}
                   >

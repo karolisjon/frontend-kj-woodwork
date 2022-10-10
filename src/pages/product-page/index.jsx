@@ -67,7 +67,7 @@ const ProductInformation = () => {
                   Price:
                   {' '}
                   {product?.price * amount}
-                  .00 €
+                  {' €'}
                 </Typography>
                 <Box sx={{ display: 'flex', gap: 1 }}>
                   <ButtonAmmount

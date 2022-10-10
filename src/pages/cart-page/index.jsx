@@ -3,15 +3,20 @@ import {
   Box,
   Container,
   Divider,
+  IconButton,
   Typography,
 } from '@mui/material';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ClearIcon from '@mui/icons-material/Clear';
 import ProductService from '../../services/product-service';
 import theme from '../../styles/theme';
+import CustomButton from '../../components/custom-button';
 
 const CartPage = () => {
   const { id } = useParams();
   const [productsInCart, setProductsInCart] = React.useState([]);
+  const navigate = useNavigate();
 
   React.useEffect(() => {
     (async () => {
@@ -37,20 +42,20 @@ const CartPage = () => {
 
       <Divider />
       <Box sx={{ display: 'flex', flexDirection: 'row', my: 2 }}>
-        <Box sx={{ width: '70%', backgroundColor: 'red' }}>
+        <Box sx={{ width: '70%' }}>
           <Typography>PRODUCT DETAILS</Typography>
         </Box>
         <Box sx={{
           display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '30%',
         }}
         >
-          <Box sx={{ backgroundColor: 'yellow' }}>
+          <Box>
             <Typography>AMOUNT</Typography>
           </Box>
-          <Box sx={{ backgroundColor: 'green' }}>
+          <Box>
             <Typography>PRICE</Typography>
           </Box>
-          <Box sx={{ backgroundColor: 'blue' }}>
+          <Box>
             <Typography>TOTAL</Typography>
           </Box>
         </Box>
@@ -62,11 +67,21 @@ const CartPage = () => {
           display: 'flex', flexDirection: 'row', width: '70%',
         }}
         >
-          <img src={productsInCart.img} alt="" height="300px" width="300px" />
+          <img src={productsInCart.img} alt="" height="260px" width="260px" />
           <Box sx={{ ml: 2 }}>
-            <Typography>{productsInCart?.title}</Typography>
-            <Typography>{productsInCart?.category.title}</Typography>
-            <Typography>{productsInCart?.woodType.title}</Typography>
+            <Typography variant="h6" component="p" sx={{ mb: 1 }}>
+              {productsInCart?.title}
+            </Typography>
+            {/* <Typography variant="body2" component="p" sx={{ my: 1 }}>
+              Category:
+              {' '}
+              {productsInCart?.category.title}
+            </Typography>
+            <Typography variant="body2" component="p" sx={{ my: 1 }}>
+              Type of wood:
+              {' '}
+              {productsInCart?.woodType.title}
+            </Typography> */}
           </Box>
         </Box>
 
@@ -78,22 +93,45 @@ const CartPage = () => {
             <Typography>AMOUNT</Typography>
           </Box>
           <Box>
-            <Typography>
+            <Typography variant="body1" component="p">
               {productsInCart.price}
               Є
             </Typography>
           </Box>
-          <Typography>
-            {productsInCart.price}
-            Є
-          </Typography>
+          <Box sx={{
+            display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'flex-end',
+          }}
+          >
+            <Typography variant="body1" component="p">TOTAL</Typography>
+            <IconButton
+              sx={{ color: theme.palette.primary.main, '&:hover': { background: 'none' } }}
+              onClick={() => console.log('will remove item from the cart in the future')}
+            >
+              <ClearIcon />
+            </IconButton>
+
+          </Box>
         </Box>
       </Box>
 
       <Divider />
 
+      <Box sx={{ width: '20%', mt: 6 }}>
+        <CustomButton
+          onClick={() => navigate('/product-catalog')}
+        >
+          <ArrowBackIcon fontSize="small" />
+          Back to catalog
+        </CustomButton>
+      </Box>
+
       <pre>
-        {JSON.stringify(productsInCart, null, 4)}
+        {JSON.stringify({
+          title: productsInCart.title,
+          // description: productsInCart.category.title,
+          // woodType: productsInCart.woodType.title,
+          price: productsInCart.price,
+        }, null, 4)}
       </pre>
     </Container>
   );

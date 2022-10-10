@@ -36,19 +36,61 @@ const CartPage = () => {
       </Typography>
 
       <Divider />
-
-      <Box sx={{ display: 'flex', flexDirection: 'row' }}>
-
-        <Box sx={{ flexGrow: 1 }}>
+      <Box sx={{ display: 'flex', flexDirection: 'row', my: 2 }}>
+        <Box sx={{ width: '70%', backgroundColor: 'red' }}>
           <Typography>PRODUCT DETAILS</Typography>
         </Box>
-
-        <Box sx={{ display: 'flex', flexDirection: 'row' }}>
-          <Typography>AMOUNT</Typography>
-          <Typography>PRICE</Typography>
-          <Typography>TOTAL</Typography>
+        <Box sx={{
+          display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '30%',
+        }}
+        >
+          <Box sx={{ backgroundColor: 'yellow' }}>
+            <Typography>AMOUNT</Typography>
+          </Box>
+          <Box sx={{ backgroundColor: 'green' }}>
+            <Typography>PRICE</Typography>
+          </Box>
+          <Box sx={{ backgroundColor: 'blue' }}>
+            <Typography>TOTAL</Typography>
+          </Box>
         </Box>
       </Box>
+      <Divider />
+
+      <Box sx={{ display: 'flex', flexDirection: 'row', my: 2 }}>
+        <Box sx={{
+          display: 'flex', flexDirection: 'row', width: '70%',
+        }}
+        >
+          <img src={productsInCart.img} alt="" height="300px" width="300px" />
+          <Box sx={{ ml: 2 }}>
+            <Typography>{productsInCart?.title}</Typography>
+            <Typography>{productsInCart?.category.title}</Typography>
+            <Typography>{productsInCart?.woodType.title}</Typography>
+          </Box>
+        </Box>
+
+        <Box sx={{
+          display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '30%',
+        }}
+        >
+          <Box>
+            <Typography>AMOUNT</Typography>
+          </Box>
+          <Box>
+            <Typography>
+              {productsInCart.price}
+              Є
+            </Typography>
+          </Box>
+          <Typography>
+            {productsInCart.price}
+            Є
+          </Typography>
+        </Box>
+      </Box>
+
+      <Divider />
 
       <pre>
         {JSON.stringify(productsInCart, null, 4)}

@@ -43,20 +43,20 @@ const CartPage = () => {
       <Divider />
       <Box sx={{ display: 'flex', flexDirection: 'row', my: 2 }}>
         <Box sx={{ width: '70%' }}>
-          <Typography>PRODUCT DETAILS</Typography>
+          <Typography sx={{ fontFamily: theme.typography.main }}>PRODUCT DETAILS</Typography>
         </Box>
         <Box sx={{
           display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '30%',
         }}
         >
           <Box>
-            <Typography>AMOUNT</Typography>
+            <Typography sx={{ fontFamily: theme.typography.main }}>AMOUNT</Typography>
           </Box>
           <Box>
-            <Typography>PRICE</Typography>
+            <Typography sx={{ fontFamily: theme.typography.main }}>PRICE</Typography>
           </Box>
           <Box>
-            <Typography>TOTAL</Typography>
+            <Typography sx={{ fontFamily: theme.typography.main }}>TOTAL</Typography>
           </Box>
         </Box>
       </Box>
@@ -69,15 +69,25 @@ const CartPage = () => {
         >
           <img src={productsInCart.img} alt="" height="260px" width="260px" />
           <Box sx={{ ml: 2 }}>
-            <Typography variant="h6" component="p" sx={{ mb: 1 }}>
+            <Typography
+              variant="h6"
+              component="p"
+              sx={{ fontFamily: theme.typography.main, mb: 1 }}
+            >
               {productsInCart?.title}
             </Typography>
-            {/* <Typography variant="body2" component="p" sx={{ my: 1 }}>
+            {/* <Typography
+            variant="body2"
+            component="p"
+            sx={{  fontFamily: theme.typography.main, my: 1 }}>
               Category:
               {' '}
               {productsInCart?.category.title}
             </Typography>
-            <Typography variant="body2" component="p" sx={{ my: 1 }}>
+            <Typography
+            variant="body2"
+            component="p"
+            sx={{  fontFamily: theme.typography.main, my: 1 }}>
               Type of wood:
               {' '}
               {productsInCart?.woodType.title}
@@ -90,19 +100,19 @@ const CartPage = () => {
         }}
         >
           <Box>
-            <Typography>AMOUNT</Typography>
+            <Typography sx={{ fontFamily: theme.typography.main }}>AMOUNT</Typography>
           </Box>
           <Box>
-            <Typography variant="body1" component="p">
+            <Typography sx={{ fontFamily: theme.typography.main }}>
               {productsInCart.price}
-              Є
+              {' Є'}
             </Typography>
           </Box>
           <Box sx={{
             display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'flex-end',
           }}
           >
-            <Typography variant="body1" component="p">TOTAL</Typography>
+            <Typography sx={{ fontFamily: theme.typography.main }}>TOTAL</Typography>
             <IconButton
               sx={{ color: theme.palette.primary.main, '&:hover': { background: 'none' } }}
               onClick={() => console.log('will remove item from the cart in the future')}

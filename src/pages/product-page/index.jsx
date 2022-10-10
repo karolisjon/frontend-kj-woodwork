@@ -13,6 +13,7 @@ import ButtonAmmount from './components/button-amount';
 import CustomButton from '../../components/custom-button';
 import ProductService from '../../services/product-service';
 import CartContext from '../../contexts/cart-page-context';
+import theme from '../../styles/theme';
 
 const ProductInformation = () => {
   const { id } = useParams();
@@ -50,20 +51,28 @@ const ProductInformation = () => {
               flexGrow: 1,
             }}
             >
-              <Typography variant="h4" component="h4">{product?.title}</Typography>
-              <Typography variant="subtitle" sx={{ my: 1, fontStyle: 'italic' }}>
+              <Typography
+                variant="h4"
+                sx={{ fontFamily: theme.typography.main }}
+              >
+                {product?.title}
+
+              </Typography>
+              <Typography
+                sx={{ my: 1, fontFamily: theme.typography.main }}
+              >
                 Category:
                 {' '}
                 {product?.category.title}
               </Typography>
-              <Typography variant="body2" component="p" sx={{ my: 1 }}>
+              <Typography sx={{ my: 1, fontFamily: theme.typography.main }}>
                 Type of wood:
                 {' '}
                 {product?.woodType.title}
               </Typography>
 
               <Box sx={{ marginTop: 'auto' }}>
-                <Typography variant="h5" component="h5" sx={{ my: 1 }}>
+                <Typography variant="h5" sx={{ my: 1, fontFamily: theme.typography.main }}>
                   Price:
                   {' '}
                   {product?.price * amount}
@@ -107,9 +116,9 @@ const ProductInformation = () => {
             </Box>
           </Box>
           <Box>
-            <Typography variant="h5" component="h4" sx={{ mt: 4 }}>About the product:</Typography>
+            <Typography variant="h5" sx={{ mt: 4, fontFamily: theme.typography.main }}>About the product:</Typography>
             <Divider sx={{ my: 2 }} />
-            <Typography component="p" sx={{ mt: 2, mb: 8 }}>
+            <Typography component="p" sx={{ mt: 2, mb: 8, fontFamily: theme.typography.main }}>
               {product?.description}
             </Typography>
             <Box sx={{ width: '20%' }}>

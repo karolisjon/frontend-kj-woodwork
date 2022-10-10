@@ -12,6 +12,7 @@ import ClearIcon from '@mui/icons-material/Clear';
 import ProductService from '../../services/product-service';
 import theme from '../../styles/theme';
 import CustomButton from '../../components/custom-button';
+import TableHeaders from './components/table-headers';
 
 const CartPage = () => {
   const { id } = useParams();
@@ -41,25 +42,7 @@ const CartPage = () => {
       </Typography>
 
       <Divider />
-      <Box sx={{ display: 'flex', flexDirection: 'row', my: 2 }}>
-        <Box sx={{ width: '70%' }}>
-          <Typography sx={{ fontFamily: theme.typography.main }}>PRODUCT DETAILS</Typography>
-        </Box>
-        <Box sx={{
-          display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '30%',
-        }}
-        >
-          <Box>
-            <Typography sx={{ fontFamily: theme.typography.main }}>AMOUNT</Typography>
-          </Box>
-          <Box>
-            <Typography sx={{ fontFamily: theme.typography.main }}>PRICE</Typography>
-          </Box>
-          <Box>
-            <Typography sx={{ fontFamily: theme.typography.main }}>TOTAL</Typography>
-          </Box>
-        </Box>
-      </Box>
+      <TableHeaders />
       <Divider />
 
       <Box sx={{ display: 'flex', flexDirection: 'row', my: 2 }}>

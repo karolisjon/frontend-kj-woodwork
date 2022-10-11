@@ -1,13 +1,24 @@
 import * as React from 'react';
-import { Box, IconButton, Typography } from '@mui/material';
+import {
+  Box,
+  IconButton,
+  Typography,
+} from '@mui/material';
 import ClearIcon from '@mui/icons-material/Clear';
 import theme from '../../../styles/theme';
 
 const CartProductDetails = ({ productsInCart }) => (
 
-  <Box sx={{ display: 'flex', flexDirection: 'row', my: 2 }}>
+  <Box sx={{
+    display: 'flex',
+    flexDirection: 'row',
+    my: 2,
+  }}
+  >
     <Box sx={{
-      display: 'flex', flexDirection: 'row', width: '70%',
+      display: 'flex',
+      flexDirection: 'row',
+      width: '70%',
     }}
     >
       <img src={productsInCart.img} alt="" height="260px" width="260px" />
@@ -39,30 +50,43 @@ const CartProductDetails = ({ productsInCart }) => (
     </Box>
 
     <Box sx={{
-      display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '30%',
+      display: 'flex',
+      flexDirection: { xs: 'column', md: 'row' },
+      justifyContent: 'space-between',
+      width: '30%',
     }}
     >
-      <Box>
-        <Typography sx={{ fontFamily: theme.typography.main }}>AMOUNT</Typography>
+      <Box sx={{ backgroundColor: 'yellow' }}>
+        <Typography sx={{ fontFamily: theme.typography.main, width: '100%', display: { md: 'none' } }}>QUANTITY: </Typography>
+        <Typography sx={{ fontFamily: theme.typography.main, width: '100%' }}>6666</Typography>
       </Box>
-      <Box>
+      <Box sx={{ backgroundColor: 'pink' }}>
+        <Typography sx={{ fontFamily: theme.typography.main, width: '100%', display: { md: 'none' } }}>PRICE: </Typography>
         <Typography sx={{ fontFamily: theme.typography.main }}>
           {productsInCart.price}
           {' Є'}
         </Typography>
       </Box>
       <Box sx={{
-        display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'flex-end',
+        // display: 'flex',
+        // flexDirection: 'column',
+        // justifyContent: 'space-between',
+        // alignItems: 'flex-end',
+        backgroundColor: 'magenta',
       }}
       >
-        <Typography sx={{ fontFamily: theme.typography.main }}>TOTAL</Typography>
+        <Box>
+          <Typography sx={{ fontFamily: theme.typography.main, width: '100%', display: { md: 'none' } }}>TOTAL: </Typography>
+          <Typography sx={{ fontFamily: theme.typography.main }}>99999999</Typography>
+        </Box>
+      </Box>
+      <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
         <IconButton
           sx={{ color: theme.palette.primary.main, '&:hover': { background: 'none' } }}
           onClick={() => console.log('will remove item from the cart in the future')}
         >
           <ClearIcon />
         </IconButton>
-
       </Box>
     </Box>
   </Box>

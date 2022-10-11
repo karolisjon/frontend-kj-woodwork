@@ -42,21 +42,22 @@ const CartPage = () => {
         My shopping cart
       </Typography>
 
-      <Divider />
+      <Divider sx={{ display: { xs: 'none', md: 'block' } }} />
+
       <TableHeaders />
+
       <Divider />
 
-      <CartProductDetails
-        productsInCart={productsInCart}
-      />
+      <CartProductDetails productsInCart={productsInCart} />
+
       <Divider />
 
-      <Box sx={{ width: '20%', mt: 6 }}>
+      <Box sx={{ width: '14%', mt: 6 }}>
         <CustomButton
           onClick={() => navigate('/product-catalog')}
         >
           <ArrowBackIcon fontSize="small" />
-          Back to catalog
+          CATALOG
         </CustomButton>
       </Box>
 

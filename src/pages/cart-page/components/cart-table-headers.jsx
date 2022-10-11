@@ -3,16 +3,25 @@ import { Box, Typography } from '@mui/material';
 import theme from '../../../styles/theme';
 
 const TableHeaders = () => (
-  <Box sx={{ display: { xs: 'none', md: 'flex' }, flexDirection: 'row', my: 2 }}>
+  <Box sx={{
+    display: { xs: 'none', md: 'flex' },
+    flexDirection: 'row',
+    my: 2,
+  }}
+  >
     <Box sx={{ width: '70%' }}>
       <Typography sx={{ fontFamily: theme.typography.main }}>PRODUCT DETAILS</Typography>
     </Box>
     <Box sx={{
-      display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '30%',
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      width: '30%',
+
     }}
     >
       <Box>
-        <Typography sx={{ fontFamily: theme.typography.main }}>AMOUNT</Typography>
+        <Typography sx={{ fontFamily: theme.typography.main }}>QUANTITY</Typography>
       </Box>
       <Box>
         <Typography sx={{ fontFamily: theme.typography.main }}>PRICE</Typography>

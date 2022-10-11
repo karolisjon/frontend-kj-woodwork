@@ -51,43 +51,45 @@ const CartProductDetails = ({ productsInCart }) => (
 
     <Box sx={{
       display: 'flex',
-      flexDirection: { xs: 'column', md: 'row' },
+      flexDirection: 'row',
       justifyContent: 'space-between',
       width: '30%',
+
     }}
     >
-      <Box sx={{ backgroundColor: 'yellow' }}>
-        <Typography sx={{ fontFamily: theme.typography.main, width: '100%', display: { md: 'none' } }}>QUANTITY: </Typography>
-        <Typography sx={{ fontFamily: theme.typography.main, width: '100%' }}>6666</Typography>
+      <Box>
+        <Typography sx={{ fontFamily: theme.typography.main }}>QUANTITY: </Typography>
+        <Typography sx={{ fontFamily: theme.typography.main }}>2</Typography>
       </Box>
-      <Box sx={{ backgroundColor: 'pink' }}>
-        <Typography sx={{ fontFamily: theme.typography.main, width: '100%', display: { md: 'none' } }}>PRICE: </Typography>
+      <Box>
+        <Typography sx={{
+          fontFamily: theme.typography.main,
+
+        }}
+        >
+          PRICE:
+        </Typography>
         <Typography sx={{ fontFamily: theme.typography.main }}>
           {productsInCart.price}
           {' Є'}
         </Typography>
       </Box>
-      <Box sx={{
-        // display: 'flex',
-        // flexDirection: 'column',
-        // justifyContent: 'space-between',
-        // alignItems: 'flex-end',
-        backgroundColor: 'magenta',
-      }}
+      <Box>
+        <Typography sx={{ fontFamily: theme.typography.main }}>TOTAL: </Typography>
+        <Typography sx={{ fontFamily: theme.typography.main }}>
+          {productsInCart.price}
+          {' Є'}
+        </Typography>
+      </Box>
+    </Box>
+
+    <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+      <IconButton
+        sx={{ color: theme.palette.primary.main, '&:hover': { background: 'none' } }}
+        onClick={() => console.log('will remove item from the cart in the future')}
       >
-        <Box>
-          <Typography sx={{ fontFamily: theme.typography.main, width: '100%', display: { md: 'none' } }}>TOTAL: </Typography>
-          <Typography sx={{ fontFamily: theme.typography.main }}>99999999</Typography>
-        </Box>
-      </Box>
-      <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-        <IconButton
-          sx={{ color: theme.palette.primary.main, '&:hover': { background: 'none' } }}
-          onClick={() => console.log('will remove item from the cart in the future')}
-        >
-          <ClearIcon />
-        </IconButton>
-      </Box>
+        <ClearIcon />
+      </IconButton>
     </Box>
   </Box>
 );

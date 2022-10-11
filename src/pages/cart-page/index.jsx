@@ -12,7 +12,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ProductService from '../../services/product-service';
 import theme from '../../styles/theme';
 import CustomButton from '../../components/custom-button';
-import TableHeaders from './components/cart-table-headers';
+// import TableHeaders from './components/cart-table-headers';
 import CartProductDetails from './components/cart-product-details';
 
 const CartPage = () => {
@@ -42,12 +42,16 @@ const CartPage = () => {
         My shopping cart
       </Typography>
 
-      <Divider sx={{ display: { xs: 'none', md: 'block' } }} />
+      {/* <Divider sx={{ display: { xs: 'none', md: 'block' } }} /> */}
 
-      <TableHeaders />
+      {/* <TableHeaders /> */}
 
       <Divider />
 
+      <CartProductDetails productsInCart={productsInCart} />
+      <Divider />
+      <CartProductDetails productsInCart={productsInCart} />
+      <Divider />
       <CartProductDetails productsInCart={productsInCart} />
 
       <Divider />

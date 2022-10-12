@@ -2,6 +2,7 @@
 import * as React from 'react';
 import {
   Box,
+  Button,
   Container,
   Divider,
   Input,
@@ -9,7 +10,8 @@ import {
 } from '@mui/material';
 import { useNavigate, useParams } from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import ButtonAmmount from './components/button-amount';
+import RemoveIcon from '@mui/icons-material/Remove';
+import AddIcon from '@mui/icons-material/Add';
 import CustomButton from '../../components/custom-button';
 import ProductService from '../../services/product-service';
 import CartContext from '../../contexts/cart-page-context';
@@ -78,12 +80,15 @@ const ProductInformation = () => {
                   {product?.price * amount}
                   {' €'}
                 </Typography>
+
                 <Box sx={{ display: 'flex', gap: 1 }}>
-                  <ButtonAmmount
+                  <Button
+                    sx={{ '&:hover': { backgroundColor: '#fff' }, '&:active': { backgroundColor: '#fff' } }}
                     onClick={() => setAmount(amount + 1)}
                   >
-                    +
-                  </ButtonAmmount>
+                    <AddIcon />
+                  </Button>
+
                   <Input
                     disableUnderline
                     readOnly
@@ -97,12 +102,15 @@ const ProductInformation = () => {
                       },
                     }}
                   />
-                  <ButtonAmmount
+
+                  <Button
+                    sx={{ '&:hover': { backgroundColor: '#fff' }, '&:active': { backgroundColor: '#fff' } }}
                     onClick={() => setAmount(amount - 1)}
                     disabled={amount === 1}
                   >
-                    -
-                  </ButtonAmmount>
+                    <RemoveIcon />
+                  </Button>
+
                   <CustomButton
                     onClick={() => {
                       navigate(`/cart/${id}`);
@@ -112,6 +120,7 @@ const ProductInformation = () => {
                     Add to cart
                   </CustomButton>
                 </Box>
+
               </Box>
             </Box>
           </Box>

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {
   Box,
-  IconButton,
+  Button,
   Typography,
 } from '@mui/material';
 import ClearIcon from '@mui/icons-material/Clear';
@@ -11,8 +11,9 @@ const CartProductDetails = ({ productsInCart }) => (
 
   <Box sx={{
     display: 'flex',
-    flexDirection: 'row',
+    flexDirection: { xs: 'row', sm: 'row' },
     justifyContent: 'space-between',
+    textAlign: { xs: 'right' },
     my: 2,
   }}
   >
@@ -21,12 +22,18 @@ const CartProductDetails = ({ productsInCart }) => (
       flexDirection: 'row',
     }}
     >
-      <img src={productsInCart.img} alt="" height="260px" width="260px" />
+      <img
+        src={productsInCart.img}
+        alt=""
+        height="220"
+        width="220"
+      />
       <Box sx={{ ml: 2 }}>
         <Typography
           variant="h6"
-          component="p"
-          sx={{ fontFamily: theme.typography.main, mb: 1 }}
+          sx={{
+            fontFamily: theme.typography.main, mb: 1, textAlign: 'left', fontSize: 18,
+          }}
         >
           {productsInCart?.title}
         </Typography>
@@ -56,19 +63,19 @@ const CartProductDetails = ({ productsInCart }) => (
       flexDirection: 'column',
       justifyContent: 'space-between',
       width: { md: '30%' },
-
     }}
     >
       <Box sx={{
         display: 'flex',
-        flexDirection: { xs: 'column', md: 'row' },
+        flexDirection: { xs: 'column', sm: 'column', md: 'row' },
         justifyContent: 'space-between',
         gap: { xs: 3 },
+        textAlign: { sm: 'right' },
       }}
       >
         <Box>
-          <Typography sx={{ fontFamily: theme.typography.main }}>QUANTITY: </Typography>
-          <Typography sx={{ fontFamily: theme.typography.main }}>2</Typography>
+          <Typography sx={{ fontFamily: theme.typography.main }}>AMOUNT: </Typography>
+          <Typography variant="h6" sx={{ fontFamily: theme.typography.main }}>2</Typography>
         </Box>
         <Box>
           <Typography sx={{
@@ -78,14 +85,13 @@ const CartProductDetails = ({ productsInCart }) => (
           >
             PRICE:
           </Typography>
-          <Typography sx={{ fontFamily: theme.typography.main }}>
-            {productsInCart.price}
-            {' Є'}
-          </Typography>
-        </Box>
-        <Box>
-          <Typography sx={{ fontFamily: theme.typography.main }}>TOTAL: </Typography>
-          <Typography sx={{ fontFamily: theme.typography.main }}>
+          <Typography
+            variant="h6"
+            sx={{
+              fontFamily: theme.typography.main,
+              color: theme.palette.error.main,
+            }}
+          >
             {productsInCart.price}
             {' Є'}
           </Typography>
@@ -93,12 +99,14 @@ const CartProductDetails = ({ productsInCart }) => (
       </Box>
 
       <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-        <IconButton
-          sx={{ color: theme.palette.primary.main, '&:hover': { background: 'none' } }}
+        <Button
+          variant="text"
+          sx={{ '&:hover': { background: 'none' } }}
           onClick={() => console.log('will remove item from the cart in the future')}
         >
           <ClearIcon />
-        </IconButton>
+          REMOVE
+        </Button>
       </Box>
 
     </Box>

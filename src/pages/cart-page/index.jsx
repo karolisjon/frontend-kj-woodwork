@@ -7,6 +7,7 @@ import {
 } from '@mui/material';
 import { useNavigate, useParams } from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import CheckIcon from '@mui/icons-material/Check';
 import ProductService from '../../services/product-service';
 import theme from '../../styles/theme';
 import CustomButton from '../../components/custom-button';
@@ -25,7 +26,7 @@ const CartPage = () => {
   }, [id]);
 
   return (
-    <Container>
+    <Container maxWidth="md">
       <Typography
         sx={{
           fontFamily: theme.typography.logoFont,
@@ -43,14 +44,30 @@ const CartPage = () => {
       <Divider />
       <CartProductDetails productsInCart={productsInCart} />
       <Divider />
-      <CartProductDetails productsInCart={productsInCart} />
-      <Divider />
-      <Box sx={{ width: '14%', mt: 6 }}>
+
+      <Box sx={{
+        display: 'flex', flexDirection: 'row', alignItems: 'baseline', my: 4,
+      }}
+      >
+        <Typography variant="h6" sx={{ fontFamily: theme.typography.main }}>TOTAL: </Typography>
+        <Typography variant="h5" sx={{ fontFamily: theme.typography.main, color: theme.palette.error.main }}>
+          {productsInCart.price}
+          {' Є'}
+        </Typography>
+      </Box>
+
+      <Box sx={{ display: 'flex', gap: 2 }}>
         <CustomButton
           onClick={() => navigate('/product-catalog')}
         >
           <ArrowBackIcon fontSize="small" />
           CATALOG
+        </CustomButton>
+        <CustomButton
+          onClick={() => navigate('/product-catalog')}
+        >
+          <CheckIcon />
+          CHECKOUT
         </CustomButton>
       </Box>
 

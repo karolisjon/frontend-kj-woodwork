@@ -1,16 +1,27 @@
+/* eslint-disable no-unsafe-optional-chaining */
 import * as React from 'react';
-import { Box, Button, Input } from '@mui/material';
+import {
+  Box, Button, Input, Typography,
+} from '@mui/material';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import CustomButton from '../../../components/custom-button';
+import theme from '../../../styles/theme';
 
 const Amount = ({
-  amount, setAmount, navigate, id, addToCart,
+  amount, setAmount, navigate, id, addToCart, product,
 }) => (
 
   <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
 
+    <Typography variant="h5" sx={{ fontFamily: theme.typography.main }}>
+      Price:
+      {' '}
+      {product?.price * amount}
+      {' €'}
+    </Typography>
     <Box sx={{ display: 'flex', flexDirection: 'row', gap: 1 }}>
+
       <Button
         sx={{ '&:hover': { backgroundColor: '#fff' }, '&:active': { backgroundColor: '#fff' } }}
         onClick={() => setAmount(amount + 1)}

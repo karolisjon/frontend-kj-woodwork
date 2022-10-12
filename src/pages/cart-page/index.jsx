@@ -3,16 +3,13 @@ import {
   Box,
   Container,
   Divider,
-  // IconButton,
   Typography,
 } from '@mui/material';
 import { useNavigate, useParams } from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-// import ClearIcon from '@mui/icons-material/Clear';
 import ProductService from '../../services/product-service';
 import theme from '../../styles/theme';
 import CustomButton from '../../components/custom-button';
-// import TableHeaders from './components/cart-table-headers';
 import CartProductDetails from './components/cart-product-details';
 
 const CartPage = () => {
@@ -41,21 +38,13 @@ const CartPage = () => {
       >
         My shopping cart
       </Typography>
-
-      {/* <Divider sx={{ display: { xs: 'none', md: 'block' } }} /> */}
-
-      {/* <TableHeaders /> */}
-
       <Divider />
-
       <CartProductDetails productsInCart={productsInCart} />
       <Divider />
       <CartProductDetails productsInCart={productsInCart} />
       <Divider />
       <CartProductDetails productsInCart={productsInCart} />
-
       <Divider />
-
       <Box sx={{ width: '14%', mt: 6 }}>
         <CustomButton
           onClick={() => navigate('/product-catalog')}

@@ -2,20 +2,17 @@
 import * as React from 'react';
 import {
   Box,
-  Button,
   Container,
   Divider,
-  Input,
   Typography,
 } from '@mui/material';
 import { useNavigate, useParams } from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import RemoveIcon from '@mui/icons-material/Remove';
-import AddIcon from '@mui/icons-material/Add';
 import CustomButton from '../../components/custom-button';
 import ProductService from '../../services/product-service';
 import CartContext from '../../contexts/cart-page-context';
 import theme from '../../styles/theme';
+import Amount from './components/amount';
 
 const ProductInformation = () => {
   const { id } = useParams();
@@ -32,7 +29,7 @@ const ProductInformation = () => {
   }, [id]);
 
   return (
-    <Container>
+    <Container maxWidth="md">
       <Box sx={{ display: 'flex', my: 6 }}>
         <Box sx={{ display: 'flex', flexDirection: 'column' }}>
           <Box sx={{ display: 'flex' }}>
@@ -82,43 +79,13 @@ const ProductInformation = () => {
                 </Typography>
 
                 <Box sx={{ display: 'flex', gap: 1 }}>
-                  <Button
-                    sx={{ '&:hover': { backgroundColor: '#fff' }, '&:active': { backgroundColor: '#fff' } }}
-                    onClick={() => setAmount(amount + 1)}
-                  >
-                    <AddIcon />
-                  </Button>
-
-                  <Input
-                    disableUnderline
-                    readOnly
-                    value={amount}
-                    sx={{ p: 0, fontSize: '1.5rem' }}
-                    inputProps={{
-                      style: {
-                        padding: 0,
-                        width: 40,
-                        textAlign: 'center',
-                      },
-                    }}
+                  <Amount
+                    amount={amount}
+                    setAmount={setAmount}
+                    navigate={navigate}
+                    id={id}
+                    addToCart={addToCart}
                   />
-
-                  <Button
-                    sx={{ '&:hover': { backgroundColor: '#fff' }, '&:active': { backgroundColor: '#fff' } }}
-                    onClick={() => setAmount(amount - 1)}
-                    disabled={amount === 1}
-                  >
-                    <RemoveIcon />
-                  </Button>
-
-                  <CustomButton
-                    onClick={() => {
-                      navigate(`/cart/${id}`);
-                      addToCart({ id });
-                    }}
-                  >
-                    Add to cart
-                  </CustomButton>
                 </Box>
 
               </Box>
@@ -130,7 +97,7 @@ const ProductInformation = () => {
             <Typography component="p" sx={{ mt: 2, mb: 8, fontFamily: theme.typography.main }}>
               {product?.description}
             </Typography>
-            <Box sx={{ width: '20%' }}>
+            <Box sx={{ width: '30%' }}>
               <CustomButton
                 onClick={() => navigate('/product-catalog')}
               >

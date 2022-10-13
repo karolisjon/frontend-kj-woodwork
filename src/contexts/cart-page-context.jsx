@@ -3,13 +3,18 @@ import * as React from 'react';
 const CartContext = React.createContext();
 
 export const CartProvider = ({ children }) => {
-  const [productsInCart, setProductsInCart] = React.useState([]);
+  const [cartProducts, setCartProducts] = React.useState([]);
+
+  const handleAddtoCart = React.useCallback((product) => {
+    setCartProducts([...cartProducts, product]);
+    localStorage.setItem('productId', product.id);
+  }, [cartProducts]);
 
   const cartContextValue = React.useMemo(() => ({
-    productsInCart,
-    addToCart: (product) => setProductsInCart([...productsInCart, product]),
+    cartProducts,
+    addToCart: handleAddtoCart,
 
-  }), [productsInCart]);
+  }), [cartProducts, handleAddtoCart]);
 
   return (
     <CartContext.Provider value={cartContextValue}>{children}</CartContext.Provider>

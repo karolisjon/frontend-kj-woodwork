@@ -7,7 +7,10 @@ import {
   Divider,
   Typography,
 } from '@mui/material';
-import { useNavigate, useParams } from 'react-router-dom';
+import {
+  useNavigate,
+  useParams,
+} from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import CustomButton from '../../components/custom-button';
 import ProductService from '../../services/product-service';
@@ -26,6 +29,9 @@ const ProductInformation = () => {
   React.useEffect(() => {
     (async () => {
       const fetchedProduct = await ProductService.fetchProductById(id);
+
+      console.log('PRODUCT INFORMATION COMPONENT: ID: ', id);
+
       setProduct(fetchedProduct);
     })();
   }, [id]);

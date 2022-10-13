@@ -10,7 +10,13 @@ import CustomButton from '../../../components/custom-button';
 import theme from '../../../styles/theme';
 
 const Amount = ({
-  amount, setAmount, navigate, id, addToCart, product,
+  amount,
+  setAmount,
+  navigate,
+  id,
+  title,
+  addToCart,
+  product,
 }) => (
 
   <Box sx={{
@@ -59,8 +65,8 @@ const Amount = ({
     <CustomButton
       sx={{ width: { xs: '100%', sm: '50%', md: '30%' } }}
       onClick={() => {
-        navigate(`/cart/${id}`);
-        addToCart({ id });
+        navigate('/cart');
+        addToCart({ id, amount, title });
       }}
     >
       <CheckIcon />

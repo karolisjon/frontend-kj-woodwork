@@ -2,6 +2,7 @@ import * as React from 'react';
 import {
   Box,
   Button,
+  CardMedia,
   Typography,
 } from '@mui/material';
 import ClearIcon from '@mui/icons-material/Clear';
@@ -22,17 +23,24 @@ const CartProductDetails = ({ productsInCart }) => (
       flexDirection: 'row',
     }}
     >
-      <img
+      <CardMedia
+        component="img"
         src={productsInCart.img}
         alt=""
-        height="220"
-        width="220"
+        sx={{
+          width: { xs: '70%', sm: '45%', md: '35%' },
+          // height: { xs: '100%', sm: '40%', md: '30%' },
+          objectFit: 'cover',
+        }}
       />
       <Box sx={{ ml: 2 }}>
         <Typography
           variant="h6"
           sx={{
-            fontFamily: theme.typography.main, mb: 1, textAlign: 'left', fontSize: 18,
+            fontFamily: theme.typography.main,
+            mb: 1,
+            textAlign: 'left',
+            fontSize: { xs: 14, sm: 18, md: 22 },
           }}
         >
           {productsInCart?.title}

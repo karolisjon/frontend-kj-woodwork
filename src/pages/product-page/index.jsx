@@ -40,52 +40,48 @@ const ProductInformation = () => {
               src={product?.img}
               alt=""
               sx={{
-                width: '600px',
-                height: '400px',
+                width: { xs: '100%', md: '70%' },
+                height: { xs: '100%', sm: '100%' },
                 objectFit: 'cover',
                 alignSelf: { xs: 'center' },
               }}
             />
-            <Box sx={{
-              display: 'flex',
-              flexDirection: { xs: 'row', md: 'column' },
-              justifyContent: { xs: 'space-between' },
-              px: { md: 2 },
-              py: { xs: 2, md: 0 },
-            }}
-            >
-              <Box>
-                <Details product={product} amount={amount} />
-              </Box>
-
-              <Box sx={{ display: 'flex', gap: 1, marginTop: 'auto' }}>
-                <Amount
-                  amount={amount}
-                  setAmount={setAmount}
-                  navigate={navigate}
-                  id={id}
-                  addToCart={addToCart}
-                  product={product}
-                />
-              </Box>
+            <Box sx={{ px: { md: 2 }, py: { xs: 2, md: 0 } }}>
+              <Details product={product} amount={amount} />
             </Box>
 
           </Box>
 
           <Box>
-            <Typography variant="h5" sx={{ mt: 4, fontFamily: theme.typography.main }}>About the product:</Typography>
+            <Typography variant="h5" sx={{ mt: 4, fontFamily: theme.typography.main }}>
+              About the product:
+            </Typography>
+
             <Divider sx={{ my: 2 }} />
-            <Typography component="p" sx={{ mt: 2, mb: 8, fontFamily: theme.typography.main }}>
+
+            <Typography component="p" sx={{ my: 2, fontFamily: theme.typography.main }}>
               {product?.description}
             </Typography>
-            <Box sx={{ width: '30%' }}>
-              <CustomButton
-                onClick={() => navigate('/product-catalog')}
-              >
-                <ArrowBackIcon fontSize="small" />
-                Back to catalog
-              </CustomButton>
-            </Box>
+
+            <Divider sx={{ mb: 4 }} />
+
+            <Amount
+              amount={amount}
+              setAmount={setAmount}
+              navigate={navigate}
+              id={id}
+              addToCart={addToCart}
+              product={product}
+            />
+
+            <CustomButton
+              sx={{ width: { xs: '100%', sm: '50%', md: '30%' } }}
+              onClick={() => navigate('/product-catalog')}
+            >
+              <ArrowBackIcon fontSize="small" />
+              Back to catalog
+            </CustomButton>
+
           </Box>
         </Box>
       </Box>

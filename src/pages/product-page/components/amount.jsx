@@ -5,6 +5,7 @@ import {
 } from '@mui/material';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
+import CheckIcon from '@mui/icons-material/Check';
 import CustomButton from '../../../components/custom-button';
 import theme from '../../../styles/theme';
 
@@ -12,7 +13,10 @@ const Amount = ({
   amount, setAmount, navigate, id, addToCart, product,
 }) => (
 
-  <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+  <Box sx={{
+    display: 'flex', flexDirection: 'column', gap: 1, mb: 1,
+  }}
+  >
 
     <Typography variant="h5" sx={{ fontFamily: theme.typography.main }}>
       Price:
@@ -23,7 +27,7 @@ const Amount = ({
     <Box sx={{ display: 'flex', flexDirection: 'row', gap: 1 }}>
 
       <Button
-        sx={{ '&:hover': { backgroundColor: '#fff' }, '&:active': { backgroundColor: '#fff' } }}
+        sx={{ '&:hover': { backgroundColor: '#fff' } }}
         onClick={() => setAmount(amount + 1)}
       >
         <AddIcon />
@@ -44,7 +48,7 @@ const Amount = ({
       />
 
       <Button
-        sx={{ '&:hover': { backgroundColor: '#fff' }, '&:active': { backgroundColor: '#fff' } }}
+        sx={{ '&:hover': { backgroundColor: '#fff' } }}
         onClick={() => setAmount(amount - 1)}
         disabled={amount === 1}
       >
@@ -53,11 +57,13 @@ const Amount = ({
     </Box>
 
     <CustomButton
+      sx={{ width: { xs: '100%', sm: '50%', md: '30%' } }}
       onClick={() => {
         navigate(`/cart/${id}`);
         addToCart({ id });
       }}
     >
+      <CheckIcon />
       Add to cart
     </CustomButton>
   </Box>

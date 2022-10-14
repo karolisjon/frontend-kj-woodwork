@@ -161,7 +161,7 @@ const ProductCatalog = () => {
             price: productPrice,
             img,
             category: productCategory,
-            // woodType: productWoodType,
+            woodType: productWoodType,
           }) => (
             <Grid
               id={id}
@@ -182,7 +182,7 @@ const ProductCatalog = () => {
                 price={productPrice}
                 img={img}
                 category={productCategory.title}
-                // woodType={productWoodType}
+                woodType={productWoodType.title}
               />
             </Grid>
           ))}

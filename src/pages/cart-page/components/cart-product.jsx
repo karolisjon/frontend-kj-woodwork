@@ -102,7 +102,7 @@ const CartProduct = () => {
           >
             <Box>
               <Typography sx={{ fontFamily: theme.typography.main }}>AMOUNT: </Typography>
-              <Typography variant="h6" sx={{ fontFamily: theme.typography.main }}>666</Typography>
+              <Typography variant="h6" sx={{ fontFamily: theme.typography.main }}>{cartProducts.price}</Typography>
             </Box>
             <Box>
               <Typography sx={{

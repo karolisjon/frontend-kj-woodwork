@@ -3,9 +3,9 @@ import {
   AppBar,
   Box,
   Toolbar,
-  // Typography,
   IconButton,
   Button,
+  Badge,
 } from '@mui/material';
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
@@ -25,7 +25,7 @@ const navitems = [
   { text: 'Register', to: '/auth/register' },
 ];
 
-const Navbar = () => {
+const Navbar = ({ getProductAmount }) => {
   const [drawerOpen, setDrawerOpen] = React.useState(false);
   const navigate = useNavigate();
 
@@ -68,7 +68,16 @@ const Navbar = () => {
             sx={{ color: theme.palette.primary.white }}
             onClick={() => navigate('/cart')}
           >
-            <ShoppingBagIcon />
+            <Badge
+              color="primary"
+              badgeContent={getProductAmount}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+            >
+              <ShoppingBagIcon />
+            </Badge>
           </IconButton>
         </Toolbar>
       </AppBar>

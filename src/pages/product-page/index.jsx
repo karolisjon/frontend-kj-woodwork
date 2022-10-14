@@ -29,9 +29,6 @@ const ProductInformation = () => {
   React.useEffect(() => {
     (async () => {
       const fetchedProduct = await ProductService.fetchProductById(id);
-
-      console.log('PRODUCT INFORMATION COMPONENT: ID: ', id);
-
       setProduct(fetchedProduct);
     })();
   }, [id]);

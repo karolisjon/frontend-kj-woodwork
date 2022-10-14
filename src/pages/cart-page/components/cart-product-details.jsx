@@ -3,126 +3,154 @@ import {
   Box,
   Button,
   CardMedia,
+  Divider,
   Typography,
 } from '@mui/material';
+import {
+  useParams,
+} from 'react-router-dom';
 import ClearIcon from '@mui/icons-material/Clear';
 import theme from '../../../styles/theme';
 import CartContext from '../../../contexts/cart-page-context';
+import ProductService from '../../../services/product-service';
 
-const CartProductDetails = () => {
-  const { cartProducts } = React.useContext(CartContext);
+const CartProduct = () => {
+  const { id } = useParams();
+  const { cartProducts: cartProductsData, removeFromCart } = React.useContext(CartContext);
+  const [cartProducts, setCartProducts] = React.useState([]);
+
+  React.useEffect(() => {
+    (async () => {
+      const productId = localStorage.getItem('productId');
+      if (productId) {
+        const fetchedProduct = await ProductService.fetchProductById(productId);
+        setCartProducts(fetchedProduct);
+        // console.log('fetchedProduct', fetchedProduct);
+      }
+    })();
+  }, [id]);
 
   return (
-    <Box sx={{
-      display: 'flex',
-      flexDirection: { xs: 'row', sm: 'row' },
-      justifyContent: 'space-between',
-      textAlign: { xs: 'right' },
-      my: 2,
-    }}
-    >
+    <>
+      <Divider />
+
       <Box sx={{
         display: 'flex',
-        flexDirection: 'row',
+        flexDirection: { xs: 'row', sm: 'row' },
+        justifyContent: 'space-between',
+        textAlign: { xs: 'right' },
+        my: 2,
       }}
       >
-        <CardMedia
-          component="img"
-          src={cartProducts.img}
-          alt=""
-          sx={{
-            width: { xs: '70%', sm: '45%', md: '35%' },
-            objectFit: 'cover',
-          }}
-        />
-        <Box sx={{ ml: 2 }}>
-          {/* <Typography
-            variant="h6"
+        <Box sx={{
+          display: 'flex',
+          flexDirection: 'row',
+        }}
+        >
+          <CardMedia
+            component="img"
+            src={cartProducts.img}
+            alt=""
             sx={{
-              fontFamily: theme.typography.main,
-              mb: 1,
-              textAlign: 'left',
-              fontSize: { xs: 14, sm: 18, md: 22 },
+              width: { xs: '70%', sm: '45%', md: '35%' },
+              objectFit: 'cover',
             }}
-          >
-            {cartProducts?.title}
-          </Typography>
-          <Typography
+          />
+          <Box sx={{ ml: 2 }}>
+            <Typography
+              variant="h6"
+              sx={{
+                fontFamily: theme.typography.main,
+                mb: 1,
+                textAlign: 'left',
+                fontSize: { xs: 14, sm: 18, md: 22 },
+              }}
+            >
+              {cartProducts?.title}
+            </Typography>
+            {/* <Typography
             variant="body2"
-            component="p"
             sx={{ fontFamily: theme.typography.main, my: 1 }}
           >
             Category:
             {' '}
             {cartProducts?.category.title}
-          </Typography>
-          <Typography
+          </Typography> */}
+            {/* <Typography
             variant="body2"
-            component="p"
             sx={{ fontFamily: theme.typography.main, my: 1 }}
           >
             Type of wood:
             {' '}
             {cartProducts?.woodType.title}
           </Typography> */}
+          </Box>
         </Box>
-      </Box>
 
-      <Box sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        width: { md: '30%' },
-      }}
-      >
         <Box sx={{
           display: 'flex',
-          flexDirection: { xs: 'column', sm: 'column', md: 'row' },
+          flexDirection: 'column',
           justifyContent: 'space-between',
-          gap: { xs: 3 },
-          textAlign: { sm: 'right' },
+          width: { md: '30%' },
         }}
         >
-          <Box>
-            <Typography sx={{ fontFamily: theme.typography.main }}>AMOUNT: </Typography>
-            <Typography variant="h6" sx={{ fontFamily: theme.typography.main }}>2</Typography>
-          </Box>
-          <Box>
-            <Typography sx={{
-              fontFamily: theme.typography.main,
-
-            }}
-            >
-              PRICE:
-            </Typography>
-            <Typography
-              variant="h6"
-              sx={{
+          <Box sx={{
+            display: 'flex',
+            flexDirection: { xs: 'column', sm: 'column', md: 'row' },
+            justifyContent: 'space-between',
+            gap: { xs: 3 },
+            textAlign: { sm: 'right' },
+          }}
+          >
+            <Box>
+              <Typography sx={{ fontFamily: theme.typography.main }}>AMOUNT: </Typography>
+              <Typography variant="h6" sx={{ fontFamily: theme.typography.main }}>666</Typography>
+            </Box>
+            <Box>
+              <Typography sx={{
                 fontFamily: theme.typography.main,
-                color: theme.palette.error.main,
+
+              }}
+              >
+                PRICE:
+              </Typography>
+              <Typography
+                variant="h6"
+                sx={{
+                  fontFamily: theme.typography.main,
+                  color: theme.palette.error.main,
+                }}
+              >
+                {cartProducts.price}
+                {' Є'}
+              </Typography>
+            </Box>
+          </Box>
+
+          <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+            <Button
+              variant="text"
+              sx={{ '&:hover': { background: 'none' } }}
+              onClick={() => {
+                removeFromCart();
               }}
             >
-              {cartProducts.price}
-              {' Є'}
-            </Typography>
+              <ClearIcon />
+              REMOVE
+            </Button>
           </Box>
-        </Box>
 
-        <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-          <Button
-            variant="text"
-            sx={{ '&:hover': { background: 'none' } }}
-            onClick={() => console.log('will remove item from the cart in the future')}
-          >
-            <ClearIcon />
-            REMOVE
-          </Button>
         </Box>
 
       </Box>
 
-    </Box>
+      <Divider />
+
+      <pre>
+        {JSON.stringify(cartProductsData, null, 4)}
+      </pre>
+    </>
   );
 };
 
-export default CartProductDetails;
+export default CartProduct;

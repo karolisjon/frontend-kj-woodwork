@@ -14,7 +14,6 @@ const Amount = ({
   setAmount,
   navigate,
   id,
-  title,
   addToCart,
   product,
 }) => (
@@ -66,7 +65,7 @@ const Amount = ({
       sx={{ width: { xs: '100%', sm: '50%', md: '30%' } }}
       onClick={() => {
         navigate('/cart');
-        addToCart({ id, amount, title });
+        addToCart({ id, amount });
       }}
     >
       <CheckIcon />

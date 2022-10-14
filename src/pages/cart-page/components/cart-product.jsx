@@ -6,9 +6,7 @@ import {
   Divider,
   Typography,
 } from '@mui/material';
-import {
-  useParams,
-} from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import ClearIcon from '@mui/icons-material/Clear';
 import theme from '../../../styles/theme';
 import CartContext from '../../../contexts/cart-page-context';

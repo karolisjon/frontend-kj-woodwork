@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Container } from '@mui/material';
-import CartProduct from './components/cart-product-details';
+import CartProduct from './components/cart-product';
 import CartPriceTotal from './components/cart-price-total';
 import CartHeader from './components/cart-header';
 import CartNavigation from './components/cart-navigation';

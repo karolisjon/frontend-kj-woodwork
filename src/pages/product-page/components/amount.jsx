@@ -5,16 +5,11 @@ import {
 } from '@mui/material';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
-import CheckIcon from '@mui/icons-material/Check';
-import CustomButton from '../../../components/custom-button';
 import theme from '../../../styles/theme';
 
 const Amount = ({
   amount,
   setAmount,
-  navigate,
-  id,
-  addToCart,
   product,
 }) => (
 
@@ -60,17 +55,6 @@ const Amount = ({
         <RemoveIcon />
       </Button>
     </Box>
-
-    <CustomButton
-      sx={{ width: { xs: '100%', sm: '50%', md: '30%' } }}
-      onClick={() => {
-        navigate('/cart');
-        addToCart({ id, amount });
-      }}
-    >
-      <CheckIcon />
-      Add to cart
-    </CustomButton>
   </Box>
 );
 

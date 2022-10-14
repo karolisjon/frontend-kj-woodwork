@@ -32,7 +32,7 @@ export const CartProvider = ({ children }) => {
   const cartContextValue = React.useMemo(() => ({
     cartProducts,
     addToCart: handleAddtoCart,
-    removeProduct: () => console.log('cartProducts', cartProducts),
+    removeFromCart: () => console.log('cartProducts', cartProducts),
 
   }), [cartProducts, handleAddtoCart]);
 

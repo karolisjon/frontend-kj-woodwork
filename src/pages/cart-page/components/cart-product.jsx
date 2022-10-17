@@ -6,27 +6,35 @@ import {
   Divider,
   Typography,
 } from '@mui/material';
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 import ClearIcon from '@mui/icons-material/Clear';
 import theme from '../../../styles/theme';
 import CartContext from '../../../contexts/cart-page-context';
 import ProductService from '../../../services/product-service';
 
 const CartProduct = () => {
-  const { id } = useParams();
-  const { cartProducts: cartProductsData, removeFromCart } = React.useContext(CartContext);
+  // const { id } = useParams();
+  const { cartProducts: cartProductsData } = React.useContext(CartContext);
   const [cartProducts, setCartProducts] = React.useState([]);
 
   React.useEffect(() => {
     (async () => {
-      const productId = localStorage.getItem('productId');
-      if (productId) {
-        const fetchedProduct = await ProductService.fetchProductById(productId);
-        setCartProducts(fetchedProduct);
-        // console.log('fetchedProduct', fetchedProduct);
+      // const productId = localStorage.getItem('productId');
+      const productsObj = localStorage.getItem('cartProductsObj');
+      const retrievedProducts = JSON.parse(productsObj);
+
+      if (productsObj) {
+        Object.values(retrievedProducts).forEach(async (x) => {
+          const fetchedProduct = await ProductService.fetchProductById(x.id);
+          setCartProducts([...cartProducts, fetchedProduct]);
+        });
       }
-    })();
-  }, [id]);
+    }
+    )();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  console.log(cartProducts);
 
   return (
     <>
@@ -67,24 +75,23 @@ const CartProduct = () => {
               {cartProducts?.title}
             </Typography>
             {/* <Typography
-            variant="body2"
-            sx={{ fontFamily: theme.typography.main, my: 1 }}
-          >
-            Category:
-            {' '}
-            {cartProducts?.category.title}
-          </Typography> */}
+          variant="body2"
+          sx={{ fontFamily: theme.typography.main, my: 1 }}
+        >
+          Category:
+          {' '}
+          {cartProducts?.category.title}
+        </Typography> */}
             {/* <Typography
-            variant="body2"
-            sx={{ fontFamily: theme.typography.main, my: 1 }}
-          >
-            Type of wood:
-            {' '}
-            {cartProducts?.woodType.title}
-          </Typography> */}
+          variant="body2"
+          sx={{ fontFamily: theme.typography.main, my: 1 }}
+        >
+          Type of wood:
+          {' '}
+          {cartProducts?.woodType.title}
+        </Typography> */}
           </Box>
         </Box>
-
         <Box sx={{
           display: 'flex',
           flexDirection: 'column',
@@ -102,7 +109,7 @@ const CartProduct = () => {
           >
             <Box>
               <Typography sx={{ fontFamily: theme.typography.main }}>AMOUNT: </Typography>
-              <Typography variant="h6" sx={{ fontFamily: theme.typography.main }}>{cartProducts.price}</Typography>
+              <Typography variant="h6" sx={{ fontFamily: theme.typography.main }}>10</Typography>
             </Box>
             <Box>
               <Typography sx={{
@@ -124,22 +131,17 @@ const CartProduct = () => {
               </Typography>
             </Box>
           </Box>
-
           <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
             <Button
               variant="text"
               sx={{ '&:hover': { background: 'none' } }}
-              onClick={() => {
-                removeFromCart();
-              }}
+              onClick={() => {}}
             >
               <ClearIcon />
               REMOVE
             </Button>
           </Box>
-
         </Box>
-
       </Box>
 
       <Divider />

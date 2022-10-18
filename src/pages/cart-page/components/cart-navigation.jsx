@@ -9,7 +9,10 @@ const CartNavigation = () => {
   const navigate = useNavigate();
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: 2 }}>
+    <Box sx={{
+      display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: 2, mb: 6,
+    }}
+    >
       <CustomButton
         onClick={() => navigate('/product-catalog')}
       >

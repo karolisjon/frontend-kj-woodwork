@@ -6,35 +6,31 @@ import {
   Divider,
   Typography,
 } from '@mui/material';
-// import { useParams } from 'react-router-dom';
 import ClearIcon from '@mui/icons-material/Clear';
 import theme from '../../../styles/theme';
 import CartContext from '../../../contexts/cart-page-context';
 import ProductService from '../../../services/product-service';
 
 const CartProduct = () => {
-  // const { id } = useParams();
   const { cartProducts: cartProductsData } = React.useContext(CartContext);
   const [cartProducts, setCartProducts] = React.useState([]);
 
   React.useEffect(() => {
     (async () => {
-      // const productId = localStorage.getItem('productId');
       const productsObj = localStorage.getItem('cartProductsObj');
       const retrievedProducts = JSON.parse(productsObj);
 
       if (productsObj) {
-        Object.values(retrievedProducts).forEach(async (x) => {
-          const fetchedProduct = await ProductService.fetchProductById(x.id);
-          setCartProducts([...cartProducts, fetchedProduct]);
-        });
+        const values = await Promise.all(
+          Object.values(retrievedProducts).map((x) => ProductService.fetchProductById(x.id)),
+        );
+        setCartProducts(values);
       }
     }
     )();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log(cartProducts);
+  console.log('cartProducts', cartProducts);
 
   return (
     <>
@@ -135,7 +131,7 @@ const CartProduct = () => {
             <Button
               variant="text"
               sx={{ '&:hover': { background: 'none' } }}
-              onClick={() => {}}
+              onClick={() => { }}
             >
               <ClearIcon />
               REMOVE

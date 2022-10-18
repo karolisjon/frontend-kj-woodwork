@@ -14,34 +14,41 @@ const CartProductCard = ({
 }) => (
   <Box sx={{
     display: 'flex',
-    flexDirection: { xs: 'row', sm: 'row' },
+    flexDirection: { xs: 'column', sm: 'row' },
     justifyContent: 'space-between',
     textAlign: { xs: 'right' },
-    height: 200,
     my: 2,
   }}
   >
+
     <Box sx={{
       display: 'flex',
       flexDirection: 'row',
     }}
     >
-      <CardMedia
-        component="img"
-        src={img}
-        alt="product"
-        sx={{
-          width: 250,
-          objectFit: 'cover',
-        }}
-      />
+      <Box sx={{
+        height: { xs: 150, sm: 200, md: 220 },
+        width: { xs: 150, sm: 200, md: 220 },
+      }}
+      >
+        <CardMedia
+          component="img"
+          src={img}
+          alt="product"
+          sx={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+          }}
+        />
+      </Box>
       <Box sx={{ ml: 2, textAlign: 'left' }}>
         <Typography
           variant="h6"
           sx={{
             fontFamily: theme.typography.main,
-            mb: 1,
             fontSize: { xs: 14, sm: 18, md: 22 },
+            mb: 1,
           }}
         >
           {title}
@@ -73,17 +80,17 @@ const CartProductCard = ({
     >
       <Box sx={{
         display: 'flex',
-        flexDirection: { xs: 'column', sm: 'column', md: 'row' },
-        justifyContent: 'space-between',
-        gap: { xs: 3 },
-        textAlign: { sm: 'right' },
+        flexDirection: { xs: 'column', md: 'row' },
+        justifyContent: { sm: 'space-between' },
+        gap: { sm: 3 },
       }}
       >
-        <Box>
+        <Box sx={{ display: 'flex', flexDirection: { xs: 'row', sm: 'column' } }}>
           <Typography sx={{ fontFamily: theme.typography.main }}>AMOUNT: </Typography>
           <Typography variant="h6" sx={{ fontFamily: theme.typography.main }}>10</Typography>
         </Box>
-        <Box>
+
+        <Box sx={{ display: 'flex', flexDirection: { xs: 'row', sm: 'column' } }}>
           <Typography sx={{
             fontFamily: theme.typography.main,
 
@@ -103,6 +110,7 @@ const CartProductCard = ({
           </Typography>
         </Box>
       </Box>
+
       <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
         <Button
           variant="text"

@@ -35,6 +35,7 @@ const CartProduct = () => {
         {
           cartProducts.map(({
             category,
+            id,
             img,
             price,
             title,
@@ -43,6 +44,7 @@ const CartProduct = () => {
             <>
               <CartProductCard
                 category={category.title}
+                key={id.toString()}
                 img={img}
                 price={price}
                 title={title}

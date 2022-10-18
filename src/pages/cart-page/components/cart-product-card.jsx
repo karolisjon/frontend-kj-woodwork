@@ -17,6 +17,7 @@ const CartProductCard = ({
     flexDirection: { xs: 'row', sm: 'row' },
     justifyContent: 'space-between',
     textAlign: { xs: 'right' },
+    height: 200,
     my: 2,
   }}
   >
@@ -28,19 +29,18 @@ const CartProductCard = ({
       <CardMedia
         component="img"
         src={img}
-        alt=""
+        alt="product"
         sx={{
-          width: { xs: '70%', sm: '45%', md: '35%' },
+          width: 250,
           objectFit: 'cover',
         }}
       />
-      <Box sx={{ ml: 2 }}>
+      <Box sx={{ ml: 2, textAlign: 'left' }}>
         <Typography
           variant="h6"
           sx={{
             fontFamily: theme.typography.main,
             mb: 1,
-            textAlign: 'left',
             fontSize: { xs: 14, sm: 18, md: 22 },
           }}
         >

@@ -27,8 +27,8 @@ const CartProductCard = ({
     }}
     >
       <Box sx={{
-        height: { xs: 150, sm: 200, md: 220 },
-        width: { xs: 150, sm: 200, md: 220 },
+        height: 220,
+        width: 220,
       }}
       >
         <CardMedia
@@ -73,7 +73,7 @@ const CartProductCard = ({
     </Box>
     <Box sx={{
       display: 'flex',
-      flexDirection: 'column',
+      flexDirection: { sm: 'column' },
       justifyContent: 'space-between',
       width: { md: '30%' },
     }}
@@ -83,6 +83,7 @@ const CartProductCard = ({
         flexDirection: { xs: 'column', md: 'row' },
         justifyContent: { sm: 'space-between' },
         gap: { sm: 3 },
+        mt: { xs: 2, sm: 0 },
       }}
       >
         <Box sx={{ display: 'flex', flexDirection: { xs: 'row', sm: 'column' } }}>
@@ -93,7 +94,6 @@ const CartProductCard = ({
         <Box sx={{ display: 'flex', flexDirection: { xs: 'row', sm: 'column' } }}>
           <Typography sx={{
             fontFamily: theme.typography.main,
-
           }}
           >
             PRICE:
@@ -111,7 +111,7 @@ const CartProductCard = ({
         </Box>
       </Box>
 
-      <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+      <Box sx={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'flex-end' }}>
         <Button
           variant="text"
           sx={{ '&:hover': { background: 'none' } }}

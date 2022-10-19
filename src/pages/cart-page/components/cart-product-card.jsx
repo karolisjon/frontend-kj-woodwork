@@ -1,9 +1,17 @@
 import * as React from 'react';
-import {
-  Box, Button, CardMedia, Typography,
-} from '@mui/material';
-import ClearIcon from '@mui/icons-material/Clear';
-import theme from '../../../styles/theme';
+import { Box } from '@mui/material';
+import CartProductCardImage from './cart-product-card-components/cart-product-card-image';
+import CartProductCardTitle from './cart-product-card-components/cart-product-card-title';
+import CartProductCardCategory from './cart-product-card-components/cart-product-card-category';
+import CartProductCartWoodType from './cart-product-card-components/cart-product-card-wood-type';
+import CartProductCardAmount from './cart-product-card-components/cart-product-card-amount';
+import CartProductCardPrice from './cart-product-card-components/cart-product-card-price';
+import CartProductCardRemoveButton from './cart-product-card-components/cart-product-card-remove-button';
+import ContainerMain from './cart-product-card-containers/container-main';
+import ContainerPrice from './cart-product-card-containers/container-price';
+import ContainerAmount from './cart-product-card-containers/container-amount';
+import ContainerAmountPrice from './cart-product-card-containers/container-amount-price';
+import ContainerAmountPriceRemove from './cart-product-card-containers/container-amount-price-remove';
 
 const CartProductCard = ({
   category,
@@ -12,128 +20,29 @@ const CartProductCard = ({
   title,
   woodType,
 }) => (
-  <Box sx={{
-    display: 'flex',
-    flexDirection: { xs: 'column', sm: 'row' },
-    justifyContent: 'space-between',
-    textAlign: { xs: 'right' },
-    my: 2,
-    // mx: { xs: 2, sm: 0 },
-  }}
-  >
-
-    <Box sx={{
-      display: 'flex',
-      flexDirection: { xs: 'column', sm: 'row' },
-    }}
-    >
-      <Box sx={{
-        height: 220,
-        width: { xs: '100%', sm: '220px' },
-      }}
-      >
-        <CardMedia
-          component="img"
-          src={img}
-          alt="product"
-          sx={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-          }}
-        />
+  <ContainerMain>
+    <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' } }}>
+      <Box sx={{ height: 220, width: { xs: '100%', sm: '220px' } }}>
+        <CartProductCardImage img={img} />
       </Box>
-      <Box sx={{ ml: { xs: 0, sm: 2 }, mt: { xs: 2, sm: 0 }, textAlign: 'left' }}>
-        <Typography
-          variant="h6"
-          sx={{
-            fontFamily: theme.typography.main,
-            fontSize: { xs: 14, sm: 18, md: 22 },
-            mb: 1,
-          }}
-        >
-          {title}
-        </Typography>
-        <Typography
-          variant="body2"
-          sx={{ fontFamily: theme.typography.main, my: 1 }}
-        >
-          Category:
-          {' '}
-          {category}
-        </Typography>
-        <Typography
-          variant="body2"
-          sx={{ fontFamily: theme.typography.main, my: 1 }}
-        >
-          Type of wood:
-          {' '}
-          {woodType}
-        </Typography>
+      <Box sx={{ textAlign: 'left', ml: { xs: 0, sm: 2 }, mt: { xs: 2, sm: 0 } }}>
+        <CartProductCardTitle title={title} />
+        <CartProductCardCategory category={category} />
+        <CartProductCartWoodType woodType={woodType} />
       </Box>
     </Box>
-    <Box sx={{
-      display: 'flex',
-      flexDirection: { sm: 'column' },
-      justifyContent: 'space-between',
-      width: { md: '30%' },
-    }}
-    >
-      <Box sx={{
-        display: 'flex',
-        flexDirection: { xs: 'column', md: 'row' },
-        justifyContent: { sm: 'space-between' },
-        gap: { sm: 3 },
-        mt: { xs: 2, sm: 0 },
-      }}
-      >
-        <Box sx={{
-          display: 'flex',
-          flexDirection: { xs: 'row', sm: 'column' },
-          alignItems: { xs: 'center', sm: 'inherit' },
-        }}
-        >
-          <Typography sx={{ fontFamily: theme.typography.main }}>AMOUNT: </Typography>
-          <Typography variant="h6" sx={{ fontFamily: theme.typography.main }}>10</Typography>
-        </Box>
-
-        <Box sx={{
-          display: 'flex',
-          flexDirection: { xs: 'row', sm: 'column' },
-          alignItems: { xs: 'center', sm: 'inherit' },
-        }}
-        >
-          <Typography sx={{
-            fontFamily: theme.typography.main,
-          }}
-          >
-            PRICE:
-          </Typography>
-          <Typography
-            variant="h6"
-            sx={{
-              fontFamily: theme.typography.main,
-              color: theme.palette.error.main,
-            }}
-          >
-            {price}
-            {' Є'}
-          </Typography>
-        </Box>
-      </Box>
-
-      <Box sx={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'flex-end' }}>
-        <Button
-          variant="text"
-          sx={{ '&:hover': { background: 'none' } }}
-          onClick={() => { }}
-        >
-          <ClearIcon />
-          REMOVE
-        </Button>
-      </Box>
-    </Box>
-  </Box>
+    <ContainerAmountPriceRemove>
+      <ContainerAmountPrice>
+        <ContainerAmount>
+          <CartProductCardAmount />
+        </ContainerAmount>
+        <ContainerPrice>
+          <CartProductCardPrice price={price} />
+        </ContainerPrice>
+      </ContainerAmountPrice>
+      <CartProductCardRemoveButton />
+    </ContainerAmountPriceRemove>
+  </ContainerMain>
 );
 
 export default CartProductCard;

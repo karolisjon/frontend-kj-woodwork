@@ -7,7 +7,7 @@ import {
 import ProductService from '../../../services/product-service';
 import CartProductCard from './cart-product-card';
 
-const CartProduct = () => {
+const CartProducts = () => {
   // const { cartProducts: cartProductsData } = React.useContext(CartContext);
   const [cartProducts, setCartProducts] = React.useState([]);
 
@@ -62,4 +62,4 @@ const CartProduct = () => {
   );
 };
 
-export default CartProduct;
+export default CartProducts;

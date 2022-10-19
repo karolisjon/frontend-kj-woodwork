@@ -8,7 +8,10 @@ const CartPriceTotal = () => {
 
   return (
     <Box sx={{
-      display: 'flex', flexDirection: 'row', alignItems: 'baseline', my: 4,
+      display: 'flex',
+      flexDirection: 'row',
+      alignItems: 'baseline',
+      my: 4,
     }}
     >
       <Typography variant="h6" sx={{ fontFamily: theme.typography.main }}>TOTAL: </Typography>

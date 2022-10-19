@@ -18,17 +18,18 @@ const CartProductCard = ({
     justifyContent: 'space-between',
     textAlign: { xs: 'right' },
     my: 2,
+    // mx: { xs: 2, sm: 0 },
   }}
   >
 
     <Box sx={{
       display: 'flex',
-      flexDirection: 'row',
+      flexDirection: { xs: 'column', sm: 'row' },
     }}
     >
       <Box sx={{
         height: 220,
-        width: 220,
+        width: { xs: '100%', sm: '220px' },
       }}
       >
         <CardMedia
@@ -42,7 +43,7 @@ const CartProductCard = ({
           }}
         />
       </Box>
-      <Box sx={{ ml: 2, textAlign: 'left' }}>
+      <Box sx={{ ml: { xs: 0, sm: 2 }, mt: { xs: 2, sm: 0 }, textAlign: 'left' }}>
         <Typography
           variant="h6"
           sx={{
@@ -86,12 +87,22 @@ const CartProductCard = ({
         mt: { xs: 2, sm: 0 },
       }}
       >
-        <Box sx={{ display: 'flex', flexDirection: { xs: 'row', sm: 'column' } }}>
+        <Box sx={{
+          display: 'flex',
+          flexDirection: { xs: 'row', sm: 'column' },
+          alignItems: { xs: 'center', sm: 'inherit' },
+        }}
+        >
           <Typography sx={{ fontFamily: theme.typography.main }}>AMOUNT: </Typography>
           <Typography variant="h6" sx={{ fontFamily: theme.typography.main }}>10</Typography>
         </Box>
 
-        <Box sx={{ display: 'flex', flexDirection: { xs: 'row', sm: 'column' } }}>
+        <Box sx={{
+          display: 'flex',
+          flexDirection: { xs: 'row', sm: 'column' },
+          alignItems: { xs: 'center', sm: 'inherit' },
+        }}
+        >
           <Typography sx={{
             fontFamily: theme.typography.main,
           }}

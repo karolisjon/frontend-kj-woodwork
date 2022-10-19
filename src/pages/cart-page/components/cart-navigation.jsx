@@ -10,7 +10,10 @@ const CartNavigation = () => {
 
   return (
     <Box sx={{
-      display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: 2, mb: 6,
+      display: 'flex',
+      flexDirection: { xs: 'column', sm: 'row' },
+      gap: 2,
+      mb: 6,
     }}
     >
       <CustomButton

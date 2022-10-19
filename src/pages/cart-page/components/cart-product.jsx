@@ -30,7 +30,7 @@ const CartProduct = () => {
 
   return (
     <>
-      <Divider />
+      <Divider variant="fullWidth" />
       <Box>
         {
           cartProducts.map(({

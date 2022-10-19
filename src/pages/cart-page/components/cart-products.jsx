@@ -3,12 +3,12 @@ import {
   Box,
   Divider,
 } from '@mui/material';
-// import CartContext from '../../../contexts/cart-page-context';
+import CartContext from '../../../contexts/cart-page-context';
 import ProductService from '../../../services/product-service';
 import CartProductCard from './cart-product-card';
 
 const CartProducts = () => {
-  // const { cartProducts: cartProductsData } = React.useContext(CartContext);
+  const { removeFromCart } = React.useContext(CartContext);
   const [cartProducts, setCartProducts] = React.useState([]);
 
   React.useEffect(() => {
@@ -49,6 +49,7 @@ const CartProducts = () => {
                 price={price}
                 title={title}
                 woodType={woodType.title}
+                removeFromCart={removeFromCart}
               />
               <Divider />
             </>

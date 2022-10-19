@@ -25,10 +25,15 @@ export const CartProvider = ({ children }) => {
     getAmountTotal(product);
   }, [cartProducts, getAmountTotal]);
 
+  const removeFromCart = () => {
+    console.log('remove');
+    localStorage.removeItem('cartProductsObj');
+  };
+
   const cartContextValue = React.useMemo(() => ({
     cartProducts,
     addToCart: handleAddtoCart,
-
+    removeFromCart,
   }), [cartProducts, handleAddtoCart]);
 
   return (

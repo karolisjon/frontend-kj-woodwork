@@ -19,6 +19,7 @@ const CartProductCard = ({
   price,
   title,
   woodType,
+  removeFromCart,
 }) => (
   <ContainerMain>
     <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' } }}>
@@ -40,7 +41,7 @@ const CartProductCard = ({
           <CartProductCardPrice price={price} />
         </ContainerPrice>
       </ContainerAmountPrice>
-      <CartProductCardRemoveButton />
+      <CartProductCardRemoveButton onClick={removeFromCart} />
     </ContainerAmountPriceRemove>
   </ContainerMain>
 );

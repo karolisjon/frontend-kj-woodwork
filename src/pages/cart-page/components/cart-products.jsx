@@ -11,9 +11,12 @@ const CartProducts = () => {
   const { removeFromCart } = React.useContext(CartContext);
   const [cartProducts, setCartProducts] = React.useState([]);
 
+  const productsObj = localStorage.getItem('cartProductsObj');
+
   React.useEffect(() => {
     (async () => {
-      const productsObj = localStorage.getItem('cartProductsObj');
+      console.log('UseEffect veikia');
+
       const retrievedProducts = JSON.parse(productsObj);
 
       if (productsObj) {
@@ -24,9 +27,9 @@ const CartProducts = () => {
       }
     }
     )();
-  }, []);
+  }, [productsObj]);
 
-  console.log('cartProducts', cartProducts);
+  // console.log('cartProducts', cartProducts);
 
   return (
     <>
@@ -49,7 +52,7 @@ const CartProducts = () => {
                 price={price}
                 title={title}
                 woodType={woodType.title}
-                removeFromCart={removeFromCart}
+                removeFromCart={() => removeFromCart(id)}
               />
               <Divider />
             </>

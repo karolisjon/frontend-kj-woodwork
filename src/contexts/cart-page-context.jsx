@@ -25,16 +25,20 @@ export const CartProvider = ({ children }) => {
     getAmountTotal(product);
   }, [cartProducts, getAmountTotal]);
 
-  const removeFromCart = () => {
-    console.log('remove');
+  const removeFromCart = React.useCallback((id) => {
+    const filteredItems = cartProducts.filter((i) => i.id !== id);
+    console.log('Id', id, filteredItems);
     localStorage.removeItem('cartProductsObj');
-  };
+    localStorage.setItem('cartProductsObj', JSON.stringify(filteredItems));
+    setCartProducts(filteredItems);
+  }, [cartProducts]);
 
   const cartContextValue = React.useMemo(() => ({
     cartProducts,
     addToCart: handleAddtoCart,
     removeFromCart,
-  }), [cartProducts, handleAddtoCart]);
+
+  }), [cartProducts, handleAddtoCart, removeFromCart]);
 
   return (
     <CartContext.Provider value={cartContextValue}>{children}</CartContext.Provider>

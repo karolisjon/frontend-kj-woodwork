@@ -3,10 +3,8 @@ import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import ProductService from '../../../services/product-service';
 
-const pageSize = 3;
-
-// eslint-disable-next-line no-unused-vars
-const PaginationControlled = ({ productsPerPage, setProductsPerPage }) => {
+const PaginationControlled = ({ setProductsPerPage }) => {
+  const pageSize = 6;
   const [pagination, setPagination] = React.useState({
     count: 0,
     from: 0,
@@ -14,7 +12,10 @@ const PaginationControlled = ({ productsPerPage, setProductsPerPage }) => {
   });
 
   React.useEffect(() => {
-    ProductService.fetchProducts({ from: pagination.from, to: pagination.to }).then((response) => {
+    ProductService.fetchProducts({
+      from: pagination.from,
+      to: pagination.to,
+    }).then((response) => {
       setPagination({ ...pagination, count: response.count });
 
       setProductsPerPage(response.data);

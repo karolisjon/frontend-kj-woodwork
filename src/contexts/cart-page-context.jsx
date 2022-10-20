@@ -26,10 +26,11 @@ export const CartProvider = ({ children }) => {
   }, [cartProducts, getAmountTotal]);
 
   const removeFromCart = React.useCallback((id) => {
-    const filteredItems = cartProducts.filter((i) => i.id !== id);
-    console.log('Id', id, filteredItems);
+    const filteredItems = cartProducts.filter((x) => x.id !== id);
+
     localStorage.removeItem('cartProductsObj');
     localStorage.setItem('cartProductsObj', JSON.stringify(filteredItems));
+
     setCartProducts(filteredItems);
   }, [cartProducts]);
 

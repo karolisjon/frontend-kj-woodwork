@@ -15,8 +15,6 @@ const CartProducts = () => {
 
   React.useEffect(() => {
     (async () => {
-      console.log('UseEffect veikia');
-
       const retrievedProducts = JSON.parse(productsObj);
 
       if (productsObj) {
@@ -28,8 +26,6 @@ const CartProducts = () => {
     }
     )();
   }, [productsObj]);
-
-  // console.log('cartProducts', cartProducts);
 
   return (
     <>

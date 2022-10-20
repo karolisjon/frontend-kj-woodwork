@@ -2,11 +2,20 @@ const domain = 'http://localhost:8000';
 const databaseCollection = 'api/products';
 const relationsParams = 'joinBy=categoryId&joinBy=woodTypeId';
 
-const fetchProducts = async () => {
+const fetchProducts = async ({ from, to }) => {
   const response = await fetch(`${domain}/${databaseCollection}/?${relationsParams}`);
   const products = await response.json();
 
-  return products;
+  const productsPerPage = new Promise((resolve) => {
+    const data = products.slice(from, to);
+
+    resolve({
+      count: products.length,
+      data,
+    });
+  });
+
+  return productsPerPage;
 };
 
 const fetchProductById = async (id) => {

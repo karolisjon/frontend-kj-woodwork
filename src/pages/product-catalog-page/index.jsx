@@ -18,6 +18,7 @@ import RadioGroupField from '../../components/radio-group-field';
 import CategoryService from '../../services/category-service';
 import WoodTypeService from '../../services/wood-types-service';
 import ProductService from '../../services/product-service';
+import PaginationControlled from './components/pagination';
 
 const ProductCatalog = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -25,7 +26,8 @@ const ProductCatalog = () => {
   const [categories, setCategories] = React.useState([]);
   const [woodTypes, setWoodTypes] = React.useState([]);
 
-  const [products, setProducts] = React.useState([]);
+  const [productsPerPage, setProductsPerPage] = React.useState([]);
+
   const [price, setPriceRange] = React.useState([0, 1000]);
   const [category, setCategory] = React.useState('');
   const [woodType, setWoodType] = React.useState('');
@@ -65,7 +67,7 @@ const ProductCatalog = () => {
 
   const handleFetchProducts = async () => {
     const fetchedProcuts = await ProductService.fetchProducts();
-    setProducts(fetchedProcuts);
+    setProductsPerPage(fetchedProcuts.data);
   };
 
   React.useEffect(() => {
@@ -152,9 +154,9 @@ const ProductCatalog = () => {
         </Box>
       </Drawer>
 
-      <Container maxWidth="xl">
+      <Container maxWidth="md">
         <Grid container spacing={2} sx={{ py: 4, px: 3 }}>
-          {products.map(({
+          {productsPerPage.map(({
             id,
             title,
             description,
@@ -172,7 +174,7 @@ const ProductCatalog = () => {
               sm={6}
               md={4}
               lg={3}
-              xl={3}
+              xl={4}
               sx={{ mb: 1 }}
             >
               <ProductCard
@@ -187,6 +189,8 @@ const ProductCatalog = () => {
             </Grid>
           ))}
         </Grid>
+
+        <PaginationControlled setProductsPerPage={(products) => setProductsPerPage(products)} />
       </Container>
     </>
   );

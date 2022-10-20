@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {
   Box,
-  Button,
   Container,
   Divider,
   Drawer,
@@ -18,7 +17,9 @@ import RadioGroupField from '../../components/radio-group-field';
 import CategoryService from '../../services/category-service';
 import WoodTypeService from '../../services/wood-types-service';
 import ProductService from '../../services/product-service';
-import PaginationControlled from './components/pagination';
+import PaginationControlled from './components/pagination-controlled';
+import FilterDrawerButton from './components/filter-drawer-button';
+import DrawerContainer from './components/drawer-container';
 
 const ProductCatalog = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -76,22 +77,7 @@ const ProductCatalog = () => {
 
   return (
     <>
-      <Button
-        variant="contained"
-        color="primary"
-        sx={{
-          position: 'fixed',
-          bottom: 20,
-          right: 20,
-          height: 62,
-          width: 62,
-          borderRadius: '50%',
-          zIndex: 2,
-        }}
-        onClick={() => setFilterDrawerOpen(!filterDrawerOpen)}
-      >
-        <FilterListOutlinedIcon sx={{ bgcolor: 'primary', color: 'white' }} />
-      </Button>
+      <FilterDrawerButton onClick={() => setFilterDrawerOpen(!filterDrawerOpen)} />
       <Drawer
         anchor="left"
         variant="temporary"
@@ -99,16 +85,8 @@ const ProductCatalog = () => {
         onClose={() => setFilterDrawerOpen(!filterDrawerOpen)}
         sx={{ zIndex: 1 }}
       >
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            height: 'calc(100vh - 64px)',
-            gap: 6,
-            p: 4,
-          }}
-        >
+
+        <DrawerContainer>
           <Box sx={{
             display: 'flex', justifyContent: 'row', alignItems: 'center', gap: 2,
           }}
@@ -151,7 +129,7 @@ const ProductCatalog = () => {
             />
           </FormControl>
 
-        </Box>
+        </DrawerContainer>
       </Drawer>
 
       <Container maxWidth="md">

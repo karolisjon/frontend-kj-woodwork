@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Button } from '@mui/material';
 import FilterListOutlinedIcon from '@mui/icons-material/FilterListOutlined';
 
-const FilterDrawerButton = ({ filterDrawerOpen, setFilterDrawerOpen }) => (
+const FilterDrawerButton = ({ onClick }) => (
   <Button
     variant="contained"
     color="primary"
@@ -15,7 +15,7 @@ const FilterDrawerButton = ({ filterDrawerOpen, setFilterDrawerOpen }) => (
       borderRadius: '50%',
       zIndex: 2,
     }}
-    onClick={() => setFilterDrawerOpen(!filterDrawerOpen)}
+    onClick={onClick}
   >
     <FilterListOutlinedIcon sx={{ bgcolor: 'primary', color: 'white' }} />
   </Button>

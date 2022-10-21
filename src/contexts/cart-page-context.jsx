@@ -5,18 +5,16 @@ const CartContext = React.createContext();
 export const CartProvider = ({ children }) => {
   const [cartProducts, setCartProducts] = React.useState([]);
 
-  const getAmountTotal = React.useCallback((product) => {
+  const getCartProductsAmount = React.useCallback((product) => {
     const products = [...cartProducts, product];
     const productAmounts = products.map(({ amount }) => amount);
 
-    const productsAmountTotal = productAmounts.reduce(
+    const cartProductsAmount = productAmounts.reduce(
       (prevAmount, currentAmount) => prevAmount + currentAmount,
       0,
     );
 
-    localStorage.setItem('productsAmountTotal', JSON.stringify(productsAmountTotal));
-
-    return productsAmountTotal;
+    localStorage.setItem('cartProductsAmount', JSON.stringify(cartProductsAmount));
   }, [cartProducts]);
 
   const handleAddtoCart = React.useCallback((product) => {
@@ -24,27 +22,30 @@ export const CartProvider = ({ children }) => {
 
     localStorage.setItem('cartProductsObj', JSON.stringify([...cartProducts, product]));
 
-    getAmountTotal(product);
-  }, [cartProducts, getAmountTotal]);
+    getCartProductsAmount(product);
+  }, [cartProducts, getCartProductsAmount]);
 
   const removeFromCart = React.useCallback((id) => {
-    const filteredItems = cartProducts.filter((x) => x.id !== id);
-
+    const filteredProducts = cartProducts.filter((x) => x.id !== id);
     localStorage.removeItem('cartProductsObj');
-    localStorage.setItem('cartProductsObj', JSON.stringify(filteredItems));
+    localStorage.setItem('cartProductsObj', JSON.stringify(filteredProducts));
 
-    // localStorage.removeItem('productsAmountTotal');
-    // localStorage.setItem('productsAmountTotal', JSON.stringify(productsAmountTotal));
+    const filteredProductsAmounts = filteredProducts.map(({ amount }) => amount);
+    const cartProductAmount = filteredProductsAmounts.reduce((sum, amount) => amount + sum, 0);
 
-    setCartProducts(filteredItems);
+    localStorage.removeItem('cartProductsAmount');
+    localStorage.setItem('cartProductAmount', JSON.stringify(cartProductAmount));
+
+    setCartProducts(filteredProducts);
   }, [cartProducts]);
 
   const cartContextValue = React.useMemo(() => ({
     cartProducts,
     addToCart: handleAddtoCart,
     removeFromCart,
+    getCartProductsAmount,
 
-  }), [cartProducts, handleAddtoCart, removeFromCart]);
+  }), [cartProducts, handleAddtoCart, removeFromCart, getCartProductsAmount]);
 
   return (
     <CartContext.Provider value={cartContextValue}>{children}</CartContext.Provider>

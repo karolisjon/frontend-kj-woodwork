@@ -14,7 +14,9 @@ export const CartProvider = ({ children }) => {
       0,
     );
 
-    console.log('productsAmountSum', productsAmountTotal);
+    localStorage.setItem('productsAmountTotal', JSON.stringify(productsAmountTotal));
+
+    return productsAmountTotal;
   }, [cartProducts]);
 
   const handleAddtoCart = React.useCallback((product) => {
@@ -30,6 +32,9 @@ export const CartProvider = ({ children }) => {
 
     localStorage.removeItem('cartProductsObj');
     localStorage.setItem('cartProductsObj', JSON.stringify(filteredItems));
+
+    // localStorage.removeItem('productsAmountTotal');
+    // localStorage.setItem('productsAmountTotal', JSON.stringify(productsAmountTotal));
 
     setCartProducts(filteredItems);
   }, [cartProducts]);

@@ -14,7 +14,7 @@ import Link from './components/link';
 import theme from '../../styles/theme';
 import NavbarDrawer from './components/navbar-drawer';
 import NavbarLogo from './components/navbar-logo';
-// import CartContext from '../../contexts/cart-page-context';
+import CartContext from '../../contexts/cart-page-context';
 
 const drawerWidth = 260;
 
@@ -27,7 +27,7 @@ const navitems = [
 ];
 
 const Navbar = () => {
-  // const { cartProducts } = React.useContext(CartContext);
+  const { cartProducts } = React.useContext(CartContext);
   const [drawerOpen, setDrawerOpen] = React.useState(false);
   const [badgeContent, setBadgeContent] = React.useState(0);
   const navigate = useNavigate();
@@ -39,8 +39,8 @@ const Navbar = () => {
   const amount = localStorage.getItem('cartProductsAmount');
 
   React.useEffect(() => {
-    setBadgeContent(amount);
-  }, [amount]);
+    if (amount !== null || amount !== undefined) setBadgeContent(amount);
+  }, [cartProducts, amount]);
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -80,6 +80,7 @@ const Navbar = () => {
             <Badge
               color="error"
               badgeContent={badgeContent}
+              invisible={cartProducts.length === 0}
               anchorOrigin={{
                 vertical: 'top',
                 horizontal: 'right',

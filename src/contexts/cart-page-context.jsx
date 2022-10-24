@@ -34,7 +34,7 @@ export const CartProvider = ({ children }) => {
     const cartProductAmount = filteredProductsAmounts.reduce((sum, amount) => amount + sum, 0);
 
     localStorage.removeItem('cartProductsAmount');
-    localStorage.setItem('cartProductAmount', JSON.stringify(cartProductAmount));
+    localStorage.setItem('cartProductsAmount', JSON.stringify(cartProductAmount));
 
     setCartProducts(filteredProducts);
   }, [cartProducts]);

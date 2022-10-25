@@ -17,12 +17,12 @@ export const CartProvider = ({ children }) => {
     localStorage.setItem('cartProductsAmount', JSON.stringify(cartProductsAmount));
   }, [cartProducts]);
 
-  const handleAddtoCart = React.useCallback((product) => {
-    setCartProducts([...cartProducts, product]);
+  const addToCart = React.useCallback(({ id, amount }) => {
+    setCartProducts([...cartProducts, { id, amount }]);
 
-    localStorage.setItem('cartProductsObj', JSON.stringify([...cartProducts, product]));
+    localStorage.setItem('cartProductsObj', JSON.stringify([...cartProducts, { id, amount }]));
 
-    getCartProductsAmount(product);
+    getCartProductsAmount({ id, amount });
   }, [cartProducts, getCartProductsAmount]);
 
   const removeFromCart = React.useCallback((id) => {
@@ -41,11 +41,11 @@ export const CartProvider = ({ children }) => {
 
   const cartContextValue = React.useMemo(() => ({
     cartProducts,
-    addToCart: handleAddtoCart,
+    addToCart,
     removeFromCart,
     getCartProductsAmount,
 
-  }), [cartProducts, handleAddtoCart, removeFromCart, getCartProductsAmount]);
+  }), [cartProducts, addToCart, removeFromCart, getCartProductsAmount]);
 
   return (
     <CartContext.Provider value={cartContextValue}>{children}</CartContext.Provider>

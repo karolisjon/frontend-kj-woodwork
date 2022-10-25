@@ -14,6 +14,7 @@ import ContainerAmountPrice from './cart-product-card-containers/container-amoun
 import ContainerAmountPriceRemove from './cart-product-card-containers/container-amount-price-remove';
 
 const CartProductCard = ({
+  count,
   category,
   img,
   price,
@@ -35,7 +36,7 @@ const CartProductCard = ({
     <ContainerAmountPriceRemove>
       <ContainerAmountPrice>
         <ContainerAmount>
-          <CartProductCardAmount />
+          <CartProductCardAmount amount={count} />
         </ContainerAmount>
         <ContainerPrice>
           <CartProductCardPrice price={price} />

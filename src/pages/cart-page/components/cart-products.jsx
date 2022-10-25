@@ -7,7 +7,7 @@ import CartContext from '../../../contexts/cart-page-context';
 import ProductService from '../../../services/product-service';
 import CartProductCard from './cart-product-card';
 
-const CartProducts = () => {
+const CartProducts = ({ amount }) => {
   const { removeFromCart } = React.useContext(CartContext);
   const [cartProducts, setCartProducts] = React.useState([]);
 
@@ -40,10 +40,10 @@ const CartProducts = () => {
             title,
             woodType,
           }) => (
-            <>
+            <Box key={id}>
               <CartProductCard
+                amount={amount}
                 category={category.title}
-                key={id.toString()}
                 img={img}
                 price={price}
                 title={title}
@@ -51,13 +51,10 @@ const CartProducts = () => {
                 removeFromCart={() => removeFromCart(id)}
               />
               <Divider />
-            </>
+            </Box>
           ))
         }
       </Box>
-      {/* <pre>
-        {JSON.stringify(cartProductsData, null, 4)}
-      </pre> */}
     </>
   );
 };

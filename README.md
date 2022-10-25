@@ -12,20 +12,20 @@ Libraries/frameworks used:
 ## How to launch the project
 
 ## open client folder in one VS Code window
+## install dependencies
 ```
 npm i
 ```
-
 ## launch client
 ```
 npm run start
 ```
 
 ## open server folder in another VS Code window
+## install dependencies
 ```
 npm i
 ```
-
 ## launch server
 ```
 npm run start

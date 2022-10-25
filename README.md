@@ -24,6 +24,7 @@ npm run start
 ```
 https://github.com/karolisjon/backend-kj-woodwork
 ```
+## open backend of the project in another window of your code editor
 ## install dependencies
 ```
 npm i

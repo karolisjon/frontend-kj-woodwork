@@ -11,25 +11,25 @@ Libraries/frameworks used:
 
 ## How to launch the project
 
-## Install dependencies
+## 1. Install dependencies
 ```
 npm i
 ```
-## Launch client
+## 2. Launch client
 ```
 npm run start
 ```
 
-## Download backend of the project from the repository below
+## 3. Download backend of the project from the repository below
 ```
 https://github.com/karolisjon/backend-kj-woodwork
 ```
-## Open backend of the project in another window of your code editor
-## Install dependencies
+## 4. Open backend of the project in another window of your code editor
+## 5. Install dependencies
 ```
 npm i
 ```
-## Launch server
+## 6. Launch server
 ```
 npm run start
 ```

@@ -13,7 +13,6 @@ const ProductNavigation = ({ id, amount, addToCart }) => {
       <CustomButton
         sx={{ width: { xs: '100%', sm: '50%', md: '30%' } }}
         onClick={() => {
-          navigate('/cart');
           addToCart({ id, amount });
         }}
       >

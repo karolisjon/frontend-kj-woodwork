@@ -22,9 +22,7 @@ const CartNavigation = () => {
         <ArrowBackIcon fontSize="small" />
         CATALOG
       </CustomButton>
-      <CustomButton
-        onClick={() => navigate('/product-catalog')}
-      >
+      <CustomButton>
         <CheckIcon />
         CHECKOUT
       </CustomButton>
